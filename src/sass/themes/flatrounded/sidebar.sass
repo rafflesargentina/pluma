@@ -1,0 +1,40 @@
+/* ===========================================================================
+   Sidebar
+   =========================================================================== */
+
+
+aside.Sidebar
+  float: left
+  width: $ancho-sidebar
+  height: 100%
+  display: none
+  z-index: $capa-navegacion
+  position: fixed
+  background: $color-variante-fondo
+  border-right: $borde-claro
+
+ul.Lista-Sidebar
+  border-top: $borde-claro
+
+li.Item-Sidebar
+  cursor: pointer
+  border-bottom: $borde-claro
+  @include transition(background, $timing, $duracion)
+  &:focus,
+  &:hover,
+  &:active
+    background: $color-borde-claro
+    @include transition(background, $timing, $duracion)
+
+a.Link-Sidebar
+  color: $gris-claro
+  padding: $padding-tabla-vertical $padding-header
+  font-weight: 300
+  > i
+    margin-right: $espacio-chico / 2
+
+/* Media Queries
+   =========================================================================== */
+@include media(min-width $segundo-bp)
+  aside.Sidebar
+    display: block

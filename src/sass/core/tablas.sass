@@ -1,0 +1,122 @@
+/* ===========================================================================
+   Tablas
+   =========================================================================== */
+
+
+table
+  width: 100%
+  display: table
+  border-color: $color-borde-claro
+  table-layout: fixed
+  border-spacing: 0
+  border-collapse: separate
+
+tbody
+  display: table-row-group
+  vertical-align: middle
+  border-color: inherit
+
+tfoot
+  display: table-footer-group
+  vertical-align: inherit
+  border-color: inherit
+
+tr
+  display: table-row
+  border-color: inherit
+  vertical-align: inherit
+
+td,
+th
+  padding: $padding-tabla-vertical $padding-tabla-horizontal
+  overflow: hidden
+  text-align: left
+  white-space: nowrap
+  margin-right: $padding-tabla-horizontal
+  text-overflow: ellipsis
+  border-bottom: $borde-claro
+  &:first-child
+    padding-left: 0
+  &:last-child
+    padding-right: 0
+
+th
+  color: $gris-mas-oscuro
+  font-weight: $peso-fuente-etiquetas
+  border-width: 2px
+
+/* Tabla Condensada
+   =========================================================================== */
+.Tabla-Condensada
+  > thead,
+  > tbody,
+  > tfoot
+    > tr
+      > td,
+      > th
+        padding: 0.75rem $padding-tabla-horizontal
+        font-size: $tamano-fuente-chico
+
+  .Btn-Tabla
+    line-height: $tamano-fuente-chico
+
+/* Tabla Hover
+   =========================================================================== */
+.Tabla-Hover
+  thead th
+    border-left: $borde-claro
+    text-transform: $trans-fuente-etiquetas
+    border-bottom-width: $radio-borde
+  tbody,
+  tfoot
+    &:before
+      color: transparent
+      content: '-'
+      display: block
+      line-height: 1.225rem
+  thead,
+  tbody,
+  tfoot
+    > tr
+      > td,
+      > th
+        &:first-child
+          padding-left: $padding-tabla-horizontal
+        &:last-child
+          padding-right: $padding-tabla-horizontal
+  > tbody
+    > tr
+      @include transition(background $duracion $timing)
+      &:focus,
+      &:hover,
+      &:active
+        background: $color-alerta-fondo-info
+        @include transition(background $duracion $timing)
+        td
+          @include transition(background $duracion $timing)
+          &:focus,
+          &:hover,
+          &:active
+            background: $color-alerta-borde-info
+            @include transition(background $duracion $timing)
+      > td,
+        border-color: $color-fondo
+        &:first-child
+          background: $color-alerta-fondo-info
+  > tfoot
+    > tr
+      > td,
+      > th
+        overflow: visible
+        font-weight: 600
+        border-bottom: none
+
+/* Tabla Adaptable
+   =========================================================================== */
+div.Caja-Tabla
+  min-width: 20rem
+  overflow-x: scroll
+  -webkit-overflow-scrolling: touch
+  > table.Adaptable
+    min-width: $max-width - rem($primer--bp)
+    table-layout: auto

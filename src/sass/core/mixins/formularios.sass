@@ -1,0 +1,28 @@
+@mixin validacion-controles($color-texto-control, $color-borde-control, $color-fondo-control)
+  div.Checkbox,
+  div.Radiobtn,
+  input[type="text"],
+  input[type="email"],
+  input[type="password"]
+    color: $color-texto-control
+  & label,
+  & span.Mensaje-Validacion 
+    color: $color-texto-control
+
+  input[type="text"],
+  input[type="email"],
+  input[type="password"]
+    border-color: $color-borde-control
+    background-color: $color-fondo-control
+    @include placeholder
+      color: tint($color-texto-control, 40%)
+    &:focus,
+    &:hover,
+    &:active
+      border-color: $color-texto-control
+    + label
+      color: $color-borde-control
+
+  .Controles-Agrupados
+    color: $color-texto-control
+    border-color: $color-borde-control

@@ -1,0 +1,86 @@
+/* ===========================================================================
+   Tipografias
+   =========================================================================== */
+
+
+/* Seleccion de texto
+   =========================================================================== 
+ *
+ * 1. Previene la ilegibilidad del texto.
+ */
+@include selection
+  color: $color-fondo
+  text-shadow: none; /* 1 */
+  background-color: $color-primario-oscuro
+
+/* Links
+   ===========================================================================
+ *
+ * 1. Remueve el fondo gris de los links activos en IE 10.
+ * 2. Remueve las grietas de los links en iOS 8+ y Safari 8+.
+ * 3. Previene la inaccesibilidad al elemento cuando se encuentra flotado.
+ */
+a 
+  color: $color-links
+  z-index: $capa-links;                  /* 3 */
+  font-size: inherit
+  font-weight: $peso-fuente-links
+  text-decoration: $decoracion-links
+  background-color: transparent;         /* 1 */
+  -webkit-text-decoration-skip: objects; /* 2 */
+  @include transition(color $duracion $timing)
+  &:focus:not(:disabled),
+  &:hover:not(:disabled),
+  &:active:not(:disabled)
+    color: $color-links-hover
+    text-decoration: $decoracion-links-hover
+    @include transition(color $duracion $timing)
+
+/* Parrafo
+   =========================================================================== */
+p
+  font-size: $tamano-fuente-parrafo
+  font-weight: $peso-fuente-parrafo
+  margin-bottom: $alto-linea-parrafo
+
+/* Encabezados
+   =========================================================================== */
+h1,
+h2,
+h3,
+  font-family: $fuente-encabezados
+  font-weight: $peso-fuente-encabezados
+  line-height: $alto-linea-encabezados
+  margin-bottom: $espacio
+
+h1
+  font-size: $tamano-fuente-h1
+
+h2
+  font-size: $tamano-fuente-h2
+
+h3
+  font-size: $tamano-fuente-h3
+
+/**
+ * Corrige la herencia de color, font-size y line-height para negritas e italicas.
+ */
+b,
+i,
+strong
+  color: inherit
+  font-size: inherit
+  line-height: inherit
+
+/**
+ * Establece el peso de negritas
+ */
+b,
+strong
+  font-weight: 600
+
+/*
+ * Estandariza el tamano small para todos los navegadores.
+ */
+small
+  font-size: 80%

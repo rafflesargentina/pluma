@@ -1,0 +1,176 @@
+/* ===========================================================================
+   Variables
+   =========================================================================== */
+
+
+/* Tipografias
+   =========================================================================== */
+$fuente:                  $lucida-grande
+$fuente-encabezados:      $lucida-grande
+
+$tamano-fuente:           1rem
+$tamano-fuente-chico:     0.7333rem
+$tamano-fuente-grande:    1.0666rem
+$tamano-fuente-parrafo:   0.8667rem
+
+$tamano-fuente-h1:        2rem
+$tamano-fuente-h2:        1.6rem
+$tamano-fuente-h3:        1.3333rem
+
+$alto-linea:              1.4
+$alto-linea-computado:    $alto-linea * $tamano-fuente
+$alto-linea-parrafo:      $alto-linea-computado / 3
+$alto-linea-encabezados:  $alto-linea-computado
+
+$peso-fuente-links:       400
+$peso-fuente-parrafo:     300
+$peso-fuente-encabezados: 400
+
+$trans-encabezados:       lowercase
+
+$decoracion-links:        none
+$decoracion-links-hover:  none
+
+/* Colores
+   =========================================================================== */
+$color-primario:        #2bbed6
+$color-primario-oscuro: #008eb0
+
+$color-info:            $color-primario
+$color-error:           #d32f2f
+$color-success:         #388e3c
+$color-warning:         #afb42b
+
+/* Grises
+   =========================================================================== */
+$gris:                  #9b9f9b
+$gris-claro:            #c6c6c6
+$gris-oscuro:           #858585
+$gris-mas-claro:        #e6e6e6
+$gris-mas-oscuro:       #4a4a4a
+
+$color-fuente:          $gris-oscuro
+$color-links:           $gris-mas-oscuro
+$color-links-hover:     $gris-mas-oscuro
+
+$color-borde:           $gris-claro
+$color-borde-claro:     $gris-mas-claro
+
+$color-fondo:           #fff
+$color-variante-fondo:  #f8f8f8
+
+$color-deshabilitado:   $color-variante-fondo
+
+/* Colores de alerta
+   =========================================================================== */
+$color-alerta-texto-info:    tint($color-info, 5%)
+$color-alerta-texto-error:   tint($color-error, 5%)
+$color-alerta-texto-success: tint($color-success, 5%)
+$color-alerta-texto-warning: tint($color-warning, 5%)
+
+$color-alerta-borde-info:    tint($color-info, 75%)
+$color-alerta-borde-error:   tint($color-error, 75%)
+$color-alerta-borde-success: tint($color-success, 75%)
+$color-alerta-borde-warning: tint($color-warning, 75%)
+
+$color-alerta-fondo-info:    tint($color-info, 90%)
+$color-alerta-fondo-error:   tint($color-error, 90%)
+$color-alerta-fondo-success: tint($color-success, 90%)
+$color-alerta-fondo-warning: tint($color-warning, 90%)
+
+/* Bordes
+   =========================================================================== */
+$borde:       1px solid $color-borde
+$borde-claro: 1px solid $color-borde-claro
+$radio-borde: 0.2666rem
+
+/*  Controles de formulario y botones
+   =========================================================================== */
+$alto-boton:             3.2rem
+$alto-boton-chico:       2rem
+$alto-boton-grande:      4rem
+
+$alto-control:           $alto-boton
+$alto-control-chico:     $alto-boton-chico
+$alto-control-grande:    $alto-boton-grande
+
+$padding-boton:          0 ($alto-control / 2)
+$padding-boton-chico:    0 ($alto-control-chico / 2)
+$padding-boton-grande:   0 ($alto-control-grande / 2)
+
+$padding-control:        ($alto-control / 8) ($alto-control / 4)
+$padding-control-chico:  ($alto-control-chico / 8) ($alto-control-chico / 4)
+$padding-control-grande: ($alto-control-grande / 8) ($alto-control-grande / 4) 
+
+$peso-fuente-boton:      600
+$peso-fuente-control:    300
+$peso-fuente-etiquetas:  600
+
+$trans-fuente-boton:     uppercase
+$trans-fuente-etiquetas: uppercase
+
+/* Tablas
+   =========================================================================== */
+$padding-tabla-vertical:   1.2rem
+$padding-tabla-horizontal: 0.6rem
+
+/* Espacios
+   =========================================================================== */
+$espacio: 4rem
+$espacio-chico: $espacio / 2
+$espacio-grande: $espacio * 2
+$espacio-muy-chico: $espacio / 4
+$espacio-muy-grande: $espacio * 4
+
+/* Animaciones
+   =========================================================================== */
+$timing:   ease
+$duracion: 0.25s
+
+/* Grilla
+   =========================================================================== */
+$column:       6rem
+$gutter:       2rem
+$em-base:      15px
+$max-width:    84rem
+$grid-columns: 12
+
+/* Breakpoints
+   =========================================================================== */
+$primer--bp: 414px
+$segundo-bp: 768px
+$tercer--bp: 1024px
+
+/* Tamanos de pantalla
+   =========================================================================== */
+$mobile:     new-breakpoint(max-width rem($primer--bp - 1px))
+$phablet:    new-breakpoint(min-width rem($primer--bp) max-width rem($segundo-bp - 1px))
+$tablet:     new-breakpoint(min-width rem($segundo-bp) max-width rem($tercer--bp - 1px))
+$escritorio: new-breakpoint(min-width (rem($tercer--bp)))
+
+/* Sombra
+   =========================================================================== */
+$color-sombra: rgba(0,0,0,0.09)
+$tamano-sombra: 0 0.4rem 0 0
+
+/* Capas
+   =========================================================================== */
+$capa1: 1000
+$capa2: 2000
+$capa3: 3000
+$capa4: 4000
+$capa5: 5000
+$capa6: 6000
+$capa7: 7000
+$capa8: 8000
+$capa9: 9000
+
+$capa-links:           $capa1
+$capa-solapas:         $capa2
+$capa-sliders:         $capa3
+$capa-miniaturas:      $capa4
+$capa-mascara-v-modal: $capa5
+$capa-desplegables:    $capa6
+$capa-v-modales:       $capa7
+$capa-navegacion:      $capa8
+$capa-tooltips:        $capa9

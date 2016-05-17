@@ -1,0 +1,117 @@
+/* ===========================================================================
+   Botones
+   =========================================================================== */
+
+/**
+ * 1. Remueve el recuadro puntillado al hacer foco en navegadores Firefox.
+ */
+.Btn,
+#{$all-buttons}
+  float: left
+  cursor: pointer
+  height: $alto-control
+  display: inline-block
+  padding: $padding-boton
+  overflow: hidden
+  font-size: $tamano-fuente-parrafo
+  text-align: center
+  font-weight: $peso-fuente-boton
+  line-height: $alto-control
+  white-space: nowrap
+  border-radius: $radio-borde
+  letter-spacing: 1px
+  text-transform: $trans-fuente-boton
+  text-decoration: none
+  @include appearance(none)
+  @include transition(color $duracion $timing, background $duracion $timing)
+  &:focus,
+  &:hover,
+  &:active
+    @include transition(color $duracion $timing, background $duracion $timing)
+  &:disabled
+    cursor: not-allowed
+    opacity: 0.7
+  -moz-focus-inner
+    border-style: none; /* 1 */
+
+/* Boton Default
+   =========================================================================== */
+.Btn-Default
+  color: $color-fuente
+  border: $borde
+  background: $color-fondo
+  text-shadow: 0 1px 0 $gris-mas-claro
+  &:focus:not(:disabled),
+  &:hover:not(:disabled),
+  &:active:not(:disabled)
+    background: $color-variante-fondo
+
+/* Boton Primario
+   =========================================================================== */
+.Btn-Primario,
+  color: $color-fondo
+  background: $color-primario
+  text-shadow: 0 1px 0 $color-primario-oscuro
+  border-color: $color-primario
+  > i
+    color: $color-fondo
+  &:focus:not(:disabled),
+  &:hover:not(:disabled),
+  &:active:not(:disabled)
+    color: $color-fondo
+    background: $color-primario-oscuro
+    border-color: $color-primario-oscuro
+
+/* Boton Link
+   =========================================================================== */
+.Btn-Link
+  color: $color-links
+  font-weight: $peso-fuente-links
+  text-transform: none
+  @include transition(all .5s $timing)
+  &:focus:not(:disabled),
+  &:hover:not(:disabled),
+  &:active:not(:disabled)
+    @include transform(scale(1.1))
+    @include transition(all .5s $timing)
+
+/* Boton de Tabla
+   =========================================================================== */
+.Btn-Tabla,
+  color: $gris
+  border: none
+  height: auto
+  padding: 0 ($espacio-muy-chico / 3)
+  font-size: $tamano-fuente-chico
+  background: transparent
+  line-height: 1
+  margin-right: $espacio-muy-chico / 3
+  text-transform: none
+  > i
+    margin: auto
+  &:focus:not(:disabled),
+  &:hover:not(:disabled),
+  &:active:not(:disabled)
+    color: $color-primario
+    background: transparent
+
+/* Tamanos de boton
+   =========================================================================== */
+.Btn-Chico
+  height: $alto-control-chico
+  padding: $padding-boton-chico
+  font-size: $tamano-fuente-parrafo
+  line-height: $alto-boton-chico
+
+.Btn-Grande
+  height: $alto-control-grande
+  padding: $padding-boton-grande
+  font-size: 1.5rem
+  line-height: $alto-boton-grande
+  border-radius: $alto-boton-grande / 2
+
+/* Boton Bloque
+   =========================================================================== */
+.Btn-Bloque
+  width: 100%
+

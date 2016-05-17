@@ -1,0 +1,41 @@
+/* ===========================================================================
+   Desplegables
+   =========================================================================== */
+
+
+nav.Menu-Desplegable
+  top: 0
+  left: 0
+  float: left
+  border: $borde-claro
+  display: none
+  z-index: $capa-desplegables
+  position: absolute
+  background: $color-variante-fondo
+
+ul.Lista-Menu-Desplegable
+  float: left
+  margin: 0 auto
+  padding: $padding-tabla-horizontal 0
+  position: relative
+  text-align: center
+
+li.Item-Menu-Desplegable
+  float: left
+  width: 100%
+  display: block
+  font-size: $tamano-fuente-parrafo
+  letter-spacing: 1px
+  text-transform: uppercase
+  @include transition(background $timing $duracion)
+  &:focus,
+  &:hover
+    background: $color-primario
+    @include transition(background $timing $duracion)
+    > a.Link-Menu-Desplegable
+      color: $color-fondo
+
+a.Link-Menu-Desplegable
+  float: left
+  width: 100%
+  padding: $padding-tabla-horizontal 0

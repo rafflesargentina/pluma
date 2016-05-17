@@ -1,0 +1,63 @@
+/* ===========================================================================
+   Pagination
+   =========================================================================== */
+
+
+.pagination 
+  display: inline-block
+  padding-left: 0
+  margin: $espacio-muy-chico / 3
+  border-radius: $radio-borde
+
+  > li 
+    display: inline
+    > a,
+    > span 
+      float: left
+      padding: $espacio-muy-chico / 3
+      text-decoration: none
+      color: $color-fuente
+      background-color: transparent
+      border: $borde
+      margin-left: -1px
+    
+    &:first-child 
+      > a,
+      > span 
+        margin-left: 0
+    
+    &:last-child 
+      > a,
+      > span 
+        margin-right: 0  
+
+  > li > a,
+  > li > span 
+    &:focus,
+    &:hover
+      color: $color-fondo
+      z-index: $capa-links
+      border-color: $color-primario
+      background-color: $color-primario
+
+  > .active > a,
+  > .active > span 
+    &:focus,
+    &:hover 
+      color: $color-fondo
+      cursor: default
+      z-index: $capa-solapas
+      border-color: $color-primario
+      background-color: $color-primario-oscuro
+  
+  > .disabled 
+    > span,
+    > span:hover,
+    > span:focus,
+    > a,
+    > a:hover,
+    > a:focus 
+      color: $gris-claro
+      cursor: default
+      border-color: $gris-claro
+      background-color: $gris

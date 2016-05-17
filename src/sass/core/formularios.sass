@@ -1,0 +1,151 @@
+/* ===========================================================================
+   Formularios
+   =========================================================================== */
+
+/**
+ * 1. Previene la inaccesibilidad al elemento cuando se encuentra flotado.
+ */
+form
+  z-index: $capa1; /* 1 */
+
+/* Controles de formulario: input, select y textarea
+   =========================================================================== */
+select,
+textarea,
+input[type="text"],
+input[type="email"],
+input[type="password"]
+  color: $color-borde
+  border: $borde
+  height: $alto-control
+  display: inline-block
+  padding: $padding-control
+  background: $color-fondo
+  font-weight: $peso-fuente-control
+  border-radius: $radio-borde
+  @include appearance(none)
+  @include transition(color $duracion $timing, border-color $duracion $timing)
+  @include placeholder
+    color: $color-borde
+  &:not([disabled]):focus
+    color: $gris-mas-oscuro
+    border-color: $color-primario
+    @include transition(color $duracion $timing, border-color $duracion $timing)
+    + label
+      color: $color-primario
+      @include transition(color $duracion $timing)
+  &:disabled
+    color: $gris-claro
+    background: $color-deshabilitado
+
+/**
+ * 1. Permite solo resize vertical.
+ * 2. Remueve la barra de scroll vertical por defecto en IE.
+ */
+textarea
+  resize: vertical; /* 1 */
+  overflow: auto;   /* 2 */
+  min-height: 7rem
+
+/* Casillas de opcion y verificacion
+   =========================================================================== */
+input
+  &[type="radio"],
+  &[type="checkbox"]
+    display: inline
+    font-size: $tamano-fuente-parrafo
+    margin-right: $espacio-muy-chico / 3
+
+div.Checkbox,
+div.Radiobtn
+  label
+    color: inherit
+    margin: 0
+    display: block
+    font-size: $tamano-fuente-parrafo
+    font-weight: $peso-fuente-parrafo
+    letter-spacing: 0
+    text-transform: none
+
+/* Etiquetas
+   =========================================================================== */
+time,
+label
+  color: $gris-claro
+  margin: ($espacio-muy-chico / 3) 0
+  display: inline-block
+  font-size: $tamano-fuente-chico
+  font-weight: $peso-fuente-etiquetas
+  letter-spacing: 1px
+  text-transform: $trans-fuente-etiquetas
+  @include transition(color $duracion $timing)
+
+/* Controles con icono
+   =========================================================================== */
+.--con-icono-derecha
+  padding-right: ($padding-tabla-vertical * 2) !important
+
+.--con-icono-izquierda
+  padding-left: ($padding-tabla-vertical * 2) !important
+
+i.Icono-Control-Derecha,
+i.Icono-Control-Izquierda
+  color: $color-borde
+  z-index: $capa1
+  position: absolute
+  font-size: 1rem
+  font-weight: 600
+  line-height: $alto-control
+
+i.Icono-Control-Derecha
+  right: 1px
+  margin-left: $alto-control / 8
+  margin-right: $espacio-muy-chico
+
+i.Icono-Control-Izquierda
+  left: 1px
+  margin-left: $espacio-muy-chico
+  margin-right: $alto-control / 8
+
+/* Controles de formulario agrupados
+   =========================================================================== */
+.Grupo-Formulario,
+.Grupo-Formulario-Chico,
+.Grupo-Formulario-Grande
+  display: block
+
+.Grupo-Formulario
+  margin-bottom: $espacio-muy-chico
+
+.Grupo-Formulario-Grande
+  margin-bottom: $espacio-chico
+
+/* Validacion de controles
+   =========================================================================== */
+.--con-info
+  @include validacion-controles($color-alerta-texto-info, $color-alerta-borde-info, $color-alerta-fondo-info)
+
+.--con-error
+  @include validacion-controles($color-alerta-texto-error, $color-alerta-borde-error, $color-alerta-fondo-error)
+
+.--con-success
+  @include validacion-controles($color-alerta-texto-success, $color-alerta-borde-success, $color-alerta-fondo-success)
+
+.Mensaje-Validacion
+  font-size: $tamano-fuente-parrafo
+
+/* Controles adaptables
+   =========================================================================== */
+@include media(min-width $segundo-bp)
+  label.Adaptable
+    margin: 0
+    line-height: $alto-control
+    @include span-columns(3)
+
+  select.Adaptable,
+  textarea.Adaptable,
+  div.Grupo-Control.Adaptable,
+  input[type="text"].Adaptable,
+  input[type="email"].Adaptable,
+  input[type="password"].Adaptable
+    @include span-columns(9)

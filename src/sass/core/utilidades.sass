@@ -1,0 +1,44 @@
+/* ===========================================================================
+   Utilidades
+   =========================================================================== */
+
+
+/* Alineacion
+   =========================================================================== */
+.Derecha
+  float: right !important
+
+.Izquierda
+  float: left !important
+
+.CentradoX
+  left: 50%
+  @include transform(translateX(-50%) !important)
+
+.CentradoY
+  top: 50%
+  @include transform(translateY(-50%) !important)
+
+.CentradoXY
+  top: 50%
+  left: 50%
+  @include transform(translate(-50%, -50%) !important)
+
+/* Alineacion de texto
+   =========================================================================== */
+.Texto-Derecha
+  text-align: right !important
+
+.Texto-Centrado
+  text-align: center !important
+
+.Texto-Justificado
+  text-align: justify !important
+
+.Texto-Izquierda
+  text-align: left !important
+
+/* Sombra
+   =========================================================================== */
+.--con-sombra
+  box-shadow: $tamano-sombra $color-sombra

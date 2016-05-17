@@ -1,0 +1,150 @@
+/* =========================================================================== 
+   Estilos base   
+   =========================================================================== */
+
+
+/**
+ * Establece box-sizing a border-box para todos los elementos
+ */
+$border-box-sizing: true !default
+
+/**
+ * Remueve bordes, margenes y espaciados de todos los elementos
+ */
+*,
+*:after,
+*:before
+  border: 0
+  margin: 0
+  padding: 0
+
+/**
+ * 1. Establece propiedades de fuente y posicion para todos los elementos.
+ * 2. Remueve el borde exterior de todos los elementos.
+ */
+*
+  color: $color-fuente;      /* 1 */
+  position: relative;        /* 1 */
+  font-size: $tamano-fuente; /* 1 */
+  font-family: $fuente;      /* 1 */
+  font-weight: 300;          /* 1 */
+  line-height: $alto-linea;  /* 1 */
+  outline: 0;                /* 2 */
+
+/* Regla horizontal
+   =========================================================================== */
+hr
+  border: 0
+  height: 1px
+  margin: $espacio-muy-chico 0
+  display: block
+  border-bottom: $borde-claro
+
+/**
+ * Oculta el overflow en IE.
+ */
+svg:not(:root)
+  overflow: hidden
+
+/**
+ * 1. Establece el suavizado de fuentes a antialiased por defecto.
+ * 2. Cambia a subpixel-antialiased cuando la densidad de pixeles sea 2.0 o superior.
+ * https://www.mobomo.com/2014/05/better-font-smoothing-in-chrome-on-mac-os-x/
+ */
+body
+  -webkit-font-smoothing: antialiased; /* 1 */
+  -moz-osx-font-smoothing: grayscale;  /* 1 */
+
+
+@include hidpi(2)
+  body
+    -webkit-font-smoothing: subpixel-antialiased; /* 2 */
+    -moz-osx-font-smoothing: auto;                /* 2 */
+
+/**
+ * 1. Previene los ajustes de font-size luego del cambio de orientacion en IE e iOS. 
+ * 2. Remueve el resaltado gris sobre links y botones al tacto en dispositivos moviles.
+ */
+html
+  font-size: 15px
+  overflow-x: hidden
+  overflow-y: auto
+  -ms-text-size-adjust: 100%;                 /* 1 */
+  -webkit-tap-highlight-color: rgba(0,0,0,0); /* 2 */
+  -webkit-tap-highlight-color: transparent;   /* (Para algunos Android) */
+
+/**
+ * Agrega el display correcto en IE 9-.
+ * 1. Agrega el display correcto en Edge, IE, y Firefox.
+ * 2. Agrega el display correcto en IE.
+ */
+nav,
+main,    /* 2 */
+aside,
+figure,
+footer,
+header,
+article,
+details, /* 1 */
+section,
+summary, /* 1 */
+figcaption
+  display: block
+
+/**
+ * Agrega el display correcto en IE 9-.
+ */
+audio,
+video,
+canvas,
+progress
+  display: inline-block
+
+/**
+ * Agrega el display correcto en iOS 4-7.
+ */
+audio:not([controls])
+  height: 0
+  display: none
+
+/**
+ * Agrega la alineacion vertical correcta en Chrome, Firefox, y Opera.
+ */
+progress
+  vertical-align: baseline
+
+
+/**
+ * Flota los elementos a la izquierda y establece un ancho del 100%.
+ */
+h1,
+h2,
+h3,
+hr,
+ol,
+ul,
+a h1,
+a h2,
+a h3
+form,
+time,
+label,
+figure,
+select,
+details,
+summary,
+textarea,
+.Btn-Link,
+figcaption,
+div.Checkbox,
+div.Radiobtn,
+input[type="text"],
+input[type="email"],
+div.Grupo-Formulario,
+div.Botones-Agrupados,
+input[type="password"],
+div.Controles-Agrupados,
+div.Grupo-Formulario-Chico,
+div.Grupo-Formulario-Grande,
+  float: left
+  width: 100%

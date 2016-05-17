@@ -1,0 +1,32 @@
+/* ===========================================================================
+   Default
+   =========================================================================== */
+
+
+body
+  padding-top: $alto-header-mobile
+
+nav#menuNavegacion
+  top: $alto-header-mobile
+  position: fixed
+
+main.Default
+  padding: 0 $espacio-muy-chico
+  margin-top: $espacio-chico
+
+/* Media Queries
+   =========================================================================== */
+@include media(min-width $segundo-bp)
+  body
+    padding-top: $alto-header
+
+  nav#menuNavegacion
+    top: $alto-header
+
+  main.Default
+    padding: 0 $alto-logo
+    margin-top: $espacio
+
+@include media(min-width $max-width)
+  main.Default
+    padding: 0

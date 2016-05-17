@@ -1,0 +1,37 @@
+/* ===========================================================================
+   Miniaturas
+   =========================================================================== */
+
+
+figure
+  margin-bottom: $espacio-chico
+
+div.Miniatura
+  overflow: hidden
+  background: $gris-mas-claro
+  text-align: center
+  @include border-top-radius($radio-borde)
+
+figcaption
+  border: $borde-claro
+  padding: 1.6rem
+  border-top: none
+  @include border-bottom-radius($radio-borde)
+
+  time
+    color: inherit
+    margin-bottom: $espacio-muy-chico
+
+  h3,
+  a > h3
+    color: $gris-mas-oscuro
+    margin-bottom: 1.4rem
+
+  p
+    margin-bottom: $espacio-chico
+
+div.Col-3 figure > div.Miniatura
+  height: 13rem
+
+div.Col-4 figure > div.Miniatura
+  height: 14rem

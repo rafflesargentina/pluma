@@ -1,0 +1,156 @@
+/* ===========================================================================
+   Header
+   =========================================================================== */
+
+
+.Wrapper-Navegacion
+  top: 0
+  left: 0
+  right: 0
+  width: 100%
+  height: $alto-header-mobile
+  padding: $padding-header-mobile
+  z-index: $capa-navegacion
+  position: fixed
+  background: $color-fondo
+
+header.Navegacion
+  @include outer-container()
+  div.Logo
+    height: $alto-logo
+    background: url('/img/logo.svg') center left no-repeat
+    min-width: $ancho-min-logo
+    background-size: auto 100%
+    @include span-columns(2)
+
+  div.Btn-Menu-Navegacion
+    float: right
+    width: $alto-logo
+    cursor: pointer
+    height: $alto-logo
+    display: block
+    &:focus,
+    &:hover,
+    &:active
+      > div.Barra
+        background: $gris-mas-oscuro
+    > div.Barra
+      top: 1rem
+      width: 100%
+      height: 0.4rem
+      background: $gris-oscuro
+      @include transition(background $duracion $timing)
+      &:first-child
+        top: 0.4rem
+      &:last-child
+        top: 1.6rem
+  div.Btn-Menu-Navegacion.--activado
+    > div.Barra
+      opacity: 0
+    > div.Barra
+      &:first-child
+        top: 1.4rem
+        opacity: 1 !important
+        @include transform(rotate(45deg))
+        @include transition(background $duracion $timing)
+      &:last-child
+        top: 0.6rem
+        opacity: 1 !important
+        @include transform(rotate(-45deg))
+        @include transition(background $duracion $timing)
+
+  nav.Menu-Navegacion
+    float: left
+    display: none
+    min-width: $ancho-min-navegacion
+
+  ul.Lista-Menu-Navegacion
+      width: 100%
+      text-align: center
+
+  li.Item-Menu-Navegacion
+    color: $color-fuente-navegacion
+    display: inline
+    padding: $padding-items-navegacion
+    font-size: $tamano-fuente-navegacion
+    line-height: $alto-logo
+ 
+  a.Link-Menu-Navegacion
+    color: inherit
+    font-size: inherit
+    line-height: inherit
+    letter-spacing: 1px
+    text-transform: uppercase
+
+  nav.Menu-Sesion
+    float: left
+    height: $alto-logo
+    display: none
+    overflow: hidden
+    min-width: $ancho-min-sesion
+
+  ul.Lista-Menu-Sesion
+    float: right
+    width: auto
+
+  li.Item-Menu-Sesion
+    display: inline
+    font-size: $tamano-fuente-navegacion
+    line-height: $alto-logo
+    &:first-child
+      a.Link-Menu-Sesion
+        border-left: none
+        margin-left: 0
+        padding-left: 0
+    &:last-child
+      a.Link-Menu-Sesion
+        margin-right: 0
+        padding-right: 0
+
+  a.Link-Menu-Sesion
+    color: inherit
+    font-size: inherit
+    line-height: inherit
+    border-left: $borde-claro
+    margin-left: $padding-tabla-horizontal
+    padding-left: $padding-tabla-horizontal
+    &:focus,
+    &:hover,
+    &:active
+      color: $gris-mas-oscuro
+
+/* Media Queries
+   =========================================================================== */
+@include media(min-width $segundo-bp)
+  div.Wrapper-Navegacion
+    height: $alto-header
+    padding: $padding-header
+
+@include media(min-width $tercer--bp)
+  header.Navegacion
+    nav.Menu-Navegacion
+      display: block !important
+      @include span-columns(6)
+
+    nav.Menu-Sesion
+      display: block !important
+      @include span-columns(2)
+
+    div.Btn-Menu-Navegacion
+      display: none !important
+
+@include media(min-width $max-width)
+  div.Wrapper-Navegacion
+    padding: $padding-header 0
+
+  header.Navegacion
+    div.Logo
+      @include span-columns(3)
+
+    nav.Menu-Navegacion
+      display: block !important
+      @include span-columns(6)
+
+    nav.Menu-Sesion
+      display: block !important
+      @include span-columns(3)

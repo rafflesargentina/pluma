@@ -1,0 +1,47 @@
+/* ===========================================================================
+   Admin
+   =========================================================================== */
+
+
+div.Wrapper-Navegacion.Admin
+  padding: 0
+  background: none
+
+  header.Navegacion
+    padding: $padding-header-mobile
+    background: $color-fondo
+    border-bottom: $borde-claro
+
+div.Wrapper-Principal
+  @include outer-container()
+
+main.Admin
+  width: 100%
+  background: $color-fondo
+  border-top: $borde-claro
+  min-height: calc(100vh - 5rem); /* $alto-header-mobile */
+
+  div.Wrapper-Interior-Principal
+    padding: $espacio-chico / 2
+
+  h3.Titulo-Seccion
+    color: $gris-mas-oscuro
+    border-bottom: 1px solid $gris-mas-oscuro
+    margin-bottom: $espacio-chico
+    padding-bottom: $espacio-chico / 2
+
+/* Media Queries
+   =========================================================================== */
+@include media(min-width $segundo-bp)
+  div.Wrapper-Navegacion.Admin
+    header.Navegacion
+      padding: $padding-header
+
+  main.Admin
+    width: calc(100% - 16rem); /* $ancho-sidebar */
+    max-width: $max-width - $ancho-sidebar
+    margin-left: $ancho-sidebar
+    min-height: calc(100vh - 9rem); /* $alto-header */
+
+    div.Wrapper-Interior-Principal
+      padding: $padding-header $espacio-chico

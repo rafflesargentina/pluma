@@ -1,0 +1,60 @@
+/* ===========================================================================
+   Grilla
+   =========================================================================== */
+
+/* Contenedores
+   =========================================================================== */
+.Caja
+  @include outer-container()
+
+/* Fila
+   =========================================================================== */
+.Fila
+  @include row()
+
+
+/* Columnas
+   =========================================================================== */
+@include media($mobile)
+  .Col-4,
+  .Col-3
+    @include span-columns(12)
+    @include omega(1n)
+
+@include media($phablet)
+  .Col-4,
+  .Col-3
+    @include span-columns(6)
+    @include omega(2n)
+
+@include media($tablet)
+  .Col-4,
+  .Col-3
+    @include span-columns(4)
+    @include omega(3n)
+
+@include media($escritorio)
+  .Col-12
+    @include span-columns(12)
+  .Col-11
+    @include span-columns(11)
+  .Col-10
+    @include span-columns(10)
+  .Col-9
+    @include span-columns(9)
+  .Col-8
+    @include span-columns(8)
+  .Col-7
+    @include span-columns(7)
+  .Col-6
+    @include span-columns(6)
+  .Col-5
+    @include span-columns(5)
+  .Col-4
+    @include span-columns(4)
+  .Col-3
+    @include span-columns(3)
+  .Col-2
+    @include span-columns(2)
+  .Col-1
+    @include span-columns(1)

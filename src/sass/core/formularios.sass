@@ -38,6 +38,16 @@ input[type="password"]
     color: $gris-claro
     background: $color-deshabilitado
 
+input[type="text"],
+input[type="email"]
+  &:-webkit-autofill
+    box-shadow: 0 0 0 $alto-control $color-alerta-fondo-info inset
+    -webkit-text-fill-color: $gris-oscuro
+    @include transition(border-color $duracion $timing)
+    &:focus
+      -webkit-text-fill-color: $gris-mas-oscuro
+      @include transition(border-color $duracion $timing)
+
 /**
  * 1. Permite solo resize vertical.
  * 2. Remueve la barra de scroll vertical por defecto en IE.

@@ -373,6 +373,11 @@ table {
   border-spacing: 0;
   border-collapse: separate; }
 
+thead {
+  display: table-header-group;
+  vertical-align: middle;
+  border-color: inherit; }
+
 tbody {
   display: table-row-group;
   vertical-align: middle;
@@ -380,7 +385,7 @@ tbody {
 
 tfoot {
   display: table-footer-group;
-  vertical-align: inherit;
+  vertical-align: middle;
   border-color: inherit; }
 
 tr {
@@ -406,7 +411,9 @@ th {
 
 th {
   color: #4a4a4a;
-  font-weight: 600;
+  font-weight: 600; }
+
+thead th {
   border-width: 2px; }
 
 /* Tabla Condensada
@@ -591,11 +598,12 @@ button, input[type="button"], input[type="reset"], input[type="submit"] {
   padding: 0 0.33333rem;
   font-size: 0.7333rem;
   background: transparent;
-  line-height: 1;
+  line-height: 1rem;
   margin-right: 0.33333rem;
   text-transform: none; }
   .Btn-Tabla > i {
-    margin: auto; }
+    margin: auto;
+    font-size: 1.0666rem; }
   .Btn-Tabla:focus:not(:disabled), .Btn-Tabla:hover:not(:disabled), .Btn-Tabla:active:not(:disabled) {
     color: #2bbed6;
     background: transparent; }
@@ -758,6 +766,25 @@ input[type="password"] {
   input[type="password"]:disabled {
     color: #c6c6c6;
     background: #f8f8f8; }
+  select:-webkit-autofill,
+  textarea:-webkit-autofill,
+  input[type="text"]:-webkit-autofill,
+  input[type="email"]:-webkit-autofill,
+  input[type="password"]:-webkit-autofill {
+    box-shadow: 0 0 0 3.2rem #eaf9fb inset;
+    -webkit-text-fill-color: #858585;
+    -webkit-transition: border-color 0.25s ease;
+    -moz-transition: border-color 0.25s ease;
+    transition: border-color 0.25s ease; }
+    select:-webkit-autofill:focus,
+    textarea:-webkit-autofill:focus,
+    input[type="text"]:-webkit-autofill:focus,
+    input[type="email"]:-webkit-autofill:focus,
+    input[type="password"]:-webkit-autofill:focus {
+      -webkit-text-fill-color: #4a4a4a;
+      -webkit-transition: border-color 0.25s ease;
+      -moz-transition: border-color 0.25s ease;
+      transition: border-color 0.25s ease; }
 
 /**
  * 1. Permite solo resize vertical.
@@ -1257,6 +1284,8 @@ div.Miniatura {
   overflow: hidden;
   background: #e6e6e6;
   text-align: center;
+  background-repeat: no-repeat;
+  background-position: center;
   border-top-left-radius: 0.2666rem;
   border-top-right-radius: 0.2666rem; }
 

@@ -11,6 +11,12 @@ table
   border-spacing: 0
   border-collapse: separate
 
+
+thead
+  display: table-header-group
+  vertical-align: middle
+  border-color: inherit
+
 tbody
   display: table-row-group
   vertical-align: middle
@@ -18,7 +24,7 @@ tbody
 
 tfoot
   display: table-footer-group
-  vertical-align: inherit
+  vertical-align: middle
   border-color: inherit
 
 tr
@@ -43,6 +49,8 @@ th
 th
   color: $gris-mas-oscuro
   font-weight: $peso-fuente-etiquetas
+
+thead th
   border-width: 2px
 
 /* Tabla Condensada

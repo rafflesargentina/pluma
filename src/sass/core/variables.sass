@@ -18,9 +18,9 @@ $tamano-fuente-h2:        1.6rem
 $tamano-fuente-h3:        1.3333rem
 
 $alto-linea:              1.4
-$alto-linea-computado:    $alto-linea * $tamano-fuente
-$alto-linea-parrafo:      $alto-linea-computado / 3
-$alto-linea-encabezados:  $alto-linea-computado
+$alto-linea-computado:    strip-units($alto-linea * $tamano-fuente)
+$alto-linea-parrafo:      $alto-linea * $tamano-fuente / 3
+$alto-linea-encabezados:  1.2
 
 $peso-fuente-links:       400
 $peso-fuente-parrafo:     300
@@ -33,8 +33,8 @@ $decoracion-links-hover:  none
 
 /* Colores
    =========================================================================== */
-$color-primario:        #2bbed6
-$color-primario-oscuro: #008eb0
+$color-primario:        #03a9f4
+$color-primario-oscuro: #0288d1
 
 $color-info:            $color-primario
 $color-error:           #d32f2f
@@ -152,6 +152,10 @@ $escritorio: new-breakpoint(min-width (rem($tercer--bp)))
    =========================================================================== */
 $color-sombra: rgba(0,0,0,0.09)
 $tamano-sombra: 0 0.4rem 0 0
+
+/* Ventana modal
+   =========================================================================== */
+$color-mascara-v-modal: rgba(0,0,0,0.7)
 
 /* Capas
    =========================================================================== */

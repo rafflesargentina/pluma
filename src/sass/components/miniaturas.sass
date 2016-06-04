@@ -17,7 +17,6 @@ div.Miniatura
 figcaption
   border: $borde-claro
   padding: 1.6rem
-  border-top: none
   @include border-bottom-radius($radio-borde)
 
   time
@@ -31,6 +30,9 @@ figcaption
 
   p
     margin-bottom: $espacio-chico
+
+div.Miniatura + figcaption
+  border-top: none
 
 div.Col-3 figure > div.Miniatura
   height: 13rem

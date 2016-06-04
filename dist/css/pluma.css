@@ -33,6 +33,8 @@ html {
    @mixin ========================================================================== */
 /* Sombra
    @mixin ========================================================================== */
+/* Ventana modal
+   @mixin ========================================================================== */
 /* Capas
    @mixin ========================================================================== */
 /* ===========================================================================
@@ -89,7 +91,7 @@ svg:not(:root) {
 /**
  * 1. Establece el suavizado de fuentes a antialiased por defecto.
  * 2. Cambia a subpixel-antialiased cuando la densidad de pixeles sea 2.0 o superior.
- * https://www.mobomo.com/2014/05/better-font-smoothing-in-chrome-on-mac-os-x/
+ * Fuente: https://www.mobomo.com/2014/05/better-font-smoothing-in-chrome-on-mac-os-x/
  */
 body {
   -webkit-font-smoothing: antialiased;
@@ -148,6 +150,12 @@ audio:not([controls]) {
  */
 progress {
   vertical-align: baseline; }
+
+/**
+ * Visible solo para impresion
+ */
+.--visible-impresion {
+  display: none; }
 
 /**
  * Flota los elementos a la izquierda y establece un ancho del 100%.
@@ -442,7 +450,7 @@ thead th {
   color: transparent;
   content: '-';
   display: block;
-  line-height: 1.225rem; }
+  line-height: 0.6rem; }
 
 .Tabla-Hover thead > tr > td:first-child,
 .Tabla-Hover thead > tr > th:first-child,
@@ -465,7 +473,7 @@ thead th {
   -moz-transition: background 0.25s ease;
   transition: background 0.25s ease; }
   .Tabla-Hover > tbody > tr:focus, .Tabla-Hover > tbody > tr:hover, .Tabla-Hover > tbody > tr:active {
-    background: #eaf9fb;
+    background: #e6f6fe;
     -webkit-transition: background 0.25s ease;
     -moz-transition: background 0.25s ease;
     transition: background 0.25s ease; }
@@ -474,14 +482,14 @@ thead th {
       -moz-transition: background 0.25s ease;
       transition: background 0.25s ease; }
       .Tabla-Hover > tbody > tr:focus td:focus, .Tabla-Hover > tbody > tr:focus td:hover, .Tabla-Hover > tbody > tr:focus td:active, .Tabla-Hover > tbody > tr:hover td:focus, .Tabla-Hover > tbody > tr:hover td:hover, .Tabla-Hover > tbody > tr:hover td:active, .Tabla-Hover > tbody > tr:active td:focus, .Tabla-Hover > tbody > tr:active td:hover, .Tabla-Hover > tbody > tr:active td:active {
-        background: #caeff5;
+        background: #c0eafc;
         -webkit-transition: background 0.25s ease;
         -moz-transition: background 0.25s ease;
         transition: background 0.25s ease; }
   .Tabla-Hover > tbody > tr > td {
     border-color: #fff; }
     .Tabla-Hover > tbody > tr > td:first-child {
-      background: #eaf9fb; }
+      background: #e6f6fe; }
 
 .Tabla-Hover > tfoot > tr > td,
 .Tabla-Hover > tfoot > tr > th {
@@ -502,9 +510,6 @@ div.Caja-Tabla {
 /* ===========================================================================
    Botones
    @mixin ========================================================================== */
-/**
- * 1. Remueve el recuadro puntillado al hacer foco en navegadores Firefox.
- */
 .Btn,
 button, input[type="button"], input[type="reset"], input[type="submit"] {
   float: left;
@@ -541,10 +546,13 @@ button, input[type="button"], input[type="reset"], input[type="submit"] {
   button:disabled, input[type="button"]:disabled, input[type="reset"]:disabled, input[type="submit"]:disabled {
     cursor: not-allowed;
     opacity: 0.7; }
-  .Btn -moz-focus-inner,
-  button -moz-focus-inner, input[type="button"] -moz-focus-inner, input[type="reset"] -moz-focus-inner, input[type="submit"] -moz-focus-inner {
-    border-style: none;
-    /* 1 */ }
+
+/**
+ * 1. Remueve el puntillado interno de los botones con foco en navegadores Firefox.
+ */
+button::-moz-focus-inner {
+  border-style: none;
+  /* 1 */ }
 
 /* Boton Default
    @mixin ========================================================================== */
@@ -560,15 +568,15 @@ button, input[type="button"], input[type="reset"], input[type="submit"] {
    @mixin ========================================================================== */
 .Btn-Primario {
   color: #fff;
-  background: #2bbed6;
-  text-shadow: 0 1px 0 #008eb0;
-  border-color: #2bbed6; }
+  background: #03a9f4;
+  text-shadow: 0 1px 0 #0288d1;
+  border-color: #03a9f4; }
   .Btn-Primario > i {
     color: #fff; }
   .Btn-Primario:focus:not(:disabled), .Btn-Primario:hover:not(:disabled), .Btn-Primario:active:not(:disabled) {
     color: #fff;
-    background: #008eb0;
-    border-color: #008eb0; }
+    background: #0288d1;
+    border-color: #0288d1; }
 
 /* Boton Link
    @mixin ========================================================================== */
@@ -605,7 +613,7 @@ button, input[type="button"], input[type="reset"], input[type="submit"] {
     margin: auto;
     font-size: 1.0666rem; }
   .Btn-Tabla:focus:not(:disabled), .Btn-Tabla:hover:not(:disabled), .Btn-Tabla:active:not(:disabled) {
-    color: #2bbed6;
+    color: #03a9f4;
     background: transparent; }
 
 /* Tamanos de boton
@@ -693,6 +701,12 @@ form {
   z-index: 1000;
   /* 1 */ }
 
+/**
+ * Alinea elementos del formulario horizontalmente
+ */
+.Formulario-Horizontal button, .Formulario-Horizontal input[type="button"], .Formulario-Horizontal input[type="reset"], .Formulario-Horizontal input[type="submit"] {
+  margin-top: 1.8rem; }
+
 /* Controles de formulario: input, select y textarea
    @mixin ========================================================================== */
 select,
@@ -746,7 +760,7 @@ input[type="password"] {
   input[type="email"]:not([disabled]):focus,
   input[type="password"]:not([disabled]):focus {
     color: #4a4a4a;
-    border-color: #2bbed6;
+    border-color: #03a9f4;
     -webkit-transition: color 0.25s ease, border-color 0.25s ease;
     -moz-transition: color 0.25s ease, border-color 0.25s ease;
     transition: color 0.25s ease, border-color 0.25s ease; }
@@ -755,7 +769,7 @@ input[type="password"] {
     input[type="text"]:not([disabled]):focus + label,
     input[type="email"]:not([disabled]):focus + label,
     input[type="password"]:not([disabled]):focus + label {
-      color: #2bbed6;
+      color: #03a9f4;
       -webkit-transition: color 0.25s ease;
       -moz-transition: color 0.25s ease;
       transition: color 0.25s ease; }
@@ -766,25 +780,21 @@ input[type="password"] {
   input[type="password"]:disabled {
     color: #c6c6c6;
     background: #f8f8f8; }
-  select:-webkit-autofill,
-  textarea:-webkit-autofill,
-  input[type="text"]:-webkit-autofill,
-  input[type="email"]:-webkit-autofill,
-  input[type="password"]:-webkit-autofill {
-    box-shadow: 0 0 0 3.2rem #eaf9fb inset;
-    -webkit-text-fill-color: #858585;
+
+/**
+ * Autofill
+ */
+input:-webkit-autofill {
+  box-shadow: 0 0 0 3.2rem #e6f6fe inset;
+  -webkit-text-fill-color: #858585;
+  -webkit-transition: border-color 0.25s ease;
+  -moz-transition: border-color 0.25s ease;
+  transition: border-color 0.25s ease; }
+  input:-webkit-autofill:focus, input:-webkit-autofill:active {
+    -webkit-text-fill-color: #4a4a4a;
     -webkit-transition: border-color 0.25s ease;
     -moz-transition: border-color 0.25s ease;
     transition: border-color 0.25s ease; }
-    select:-webkit-autofill:focus,
-    textarea:-webkit-autofill:focus,
-    input[type="text"]:-webkit-autofill:focus,
-    input[type="email"]:-webkit-autofill:focus,
-    input[type="password"]:-webkit-autofill:focus {
-      -webkit-text-fill-color: #4a4a4a;
-      -webkit-transition: border-color 0.25s ease;
-      -moz-transition: border-color 0.25s ease;
-      transition: border-color 0.25s ease; }
 
 /**
  * 1. Permite solo resize vertical.
@@ -876,49 +886,47 @@ i.Icono-Control-Izquierda {
 .--con-info input[type="text"],
 .--con-info input[type="email"],
 .--con-info input[type="password"] {
-  color: #36c1d8; }
+  color: #10adf5; }
 
 .--con-info label,
 .--con-info span.Mensaje-Validacion {
-  color: #36c1d8; }
+  color: #10adf5; }
 
 .--con-info input[type="text"],
 .--con-info input[type="email"],
 .--con-info input[type="password"] {
-  border-color: #caeff5;
-  background-color: #eaf9fb; }
+  border-color: #c0eafc;
+  background-color: #e6f6fe; }
   .--con-info input[type="text"]::-webkit-input-placeholder,
   .--con-info input[type="email"]::-webkit-input-placeholder,
   .--con-info input[type="password"]::-webkit-input-placeholder {
-    color: #86dae8; }
+    color: #7cd2fa; }
   .--con-info input[type="text"]::-moz-placeholder,
   .--con-info input[type="email"]::-moz-placeholder,
   .--con-info input[type="password"]::-moz-placeholder {
-    color: #86dae8; }
+    color: #7cd2fa; }
   .--con-info input[type="text"]:-moz-placeholder,
   .--con-info input[type="email"]:-moz-placeholder,
   .--con-info input[type="password"]:-moz-placeholder {
-    color: #86dae8; }
+    color: #7cd2fa; }
   .--con-info input[type="text"]:-ms-input-placeholder,
   .--con-info input[type="email"]:-ms-input-placeholder,
   .--con-info input[type="password"]:-ms-input-placeholder {
-    color: #86dae8; }
-  .--con-info input[type="text"]:focus, .--con-info input[type="text"]:hover, .--con-info input[type="text"]:active,
+    color: #7cd2fa; }
+  .--con-info input[type="text"]:focus, .--con-info input[type="text"]:active,
   .--con-info input[type="email"]:focus,
-  .--con-info input[type="email"]:hover,
   .--con-info input[type="email"]:active,
   .--con-info input[type="password"]:focus,
-  .--con-info input[type="password"]:hover,
   .--con-info input[type="password"]:active {
-    border-color: #36c1d8; }
+    border-color: #10adf5; }
   .--con-info input[type="text"] + label,
   .--con-info input[type="email"] + label,
   .--con-info input[type="password"] + label {
-    color: #caeff5; }
+    color: #c0eafc; }
 
 .--con-info .Controles-Agrupados {
-  color: #36c1d8;
-  border-color: #caeff5; }
+  color: #10adf5;
+  border-color: #c0eafc; }
 
 .--con-error div.Checkbox,
 .--con-error div.Radiobtn,
@@ -939,25 +947,23 @@ i.Icono-Control-Izquierda {
   .--con-error input[type="text"]::-webkit-input-placeholder,
   .--con-error input[type="email"]::-webkit-input-placeholder,
   .--con-error input[type="password"]::-webkit-input-placeholder {
-    color: #e68888; }
+    color: #e89292; }
   .--con-error input[type="text"]::-moz-placeholder,
   .--con-error input[type="email"]::-moz-placeholder,
   .--con-error input[type="password"]::-moz-placeholder {
-    color: #e68888; }
+    color: #e89292; }
   .--con-error input[type="text"]:-moz-placeholder,
   .--con-error input[type="email"]:-moz-placeholder,
   .--con-error input[type="password"]:-moz-placeholder {
-    color: #e68888; }
+    color: #e89292; }
   .--con-error input[type="text"]:-ms-input-placeholder,
   .--con-error input[type="email"]:-ms-input-placeholder,
   .--con-error input[type="password"]:-ms-input-placeholder {
-    color: #e68888; }
-  .--con-error input[type="text"]:focus, .--con-error input[type="text"]:hover, .--con-error input[type="text"]:active,
+    color: #e89292; }
+  .--con-error input[type="text"]:focus, .--con-error input[type="text"]:active,
   .--con-error input[type="email"]:focus,
-  .--con-error input[type="email"]:hover,
   .--con-error input[type="email"]:active,
   .--con-error input[type="password"]:focus,
-  .--con-error input[type="password"]:hover,
   .--con-error input[type="password"]:active {
     border-color: #d53939; }
   .--con-error input[type="text"] + label,
@@ -988,25 +994,23 @@ i.Icono-Control-Izquierda {
   .--con-success input[type="text"]::-webkit-input-placeholder,
   .--con-success input[type="email"]::-webkit-input-placeholder,
   .--con-success input[type="password"]::-webkit-input-placeholder {
-    color: #8ebf90; }
+    color: #97c499; }
   .--con-success input[type="text"]::-moz-placeholder,
   .--con-success input[type="email"]::-moz-placeholder,
   .--con-success input[type="password"]::-moz-placeholder {
-    color: #8ebf90; }
+    color: #97c499; }
   .--con-success input[type="text"]:-moz-placeholder,
   .--con-success input[type="email"]:-moz-placeholder,
   .--con-success input[type="password"]:-moz-placeholder {
-    color: #8ebf90; }
+    color: #97c499; }
   .--con-success input[type="text"]:-ms-input-placeholder,
   .--con-success input[type="email"]:-ms-input-placeholder,
   .--con-success input[type="password"]:-ms-input-placeholder {
-    color: #8ebf90; }
-  .--con-success input[type="text"]:focus, .--con-success input[type="text"]:hover, .--con-success input[type="text"]:active,
+    color: #97c499; }
+  .--con-success input[type="text"]:focus, .--con-success input[type="text"]:active,
   .--con-success input[type="email"]:focus,
-  .--con-success input[type="email"]:hover,
   .--con-success input[type="email"]:active,
   .--con-success input[type="password"]:focus,
-  .--con-success input[type="password"]:hover,
   .--con-success input[type="password"]:active {
     border-color: #429446; }
   .--con-success input[type="text"] + label,
@@ -1018,7 +1022,55 @@ i.Icono-Control-Izquierda {
   color: #429446;
   border-color: #cde3ce; }
 
+.--con-warning div.Checkbox,
+.--con-warning div.Radiobtn,
+.--con-warning input[type="text"],
+.--con-warning input[type="email"],
+.--con-warning input[type="password"] {
+  color: #b3b836; }
+
+.--con-warning label,
+.--con-warning span.Mensaje-Validacion {
+  color: #b3b836; }
+
+.--con-warning input[type="text"],
+.--con-warning input[type="email"],
+.--con-warning input[type="password"] {
+  border-color: #ebecca;
+  background-color: #f7f8ea; }
+  .--con-warning input[type="text"]::-webkit-input-placeholder,
+  .--con-warning input[type="email"]::-webkit-input-placeholder,
+  .--con-warning input[type="password"]::-webkit-input-placeholder {
+    color: #d5d890; }
+  .--con-warning input[type="text"]::-moz-placeholder,
+  .--con-warning input[type="email"]::-moz-placeholder,
+  .--con-warning input[type="password"]::-moz-placeholder {
+    color: #d5d890; }
+  .--con-warning input[type="text"]:-moz-placeholder,
+  .--con-warning input[type="email"]:-moz-placeholder,
+  .--con-warning input[type="password"]:-moz-placeholder {
+    color: #d5d890; }
+  .--con-warning input[type="text"]:-ms-input-placeholder,
+  .--con-warning input[type="email"]:-ms-input-placeholder,
+  .--con-warning input[type="password"]:-ms-input-placeholder {
+    color: #d5d890; }
+  .--con-warning input[type="text"]:focus, .--con-warning input[type="text"]:active,
+  .--con-warning input[type="email"]:focus,
+  .--con-warning input[type="email"]:active,
+  .--con-warning input[type="password"]:focus,
+  .--con-warning input[type="password"]:active {
+    border-color: #b3b836; }
+  .--con-warning input[type="text"] + label,
+  .--con-warning input[type="email"] + label,
+  .--con-warning input[type="password"] + label {
+    color: #ebecca; }
+
+.--con-warning .Controles-Agrupados {
+  color: #b3b836;
+  border-color: #ebecca; }
+
 .Mensaje-Validacion {
+  top: 0.33333rem;
   font-size: 0.8667rem; }
 
 /* Controles adaptables
@@ -1063,13 +1115,13 @@ i.Icono-Control-Izquierda {
   color: #fff;
   text-shadow: none;
   /* 1 */
-  background-color: #008eb0; }
+  background-color: #0288d1; }
 
 ::selection {
   color: #fff;
   text-shadow: none;
   /* 1 */
-  background-color: #008eb0; }
+  background-color: #0288d1; }
 
 /* Links
    @mixin ==========================================================================
@@ -1113,7 +1165,7 @@ h2,
 h3 {
   font-family: "Lucida Grande", "Tahoma", "Verdana", "Arial", sans-serif;
   font-weight: 400;
-  line-height: 1.4rem;
+  line-height: 1.2;
   margin-bottom: 4rem; }
 
 h1 {
@@ -1201,6 +1253,48 @@ small {
     display: none; } }
 
 /* ===========================================================================
+   Pager
+   @mixin ========================================================================== */
+.pager {
+  margin: 1rem 0;
+  text-align: center; }
+  .pager::after {
+    clear: both;
+    content: "";
+    display: table; }
+  .pager li {
+    display: inline; }
+    .pager li > a,
+    .pager li > span {
+      width: 3.2rem;
+      height: 3.2rem;
+      display: inline-block;
+      line-height: 3.2rem;
+      background-color: #fff;
+      border: 1px solid #e6e6e6;
+      border-radius: 0.2666rem; }
+    .pager li > a:hover,
+    .pager li > a:focus {
+      color: #fff;
+      text-decoration: none;
+      background-color: #03a9f4; }
+    .pager li:first-child > a,
+    .pager li:first-child > span {
+      left: 0;
+      float: left; }
+    .pager li:last-child > a,
+    .pager li:last-child > span {
+      right: 0;
+      float: right; }
+    .pager li .disabled > a,
+    .pager li .disabled > a:hover,
+    .pager li .disabled > a:focus,
+    .pager li .disabled > span {
+      color: #c6c6c6;
+      background-color: #f8f8f8;
+      cursor: not-allowed; }
+
+/* ===========================================================================
    Alertas
    @mixin ========================================================================== */
 .Alerta {
@@ -1226,13 +1320,13 @@ small {
     .Alerta .--con-success .Link-Alerta {
       color: #cde3ce; }
   .Alerta .--con-info {
-    color: #36c1d8;
-    border-color: #caeff5;
-    background-color: #eaf9fb; }
+    color: #10adf5;
+    border-color: #c0eafc;
+    background-color: #e6f6fe; }
     .Alerta .--con-info hr {
-      border-color: #caeff5; }
+      border-color: #c0eafc; }
     .Alerta .--con-info .Link-Alerta {
-      color: #caeff5; }
+      color: #c0eafc; }
   .Alerta .--con-error {
     color: #d53939;
     border-color: #f4cbcb;
@@ -1241,6 +1335,14 @@ small {
       border-color: #f4cbcb; }
     .Alerta .--con-error .Link-Alerta {
       color: #f4cbcb; }
+  .Alerta .--con-warning {
+    color: #b3b836;
+    border-color: #ebecca;
+    background-color: #f7f8ea; }
+    .Alerta .--con-warning hr {
+      border-color: #ebecca; }
+    .Alerta .--con-warning .Link-Alerta {
+      color: #ebecca; }
 
 .Alerta-Desestimable {
   padding-right: 2rem; }
@@ -1248,6 +1350,30 @@ small {
     top: -2px;
     right: -1rem;
     color: inherit; }
+
+div.Botonera-Inferior {
+  float: left;
+  width: 100%;
+  margin-top: 2rem; }
+  div.Botonera-Inferior .Btn,
+  div.Botonera-Inferior button, div.Botonera-Inferior input[type="button"], div.Botonera-Inferior input[type="reset"], div.Botonera-Inferior input[type="submit"] {
+    width: 100%;
+    margin-bottom: 1rem; }
+
+@media screen and (min-width: 1024px) {
+  div.Botonera-Inferior {
+    margin-top: 3.2rem;
+    margin-bottom: 3.2rem; }
+    div.Botonera-Inferior .Btn,
+    div.Botonera-Inferior button, div.Botonera-Inferior input[type="button"], div.Botonera-Inferior input[type="reset"], div.Botonera-Inferior input[type="submit"] {
+      margin-bottom: 0;
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 23.23176%; }
+      div.Botonera-Inferior .Btn:last-child,
+      div.Botonera-Inferior button:last-child, div.Botonera-Inferior input[type="button"]:last-child, div.Botonera-Inferior input[type="reset"]:last-child, div.Botonera-Inferior input[type="submit"]:last-child {
+        margin-right: 0; } }
 
 /* ===========================================================================
    Ventanas Modales
@@ -1260,7 +1386,7 @@ small {
   display: none;
   z-index: 5000;
   position: fixed;
-  background: rgba(0, 0, 0, 0.09); }
+  background: rgba(0, 0, 0, 0.7); }
 
 .Ventana-Modal {
   margin: 4rem auto 0 auto;
@@ -1292,7 +1418,6 @@ div.Miniatura {
 figcaption {
   border: 1px solid #e6e6e6;
   padding: 1.6rem;
-  border-top: none;
   border-bottom-left-radius: 0.2666rem;
   border-bottom-right-radius: 0.2666rem; }
   figcaption time {
@@ -1305,6 +1430,9 @@ figcaption {
   figcaption p {
     margin-bottom: 2rem; }
 
+div.Miniatura + figcaption {
+  border-top: none; }
+
 div.Col-3 figure > div.Miniatura {
   height: 13rem; }
 
@@ -1315,8 +1443,8 @@ div.Col-4 figure > div.Miniatura {
    Pagination
    @mixin ========================================================================== */
 .pagination {
+  float: left;
   display: inline-block;
-  padding-left: 0;
   margin: 0.33333rem;
   border-radius: 0.2666rem; }
   .pagination > li {
@@ -1341,16 +1469,16 @@ div.Col-4 figure > div.Miniatura {
   .pagination > li > span:hover {
     color: #fff;
     z-index: 1000;
-    border-color: #2bbed6;
-    background-color: #2bbed6; }
+    border-color: #03a9f4;
+    background-color: #03a9f4; }
   .pagination > .active > a:focus, .pagination > .active > a:hover,
   .pagination > .active > span:focus,
   .pagination > .active > span:hover {
     color: #fff;
     cursor: default;
     z-index: 2000;
-    border-color: #2bbed6;
-    background-color: #008eb0; }
+    border-color: #03a9f4;
+    background-color: #0288d1; }
   .pagination > .disabled > span,
   .pagination > .disabled > span:hover,
   .pagination > .disabled > span:focus,
@@ -1393,7 +1521,7 @@ li.Item-Menu-Desplegable {
   -moz-transition: background ease 0.25s;
   transition: background ease 0.25s; }
   li.Item-Menu-Desplegable:focus, li.Item-Menu-Desplegable:hover {
-    background: #2bbed6;
+    background: #03a9f4;
     -webkit-transition: background ease 0.25s;
     -moz-transition: background ease 0.25s;
     transition: background ease 0.25s; }

@@ -8,6 +8,13 @@
 form
   z-index: $capa1; /* 1 */
 
+/**
+ * Alinea elementos del formulario horizontalmente
+ */
+.Formulario-Horizontal
+  #{$all-buttons}
+    margin-top: 1.8rem
+
 /* Controles de formulario: input, select y textarea
    =========================================================================== */
 select,
@@ -38,15 +45,17 @@ input[type="password"]
     color: $gris-claro
     background: $color-deshabilitado
 
-input[type="text"],
-input[type="email"]
-  &:-webkit-autofill
-    box-shadow: 0 0 0 $alto-control $color-alerta-fondo-info inset
-    -webkit-text-fill-color: $gris-oscuro
+/**
+ * Autofill
+ */
+input:-webkit-autofill
+  box-shadow: 0 0 0 $alto-control $color-alerta-fondo-info inset
+  -webkit-text-fill-color: $gris-oscuro
+  @include transition(border-color $duracion $timing)
+  &:focus,
+  &:active
+    -webkit-text-fill-color: $gris-mas-oscuro
     @include transition(border-color $duracion $timing)
-    &:focus
-      -webkit-text-fill-color: $gris-mas-oscuro
-      @include transition(border-color $duracion $timing)
 
 /**
  * 1. Permite solo resize vertical.
@@ -141,7 +150,11 @@ i.Icono-Control-Izquierda
 .--con-success
   @include validacion-controles($color-alerta-texto-success, $color-alerta-borde-success, $color-alerta-fondo-success)
 
+.--con-warning
+  @include validacion-controles($color-alerta-texto-warning, $color-alerta-borde-warning, $color-alerta-fondo-warning)
+
 .Mensaje-Validacion
+  top: $espacio-muy-chico / 3
   font-size: $tamano-fuente-parrafo
 
 /* Controles adaptables

@@ -1,0 +1,45 @@
+/* ===========================================================================
+   Pager
+   =========================================================================== */
+
+
+.pager
+  margin: $espacio-muy-chico 0
+  text-align: center
+  @include clearfix
+  li
+    display: inline
+    > a,
+    > span
+      width: $alto-boton
+      height: $alto-boton
+      display: inline-block
+      line-height: $alto-boton
+      background-color: $color-fondo
+      border: $borde-claro
+      border-radius: $radio-borde
+    > a:hover,
+    > a:focus
+      color: $color-fondo
+      text-decoration: none
+      background-color: $color-primario
+
+    &:first-child
+      > a,
+      > span
+        left: 0
+        float: left
+    &:last-child
+      > a,
+      > span
+        right: 0
+        float: right
+
+    .disabled
+      > a,
+      > a:hover,
+      > a:focus,
+      > span
+        color: $color-borde
+        background-color: $color-deshabilitado
+        cursor: not-allowed

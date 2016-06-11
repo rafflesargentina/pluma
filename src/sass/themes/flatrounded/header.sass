@@ -39,7 +39,7 @@ header.Navegacion
       width: 100%
       height: 0.4rem
       background: $gris-oscuro
-      @include transition(background $duracion $timing)
+      @include transition(all $duracion $timing)
       &:first-child
         top: 0.4rem
       &:last-child
@@ -52,12 +52,12 @@ header.Navegacion
         top: 1.4rem
         opacity: 1 !important
         @include transform(rotate(45deg))
-        @include transition(background $duracion $timing)
+        @include transition(all $duracion $timing)
       &:last-child
         top: 0.6rem
         opacity: 1 !important
         @include transform(rotate(-45deg))
-        @include transition(background $duracion $timing)
+        @include transition(all $duracion $timing)
 
   nav.Menu-Navegacion
     float: left

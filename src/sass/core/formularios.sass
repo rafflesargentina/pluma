@@ -8,11 +8,17 @@
 form
   z-index: $capa1; /* 1 */
 
+form.Formulario-Tabla
+  min-width: 7rem
+
 /**
  * Alinea elementos del formulario horizontalmente
  */
-.Formulario-Horizontal
-  #{$all-buttons}
+form.Formulario-Horizontal
+  .Btn,
+  #{$all-buttons},
+  .Botones-Agupados,
+  .Controles-Agrupados
     margin-top: 1.8rem
 
 /* Controles de formulario: input, select y textarea

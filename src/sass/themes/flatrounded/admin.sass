@@ -21,6 +21,12 @@ main.Admin
   border-top: $borde-claro
   min-height: calc(100vh - 5rem); /* $alto-header-mobile */
 
+  nav#menuNavegacion
+    top: $alto-header-mobile
+    left: unset
+    width: 100%
+    position: fixed
+
   div.Wrapper-Interior-Principal
     padding: $espacio-chico / 2
 
@@ -42,6 +48,11 @@ main.Admin
     max-width: $max-width - $ancho-sidebar
     margin-left: $ancho-sidebar
     min-height: calc(100vh - 9rem); /* $alto-header */
+
+    nav#menuNavegacion
+      top: $alto-header
+      margin: $espacio-muy-chico
+      width: $max-width - $ancho-sidebar - $espacio-chico
 
     div.Wrapper-Interior-Principal
       padding: $padding-header $espacio-chico

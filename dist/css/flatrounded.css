@@ -134,6 +134,11 @@ main.Admin {
   border-top: 1px solid #e6e6e6;
   min-height: calc(100vh - 5rem);
   /* $alto-header-mobile */ }
+  main.Admin nav#menuNavegacion {
+    top: 5rem;
+    left: unset;
+    width: 100%;
+    position: fixed; }
   main.Admin div.Wrapper-Interior-Principal {
     padding: 1rem; }
   main.Admin h3.Titulo-Seccion {
@@ -154,6 +159,10 @@ main.Admin {
     margin-left: 16rem;
     min-height: calc(100vh - 9rem);
     /* $alto-header */ }
+    main.Admin nav#menuNavegacion {
+      top: 9rem;
+      margin: 1rem;
+      width: 66rem; }
     main.Admin div.Wrapper-Interior-Principal {
       padding: 3rem 2rem; } }
 
@@ -203,7 +212,7 @@ footer {
   width: 100%;
   height: 5rem;
   padding: 1rem;
-  z-index: 8000;
+  z-index: 800;
   position: fixed;
   background: #fff; }
 
@@ -379,10 +388,6 @@ header.Navegacion {
 body {
   padding-top: 5rem; }
 
-nav#menuNavegacion {
-  top: 5rem;
-  position: fixed; }
-
 main.Default {
   padding: 0 1rem;
   margin-top: 2rem; }
@@ -392,8 +397,6 @@ main.Default {
 @media screen and (min-width: 768px) {
   body {
     padding-top: 9rem; }
-  nav#menuNavegacion {
-    top: 9rem; }
   main.Default {
     padding: 0 3rem;
     margin-top: 4rem; } }
@@ -410,9 +413,9 @@ aside.Sidebar {
   width: 16rem;
   height: 100%;
   display: none;
-  z-index: 8000;
+  z-index: 800;
   position: fixed;
-  background: #f8f8f8;
+  background: #fafafa;
   border-right: 1px solid #e6e6e6; }
 
 ul.Lista-Sidebar {

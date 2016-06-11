@@ -3,61 +3,61 @@
    =========================================================================== */
 
 
-.pagination 
+.pagination
   float: left
   display: inline-block
-  margin: $espacio-muy-chico / 3
-  border-radius: $radio-borde
-
-  > li 
+  > li
     display: inline
     > a,
-    > span 
+    > span
+      color: inherit
       float: left
-      padding: $espacio-muy-chico / 3
-      text-decoration: none
-      color: $color-fuente
-      background-color: transparent
-      border: $borde
+      width: $alto-control
+      border: $borde-claro
+      height: $alto-control
+      background: transparent
+      text-align: center
+      line-height: $alto-control
       margin-left: -1px
-    
-    &:first-child 
+      text-decoration: none
+    &:first-child
       > a,
-      > span 
+      > span
         margin-left: 0
-    
-    &:last-child 
+        @include border-left-radius($radio-borde)
+    &:last-child
       > a,
-      > span 
-        margin-right: 0  
+      > span
+        margin-right: 0
+        @include border-right-radius($radio-borde)
 
   > li > a,
-  > li > span 
+  > li > span
     &:focus,
     &:hover
       color: $color-fondo
-      z-index: $capa-links
+      z-index: $capa1
+      background: $color-primario
       border-color: $color-primario
-      background-color: $color-primario
 
   > .active > a,
-  > .active > span 
+  > .active > span
     &:focus,
-    &:hover 
+    &:hover
       color: $color-fondo
       cursor: default
-      z-index: $capa-solapas
+      z-index: $capa2
+      background: $color-primario-oscuro
       border-color: $color-primario
-      background-color: $color-primario-oscuro
-  
-  > .disabled 
+
+  > .disabled
     > span,
     > span:hover,
     > span:focus,
     > a,
     > a:hover,
-    > a:focus 
+    > a:focus
       color: $gris-claro
       cursor: default
-      border-color: $gris-claro
-      background-color: $gris
+      background: $color-deshabilitado
+      border-color: $color-borde-claro

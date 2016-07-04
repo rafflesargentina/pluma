@@ -1,3 +1,4 @@
+@charset "UTF-8";
 html {
   box-sizing: border-box; }
 
@@ -702,16 +703,16 @@ form {
   z-index: 100;
   /* 1 */ }
 
-.Formulario-Tabla {
+form.Formulario-Tabla {
   min-width: 7rem; }
 
 /**
  * Alinea elementos del formulario horizontalmente
  */
-.Formulario-Horizontal .Btn,
-.Formulario-Horizontal button, .Formulario-Horizontal input[type="button"], .Formulario-Horizontal input[type="reset"], .Formulario-Horizontal input[type="submit"],
-.Formulario-Horizontal .Botones-Agupados,
-.Formulario-Horizontal .Controles-Agrupados {
+form.Formulario-Horizontal .Btn,
+form.Formulario-Horizontal button, form.Formulario-Horizontal input[type="button"], form.Formulario-Horizontal input[type="reset"], form.Formulario-Horizontal input[type="submit"],
+form.Formulario-Horizontal .Botones-Agupados,
+form.Formulario-Horizontal .Controles-Agrupados {
   margin-top: 1.8rem; }
 
 /* Controles de formulario: input, select y textarea
@@ -1094,7 +1095,7 @@ i.Icono-Control-Izquierda {
       margin-right: 0; }
   select.Adaptable,
   textarea.Adaptable,
-  div.Grupo-Control.Adaptable,
+  .Controles-Agrupados.Adaptable,
   input[type="text"].Adaptable,
   input[type="email"].Adaptable,
   input[type="password"].Adaptable {
@@ -1104,7 +1105,7 @@ i.Icono-Control-Izquierda {
     width: 74.41059%; }
     select.Adaptable:last-child,
     textarea.Adaptable:last-child,
-    div.Grupo-Control.Adaptable:last-child,
+    .Controles-Agrupados.Adaptable:last-child,
     input[type="text"].Adaptable:last-child,
     input[type="email"].Adaptable:last-child,
     input[type="password"].Adaptable:last-child {
@@ -1359,6 +1360,61 @@ small {
     right: -1rem;
     color: inherit; }
 
+/* ===========================================================================
+   Ventanas Modales
+   @mixin ========================================================================== */
+.Wrapper-VModal {
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  /* Ancho completo */
+  bottom: 0;
+  height: 0;
+  /* Invisible al inicio */
+  display: block;
+  opacity: 0;
+  z-index: 700;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.07);
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  transition: all 0.5s ease; }
+
+.Ventana-Modal {
+  top: -100vh;
+  left: 0;
+  right: 0;
+  margin: 4rem auto 0 auto;
+  display: none;
+  padding: 4rem;
+  max-width: 75%;
+  min-width: 414px;
+  background: #fff;
+  border-radius: 0.5332rem;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  transition: all 0.5s ease; }
+
+.Btn-Cerrar {
+  color: #858585;
+  float: right;
+  margin: 1rem;
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1; }
+  .Btn-Cerrar:focus, .Btn-Cerrar:hover {
+    color: #4a4a4a;
+    cursor: pointer;
+    text-decoration: none; }
+
+.Wrapper-VModal.--visible {
+  opacity: 1;
+  height: 100%; }
+  .Wrapper-VModal.--visible .Ventana-Modal.--vmodal-visible {
+    top: 50%;
+    display: block; }
+
 div.Botonera-Inferior {
   float: left;
   width: 100%;
@@ -1382,31 +1438,6 @@ div.Botonera-Inferior {
       div.Botonera-Inferior .Btn:last-child,
       div.Botonera-Inferior button:last-child, div.Botonera-Inferior input[type="button"]:last-child, div.Botonera-Inferior input[type="reset"]:last-child, div.Botonera-Inferior input[type="submit"]:last-child {
         margin-right: 0; } }
-
-/* ===========================================================================
-   Ventanas Modales
-   @mixin ========================================================================== */
-.Mascara-V-Modal {
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: none;
-  z-index: 500;
-  position: fixed;
-  background: rgba(0, 0, 0, 0.7); }
-
-.Ventana-Modal {
-  margin: 4rem auto 0 auto;
-  display: none;
-  padding: 4rem;
-  background: #fff;
-  border-radius: 0.5332rem;
-  -webkit-transition: all 0.5s ease;
-  -moz-transition: all 0.5s ease;
-  transition: all 0.5s ease; }
-  .Ventana-Modal .--abierta {
-    display: block !important; }
 
 /* ===========================================================================
    Miniaturas
@@ -1452,41 +1483,46 @@ div.Col-4 figure > div.Miniatura {
    @mixin ========================================================================== */
 .pagination {
   float: left;
-  display: inline-block;
-  margin: 0.33333rem;
-  border-radius: 0.2666rem; }
+  display: inline-block; }
   .pagination > li {
     display: inline; }
     .pagination > li > a,
     .pagination > li > span {
+      color: inherit;
       float: left;
-      padding: 0.33333rem;
-      text-decoration: none;
-      color: #858585;
-      background-color: transparent;
-      border: 1px solid #c6c6c6;
-      margin-left: -1px; }
+      width: 3.2rem;
+      border: 1px solid #e6e6e6;
+      height: 3.2rem;
+      background: transparent;
+      text-align: center;
+      line-height: 3.2rem;
+      margin-left: -1px;
+      text-decoration: none; }
     .pagination > li:first-child > a,
     .pagination > li:first-child > span {
-      margin-left: 0; }
+      margin-left: 0;
+      border-bottom-left-radius: 0.2666rem;
+      border-top-left-radius: 0.2666rem; }
     .pagination > li:last-child > a,
     .pagination > li:last-child > span {
-      margin-right: 0; }
+      margin-right: 0;
+      border-bottom-right-radius: 0.2666rem;
+      border-top-right-radius: 0.2666rem; }
   .pagination > li > a:focus, .pagination > li > a:hover,
   .pagination > li > span:focus,
   .pagination > li > span:hover {
     color: #fff;
     z-index: 100;
-    border-color: #03a9f4;
-    background-color: #03a9f4; }
+    background: #03a9f4;
+    border-color: #03a9f4; }
   .pagination > .active > a:focus, .pagination > .active > a:hover,
   .pagination > .active > span:focus,
   .pagination > .active > span:hover {
     color: #fff;
     cursor: default;
     z-index: 200;
-    border-color: #03a9f4;
-    background-color: #0288d1; }
+    background: #0288d1;
+    border-color: #03a9f4; }
   .pagination > .disabled > span,
   .pagination > .disabled > span:hover,
   .pagination > .disabled > span:focus,
@@ -1495,8 +1531,8 @@ div.Col-4 figure > div.Miniatura {
   .pagination > .disabled > a:focus {
     color: #c6c6c6;
     cursor: default;
-    border-color: #c6c6c6;
-    background-color: #9b9f9b; }
+    background: #fafafa;
+    border-color: #e6e6e6; }
 
 /* ===========================================================================
    Desplegables
@@ -1510,6 +1546,8 @@ nav.Menu-Desplegable {
   z-index: 600;
   position: absolute;
   background: #fafafa; }
+  nav.Menu-Desplegable .--desplegable-visible {
+    display: block; }
 
 ul.Lista-Menu-Desplegable {
   float: left;
@@ -1841,120 +1879,515 @@ a.Link-Menu-Desplegable {
   display: block;
   padding: 1rem / 3; }
 
+/* ==========================================================================
+   $BASE-PICKER
+   ========================================================================== */
+/**
+ * Note: the root picker element should *NOT* be styled more than what’s here.
+ */
+.picker {
+  color: #4a4a4a;
+  position: absolute;
+  z-index: 10000;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+
+/**
+ * The picker input element.
+ */
+.picker__input {
+  cursor: default; }
+
+/**
+ * When the picker is opened, the input element is “activated”.
+ */
+.picker__input.picker__input--active {
+  color: #10adf5;
+  border-color: #c0eafc;
+  background-color: #e6f6fe; }
+
+/**
+ * The holder is the only “scrollable” top-level container element.
+ */
+.picker__holder {
+  width: 100%;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch; }
+
+/* ==========================================================================
+   $BASE-DATE-PICKER
+   ========================================================================== */
+/**
+ * The picker box.
+ */
+.picker__box {
+  padding: 2rem; }
+
+.picker__header,
+.picker__footer {
+  width: 100%; }
+  .picker__header::after,
+  .picker__footer::after {
+    clear: both;
+    content: "";
+    display: table; }
+
+/**
+ * The header containing the month and year stuff.
+ */
+@media (min-width: 414px) {
+  .picker__header {
+    margin: 1rem 0; } }
+
+/**
+ * The month and year labels.
+ */
+.picker__month,
+.picker__year {
+  color: #4a4a4a;
+  font-size: 1.6rem;
+  line-height: 1;
+  text-transform: lowercase;
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 48.82117%; }
+  .picker__month:last-child,
+  .picker__year:last-child {
+    margin-right: 0; }
+
+.picker__month {
+  text-align: right; }
+
+.picker__year {
+  text-align: left;
+  margin-right: 0; }
+
+/**
+ * The month and year selectors.
+ */
+.picker__select--month,
+.picker__select--year {
+  color: #4a4a4a;
+  border: none;
+  font-size: 1.6rem;
+  text-transform: lowercase; }
+
+.picker__select--month {
+  padding-left: 0;
+  margin-right: 0;
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 31.76157%; }
+  .picker__select--month:last-child {
+    margin-right: 0; }
+
+.picker__select--year {
+  padding-right: 0;
+  margin-left: 17.05961%;
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 31.76157%; }
+  .picker__select--year:last-child {
+    margin-right: 0; }
+  @media (min-width: 414px) {
+    .picker__select--year {
+      margin-left: 34.11922%;
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 14.70196%; }
+      .picker__select--year:last-child {
+        margin-right: 0; } }
+
+/**
+ * The month navigation buttons.
+ */
+.picker__nav--prev,
+.picker__nav--next {
+  top: 1rem;
+  width: 0.8rem;
+  cursor: pointer;
+  height: 0.8rem;
+  content: '';
+  position: absolute;
+  box-sizing: content-box;
+  border-width: 0.2rem 0.2rem 0 0;
+  border-style: solid;
+  vertical-align: top;
+  display: inline-block; }
+
+.picker__nav--prev {
+  left: 0.8rem;
+  -webkit-transform: rotate(225deg);
+  -moz-transform: rotate(225deg);
+  -ms-transform: rotate(225deg);
+  -o-transform: rotate(225deg);
+  transform: rotate(225deg); }
+  @media (min-width: 414px) {
+    .picker__nav--prev {
+      left: 3.2rem; } }
+
+.picker__nav--next {
+  right: 0.8rem;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg); }
+  @media (min-width: 414px) {
+    .picker__nav--next {
+      right: 3.2rem; } }
+
+.picker__nav--disabled,
+.picker__nav--disabled:hover,
+.picker__nav--disabled:before,
+.picker__nav--disabled:before:hover {
+  cursor: default;
+  background: #fafafa; }
+
+/**
+ * The calendar table of dates
+ */
+.picker__table {
+  font-size: inherit;
+  border-color: transparent;
+  margin-bottom: 1rem; }
+
+.picker__table > thead > tr > td,
+.picker__table > thead > tr > th,
+.picker__table > tbody > tr > td,
+.picker__table > tbody > tr > th,
+.picker__table > tfoot > tr > td,
+.picker__table > tfoot > tr > th {
+  font-size: 1.0666rem;
+  text-align: center;
+  border-bottom: none; }
+
+.picker__table > thead > tr > td,
+.picker__table > tbody > tr > td,
+.picker__table > tfoot > tr > td {
+  padding: 0;
+  border-bottom: none; }
+
+.picker__table > thead > tr > th,
+.picker__table > tbody > tr > th,
+.picker__table > tfoot > tr > th {
+  padding: 1.2rem 0.6rem; }
+
+.picker__table tbody tr:hover {
+  background: #e6f6fe; }
+
+.picker__table tbody tr td > .picker__day:focus, .picker__table tbody tr td > .picker__day:hover, .picker__table tbody tr td > .picker__day:active {
+  background: #c0eafc; }
+
+.picker__table tbody tr td .picker__day.picker__day--outfocus:focus, .picker__table tbody tr td .picker__day.picker__day--outfocus:hover, .picker__table tbody tr td .picker__day.picker__day--outfocus:active {
+  background: #fff; }
+
+.picker__table tbody tr td:last-child {
+  color: #d53939;
+  background: #fbeaea; }
+  .picker__table tbody tr td:last-child .picker__day {
+    color: #d53939; }
+  .picker__table tbody tr td:last-child .picker__day.picker__day--infocus:focus, .picker__table tbody tr td:last-child .picker__day.picker__day--infocus:hover, .picker__table tbody tr td:last-child .picker__day.picker__day--infocus:active {
+    background: #f4cbcb; }
+  .picker__table tbody tr td:last-child .picker_day.picker__day--outfocus {
+    color: #c6c6c6;
+    background: #fff; }
+
+/**
+ * The weekday labels
+ */
+.picker__weekday {
+  /* Increase the spacing a tad */ }
+
+/**
+ * The days on the calendar
+ */
+.picker__day {
+  padding: 0.6rem; }
+
+.picker__day--today:before {
+  content: ' ';
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 0;
+  height: 0;
+  border-top: 0.6rem solid;
+  border-left: 0.6rem solid transparent; }
+
+.picker__day--outfocus {
+  color: #c6c6c6;
+  background: #fff; }
+
+.picker__day--highlighted {
+  box-shadow: inset 0 0 0 1px; }
+
+.picker__day--disabled,
+.picker__day--disabled:hover,
+.picker--focused .picker__day--disabled {
+  color: #fafafa;
+  cursor: default; }
+
+/**
+ * The footer containing the "today", "clear", and "close" buttons.
+ */
+.picker__day--Btn-Hoy {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 31.76157%; }
+  .picker__day--Btn-Hoy:last-child {
+    margin-right: 0; }
+
+.picker__day--Btn-Borrar {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 31.76157%; }
+  .picker__day--Btn-Borrar:last-child {
+    margin-right: 0; }
+
+.picker__day--Btn-Cerrar {
+  margin-right: 0;
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 31.76157%; }
+  .picker__day--Btn-Cerrar:last-child {
+    margin-right: 0; }
+
+/*!
+ * Default mobile-first, responsive styling for pickadate.js
+ * Demo: http://amsul.github.io/pickadate.js
+ */
+/**
+ * Note: the root picker element should *NOT* be styled more than what’s here.
+ */
+/**
+ * Make the holder and frame fullscreen.
+ */
+.picker__holder,
+.picker__frame {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  -webkit-transform: translateY(100%);
+  -moz-transform: translateY(100%);
+  -ms-transform: translateY(100%);
+  -o-transform: translateY(100%);
+  transform: translateY(100%); }
+
+/**
+ * The holder should overlay the entire screen.
+ */
+.picker__holder {
+  position: fixed;
+  -webkit-transition: background 0.2s ease-out, -webkit-transform 0s 0.2s;
+  -moz-transition: background 0.2s ease-out, -moz-transform 0s 0.2s;
+  transition: background 0.2s ease-out, transform 0s 0.2s;
+  -webkit-backface-visibility: hidden; }
+
+/**
+ * The frame that bounds the box contents of the picker.
+ */
+.picker__frame {
+  position: absolute;
+  margin: 0 auto;
+  min-width: 256px;
+  max-width: 666px;
+  width: 100%;
+  opacity: 1;
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out; }
+  @media (min-height: 33.875em) {
+    .picker__frame {
+      overflow: visible;
+      top: auto;
+      bottom: -100%;
+      max-height: 80%; } }
+  @media (min-height: 40.125em) {
+    .picker__frame {
+      margin-bottom: 7.5%; } }
+
+/**
+ * The wrapper sets the stage to vertically align the box contents.
+ */
+.picker__wrap {
+  display: table;
+  width: 100%;
+  height: 100%; }
+  @media (min-height: 33.875em) {
+    .picker__wrap {
+      display: block; } }
+
+/**
+ * The box contains all the picker contents.
+ */
+.picker__box {
+  background: #fff;
+  display: table-cell;
+  vertical-align: middle; }
+  @media (min-height: 26.5em) {
+    .picker__box {
+      font-size: 1.3333rem; } }
+  @media (min-height: 33.875em) {
+    .picker__box {
+      display: block;
+      font-size: 1.0666rem;
+      border: 1px solid #e6e6e6;
+      border-bottom-width: 0;
+      border-radius: 0.8rem 0.8rem 0 0;
+      box-shadow: 0 12px 36px 16px rgba(0, 0, 0, 0.24); } }
+  @media (min-height: 40.125em) {
+    .picker__box {
+      font-size: 1.5em;
+      border-bottom-width: 1px;
+      border-radius: 0.8rem; } }
+
+/**
+ * When the picker opens...
+ */
+.picker--opened .picker__holder {
+  -webkit-transform: translateY(0);
+  -moz-transform: translateY(0);
+  -ms-transform: translateY(0);
+  -o-transform: translateY(0);
+  transform: translateY(0);
+  background: transparent;
+  background: 0 12px 36px 16px rgba(0, 0, 0, 0.24);
+  -webkit-transition: background 0.2s ease-out;
+  -moz-transition: background 0.2s ease-out;
+  transition: background 0.2s ease-out; }
+
+.picker--opened .picker__frame {
+  -webkit-transform: translateY(0);
+  -moz-transform: translateY(0);
+  -ms-transform: translateY(0);
+  -o-transform: translateY(0);
+  transform: translateY(0);
+  opacity: 1; }
+  @media (min-height: 33.875em) {
+    .picker--opened .picker__frame {
+      top: auto;
+      bottom: 0; } }
+
 /* ===========================================================================
    Botones Agrupados
    @mixin ========================================================================== */
-div.Botones-Agrupados {
+.Botones-Agrupados {
   float: left;
-  display: table; }
-  div.Botones-Agrupados > .Btn:not(:first-child):not(:last-child),
-  div.Botones-Agrupados > button:not(:first-child):not(:last-child), div.Botones-Agrupados input[type="button"]:not(:first-child):not(:last-child), div.Botones-Agrupados input[type="reset"]:not(:first-child):not(:last-child), div.Botones-Agrupados input[type="submit"]:not(:first-child):not(:last-child) {
+  display: inline-block;
+  vertical-align: middle; }
+  .Botones-Agrupados > .Btn:not(:first-child):not(:last-child),
+  .Botones-Agrupados > button:not(:first-child):not(:last-child), .Botones-Agrupados input[type="button"]:not(:first-child):not(:last-child), .Botones-Agrupados input[type="reset"]:not(:first-child):not(:last-child), .Botones-Agrupados input[type="submit"]:not(:first-child):not(:last-child) {
+    border-radius: 0; }
+  .Botones-Agrupados > .Btn:first-child,
+  .Botones-Agrupados > button:first-child, .Botones-Agrupados input[type="button"]:first-child, .Botones-Agrupados input[type="reset"]:first-child, .Botones-Agrupados input[type="submit"]:first-child {
     margin-right: -1px;
-    border-bottom-left-radius: 0;
-    border-top-left-radius: 0;
-    border-bottom-right-radius: 0;
-    border-top-right-radius: 0; }
-  div.Botones-Agrupados > .Btn:first-child,
-  div.Botones-Agrupados > button:first-child, div.Botones-Agrupados input[type="button"]:first-child, div.Botones-Agrupados input[type="reset"]:first-child, div.Botones-Agrupados input[type="submit"]:first-child {
     border-bottom-left-radius: 0.2666rem;
     border-top-left-radius: 0.2666rem;
     border-bottom-right-radius: 0;
     border-top-right-radius: 0; }
-  div.Botones-Agrupados > .Btn:last-child,
-  div.Botones-Agrupados > button:last-child, div.Botones-Agrupados input[type="button"]:last-child, div.Botones-Agrupados input[type="reset"]:last-child, div.Botones-Agrupados input[type="submit"]:last-child {
+  .Botones-Agrupados > .Btn:last-child,
+  .Botones-Agrupados > button:last-child, .Botones-Agrupados input[type="button"]:last-child, .Botones-Agrupados input[type="reset"]:last-child, .Botones-Agrupados input[type="submit"]:last-child {
     border-bottom-left-radius: 0;
     border-top-left-radius: 0;
     border-bottom-right-radius: 0.2666rem;
     border-top-right-radius: 0.2666rem; }
-  div.Botones-Agrupados > .Btn:focus, div.Botones-Agrupados > .Btn:active,
-  div.Botones-Agrupados > button:focus,
-  div.Botones-Agrupados > button:active, div.Botones-Agrupados input[type="button"]:focus, div.Botones-Agrupados input[type="button"]:active, div.Botones-Agrupados input[type="reset"]:focus, div.Botones-Agrupados input[type="reset"]:active, div.Botones-Agrupados input[type="submit"]:focus, div.Botones-Agrupados input[type="submit"]:active {
+  .Botones-Agrupados > .Btn:focus, .Botones-Agrupados > .Btn:active,
+  .Botones-Agrupados > button:focus,
+  .Botones-Agrupados > button:active, .Botones-Agrupados input[type="button"]:focus, .Botones-Agrupados input[type="button"]:active, .Botones-Agrupados input[type="reset"]:focus, .Botones-Agrupados input[type="reset"]:active, .Botones-Agrupados input[type="submit"]:focus, .Botones-Agrupados input[type="submit"]:active {
     z-index: 200; }
 
 /* ===========================================================================
    Controles Agrupados
    @mixin ========================================================================== */
-div.Controles-Agrupados {
-  display: table; }
-  div.Controles-Agrupados button, div.Controles-Agrupados input[type="button"], div.Controles-Agrupados input[type="reset"], div.Controles-Agrupados input[type="submit"],
-  div.Controles-Agrupados input[type="text"],
-  div.Controles-Agrupados input[type="email"],
-  div.Controles-Agrupados input[type="password"],
-  div.Controles-Agrupados div.Botones-Agrupados,
-  div.Controles-Agrupados span.Complemento-Agrupados {
-    display: table-cell; }
-  div.Controles-Agrupados input[type="text"],
-  div.Controles-Agrupados input[type="email"],
-  div.Controles-Agrupados input[type="password"] {
-    color: inherit;
-    width: auto; }
-    div.Controles-Agrupados input[type="text"]:focus, div.Controles-Agrupados input[type="text"]:active,
-    div.Controles-Agrupados input[type="email"]:focus,
-    div.Controles-Agrupados input[type="email"]:active,
-    div.Controles-Agrupados input[type="password"]:focus,
-    div.Controles-Agrupados input[type="password"]:active {
+.Controles-Agrupados {
+  display: table;
+  border-spacing: 0;
+  border-collapse: separate; }
+  .Controles-Agrupados input[type="text"],
+  .Controles-Agrupados input[type="email"],
+  .Controles-Agrupados input[type="password"] {
+    color: inherit; }
+    .Controles-Agrupados input[type="text"]::after,
+    .Controles-Agrupados input[type="email"]::after,
+    .Controles-Agrupados input[type="password"]::after {
+      clear: both;
+      content: "";
+      display: table; }
+    .Controles-Agrupados input[type="text"]:focus, .Controles-Agrupados input[type="text"]:active,
+    .Controles-Agrupados input[type="email"]:focus,
+    .Controles-Agrupados input[type="email"]:active,
+    .Controles-Agrupados input[type="password"]:focus,
+    .Controles-Agrupados input[type="password"]:active {
       z-index: 200; }
-  div.Controles-Agrupados button:not(:first-child):not(:last-child), div.Controles-Agrupados input[type="button"]:not(:first-child):not(:last-child), div.Controles-Agrupados input[type="reset"]:not(:first-child):not(:last-child), div.Controles-Agrupados input[type="submit"]:not(:first-child):not(:last-child),
-  div.Controles-Agrupados input[type="text"]:not(:first-child):not(:last-child),
-  div.Controles-Agrupados input[type="email"]:not(:first-child):not(:last-child),
-  div.Controles-Agrupados input[type="password"]:not(:first-child):not(:last-child),
-  div.Controles-Agrupados span.Complemento-Agrupados:not(:first-child):not(:last-child) {
-    border-radius: 0;
-    margin-right: -1px; }
-  div.Controles-Agrupados button:first-child, div.Controles-Agrupados input[type="button"]:first-child, div.Controles-Agrupados input[type="reset"]:first-child, div.Controles-Agrupados input[type="submit"]:first-child,
-  div.Controles-Agrupados input[type="text"]:first-child,
-  div.Controles-Agrupados input[type="email"]:first-child,
-  div.Controles-Agrupados input[type="password"]:first-child,
-  div.Controles-Agrupados span.Complemento-Agrupados:first-child {
-    border-bottom-right-radius: 0;
-    border-top-right-radius: 0; }
-  div.Controles-Agrupados button:last-child, div.Controles-Agrupados input[type="button"]:last-child, div.Controles-Agrupados input[type="reset"]:last-child, div.Controles-Agrupados input[type="submit"]:last-child,
-  div.Controles-Agrupados input[type="text"]:last-child,
-  div.Controles-Agrupados input[type="email"]:last-child,
-  div.Controles-Agrupados input[type="password"]:last-child,
-  div.Controles-Agrupados span.Complemento-Agrupados:last-child {
-    border-bottom-left-radius: 0;
-    border-top-left-radius: 0; }
-  div.Controles-Agrupados button, div.Controles-Agrupados input[type="button"], div.Controles-Agrupados input[type="reset"], div.Controles-Agrupados input[type="submit"],
-  div.Controles-Agrupados div.Botones-Agrupados {
-    border-left: none; }
-    div.Controles-Agrupados button:first-child > .Btn:last-child,
-    div.Controles-Agrupados button:first-child > button, div.Controles-Agrupados button:first-child input[type="button"], div.Controles-Agrupados button:first-child input[type="reset"], div.Controles-Agrupados button:first-child input[type="submit"]:last-child, div.Controles-Agrupados input[type="button"]:first-child > .Btn:last-child,
-    div.Controles-Agrupados input[type="button"]:first-child > button, div.Controles-Agrupados input[type="button"]:first-child input[type="button"], div.Controles-Agrupados input[type="button"]:first-child input[type="reset"], div.Controles-Agrupados input[type="button"]:first-child input[type="submit"]:last-child, div.Controles-Agrupados input[type="reset"]:first-child > .Btn:last-child,
-    div.Controles-Agrupados input[type="reset"]:first-child > button, div.Controles-Agrupados input[type="reset"]:first-child input[type="button"], div.Controles-Agrupados input[type="reset"]:first-child input[type="reset"], div.Controles-Agrupados input[type="reset"]:first-child input[type="submit"]:last-child, div.Controles-Agrupados input[type="submit"]:first-child > .Btn:last-child,
-    div.Controles-Agrupados input[type="submit"]:first-child > button, div.Controles-Agrupados input[type="submit"]:first-child input[type="button"], div.Controles-Agrupados input[type="submit"]:first-child input[type="reset"], div.Controles-Agrupados input[type="submit"]:first-child input[type="submit"]:last-child,
-    div.Controles-Agrupados div.Botones-Agrupados:first-child > .Btn:last-child,
-    div.Controles-Agrupados div.Botones-Agrupados:first-child > button,
-    div.Controles-Agrupados div.Botones-Agrupados:first-child input[type="button"],
-    div.Controles-Agrupados div.Botones-Agrupados:first-child input[type="reset"],
-    div.Controles-Agrupados div.Botones-Agrupados:first-child input[type="submit"]:last-child {
+    .Controles-Agrupados input[type="text"]:not(:first-child):not(:last-child),
+    .Controles-Agrupados input[type="email"]:not(:first-child):not(:last-child),
+    .Controles-Agrupados input[type="password"]:not(:first-child):not(:last-child) {
+      border-radius: 0; }
+    .Controles-Agrupados input[type="text"]:first-child,
+    .Controles-Agrupados input[type="email"]:first-child,
+    .Controles-Agrupados input[type="password"]:first-child {
+      margin-right: -1px;
       border-bottom-right-radius: 0;
       border-top-right-radius: 0; }
-    div.Controles-Agrupados button:last-child > .Btn:first-child,
-    div.Controles-Agrupados button:last-child > button, div.Controles-Agrupados button:last-child input[type="button"], div.Controles-Agrupados button:last-child input[type="reset"], div.Controles-Agrupados button:last-child input[type="submit"]:first-child, div.Controles-Agrupados input[type="button"]:last-child > .Btn:first-child,
-    div.Controles-Agrupados input[type="button"]:last-child > button, div.Controles-Agrupados input[type="button"]:last-child input[type="button"], div.Controles-Agrupados input[type="button"]:last-child input[type="reset"], div.Controles-Agrupados input[type="button"]:last-child input[type="submit"]:first-child, div.Controles-Agrupados input[type="reset"]:last-child > .Btn:first-child,
-    div.Controles-Agrupados input[type="reset"]:last-child > button, div.Controles-Agrupados input[type="reset"]:last-child input[type="button"], div.Controles-Agrupados input[type="reset"]:last-child input[type="reset"], div.Controles-Agrupados input[type="reset"]:last-child input[type="submit"]:first-child, div.Controles-Agrupados input[type="submit"]:last-child > .Btn:first-child,
-    div.Controles-Agrupados input[type="submit"]:last-child > button, div.Controles-Agrupados input[type="submit"]:last-child input[type="button"], div.Controles-Agrupados input[type="submit"]:last-child input[type="reset"], div.Controles-Agrupados input[type="submit"]:last-child input[type="submit"]:first-child,
-    div.Controles-Agrupados div.Botones-Agrupados:last-child > .Btn:first-child,
-    div.Controles-Agrupados div.Botones-Agrupados:last-child > button,
-    div.Controles-Agrupados div.Botones-Agrupados:last-child input[type="button"],
-    div.Controles-Agrupados div.Botones-Agrupados:last-child input[type="reset"],
-    div.Controles-Agrupados div.Botones-Agrupados:last-child input[type="submit"]:first-child {
+    .Controles-Agrupados input[type="text"]:last-child,
+    .Controles-Agrupados input[type="email"]:last-child,
+    .Controles-Agrupados input[type="password"]:last-child {
+      margin-left: -1px;
       border-bottom-left-radius: 0;
       border-top-left-radius: 0; }
+  .Controles-Agrupados .Botones-Agrupados,
+  .Controles-Agrupados .Complemento-Agrupados {
+    width: 1%;
+    display: table-cell;
+    white-space: nowrap; }
+  .Controles-Agrupados .Botones-Agrupados {
+    float: none;
+    font-size: 0;
+    border-left: none; }
+    .Controles-Agrupados .Botones-Agrupados:first-child {
+      right: -1px; }
+      .Controles-Agrupados .Botones-Agrupados:first-child > .Btn:last-child,
+      .Controles-Agrupados .Botones-Agrupados:first-child > button, .Controles-Agrupados .Botones-Agrupados:first-child input[type="button"], .Controles-Agrupados .Botones-Agrupados:first-child input[type="reset"], .Controles-Agrupados .Botones-Agrupados:first-child input[type="submit"]:last-child {
+        border-bottom-right-radius: 0;
+        border-top-right-radius: 0; }
+    .Controles-Agrupados .Botones-Agrupados:last-child {
+      left: -1px; }
+      .Controles-Agrupados .Botones-Agrupados:last-child > .Btn:first-child,
+      .Controles-Agrupados .Botones-Agrupados:last-child > button, .Controles-Agrupados .Botones-Agrupados:last-child input[type="button"], .Controles-Agrupados .Botones-Agrupados:last-child input[type="reset"], .Controles-Agrupados .Botones-Agrupados:last-child input[type="submit"]:first-child {
+        border-bottom-left-radius: 0;
+        border-top-left-radius: 0; }
+    .Controles-Agrupados .Botones-Agrupados button, .Controles-Agrupados .Botones-Agrupados input[type="button"], .Controles-Agrupados .Botones-Agrupados input[type="reset"], .Controles-Agrupados .Botones-Agrupados input[type="submit"] {
+      float: none;
+      line-height: inherit; }
 
-span.Complemento-Agrupados {
+.Complemento-Agrupados {
   color: #c6c6c6;
-  float: left;
   border: 1px solid #c6c6c6;
   height: 3.2rem;
-  display: table-cell;
   padding: 0 1rem;
   background: #fafafa;
-  line-height: 3.2rem;
   border-radius: 0.2666rem;
   vertical-align: middle; }
-  span.Complemento-Agrupados:first-child {
-    border-right: 0; }
-  span.Complemento-Agrupados:last-child {
-    border-left: 0; }
+  .Complemento-Agrupados:first-child {
+    border-right: 0;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0; }
+  .Complemento-Agrupados:last-child {
+    border-left: 0;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0; }
+  .Complemento-Agrupados:not(:first-child):not(:last-child) {
+    border-left: none;
+    border-radius: 0;
+    border-right: none; }

@@ -1,5 +1,7 @@
 var gulp = require('gulp'),
     sass = require('gulp-sass'),
+    concat = require('gulp-concat'),
+    uglify = require('gulp-uglify'),
     bourbon = require('node-bourbon').includePaths,
     neat = require('node-neat').includePaths,
     cleanCSS = require('gulp-clean-css'),
@@ -28,6 +30,15 @@ gulp.task('minify-css', function() {
         .pipe(gulp.dest('dist/css'));
 });
 
+gulp.task('minify-js', function() {
+    return gulp.src(['src/js/utilidades.js', 'src/js/tests.js', 'src/js/modales.js', 'src/js/desplegables.js'])
+        .pipe(concat('pluma.js'))
+        .pipe(gulp.dest('dist/js'))
+        .pipe(rename('pluma.min.js'))
+        .pipe(uglify())
+        .pipe(gulp.dest('dist/js'));
+});
+
 gulp.task('browserSync', function() {
     browserSync({
         server: {
@@ -36,7 +47,7 @@ gulp.task('browserSync', function() {
     })
 });
 
-gulp.task('watch', ['sass', 'minify-css', 'browserSync'], function() {
+gulp.task('watch', ['sass', 'minify-css', 'minify-js', 'browserSync'], function() {
     gulp.watch('src/sass/**/*.sass', ['sass']);
     gulp.watch('dist/*.html').on('change', browserSync.reload);
 });

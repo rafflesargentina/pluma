@@ -3,62 +3,68 @@
    =========================================================================== */
 
 
-div.Controles-Agrupados
+.Controles-Agrupados
   display: table
-  #{$all-buttons},
-  input[type="text"],
-  input[type="email"],
-  input[type="password"],
-  div.Botones-Agrupados,
-  span.Complemento-Agrupados
-    display: table-cell
+  border-spacing: 0
+  border-collapse: separate
 
   input[type="text"],
   input[type="email"],
   input[type="password"]
     color: inherit
-    width: auto
+    @include clearfix
     &:focus,
     &:active
       z-index: $capa-solapas
-
-  #{$all-buttons},
-  input[type="text"],
-  input[type="email"],
-  input[type="password"],
-  span.Complemento-Agrupados
     &:not(:first-child):not(:last-child)
       border-radius: 0
-      margin-right: -1px
     &:first-child
+      margin-right: -1px
       @include border-right-radius(0)
     &:last-child
+      margin-left: -1px
       @include border-left-radius(0)
 
-  #{$all-buttons},
-  div.Botones-Agrupados
+  .Botones-Agrupados,
+  .Complemento-Agrupados
+    width: 1%
+    display: table-cell
+    white-space: nowrap
+
+  .Botones-Agrupados
+    float: none
+    font-size: 0
     border-left: none
     &:first-child
+      right: -1px
       > .Btn:last-child,
       > #{$all-buttons}:last-child
         @include border-right-radius(0)
     &:last-child
+      left: -1px
       > .Btn:first-child,
       > #{$all-buttons}:first-child
         @include border-left-radius(0)
 
-span.Complemento-Agrupados
+    #{$all-buttons}
+      float: none
+      line-height: inherit
+
+.Complemento-Agrupados
   color: $gris-claro
-  float: left
   border: $borde
   height: $alto-control
-  display: table-cell
   padding: 0 $espacio-muy-chico
   background: $color-deshabilitado
-  line-height: $alto-control
   border-radius: $radio-borde
   vertical-align: middle
   &:first-child
     border-right: 0
+    @include border-right-radius(0)
   &:last-child
     border-left: 0
+    @include border-left-radius(0)
+  &:not(:first-child):not(:last-child)
+    border-left: none
+    border-radius: 0
+    border-right: none

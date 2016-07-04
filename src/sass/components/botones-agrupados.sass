@@ -3,16 +3,16 @@
    =========================================================================== */
 
 
-div.Botones-Agrupados
+.Botones-Agrupados
   float: left
-  display: table
+  display: inline-block
+  vertical-align: middle
   > .Btn,
   > #{$all-buttons},
     &:not(:first-child):not(:last-child)
-      margin-right: -1px
-      @include border-left-radius(0)
-      @include border-right-radius(0)
+      border-radius: 0
     &:first-child
+      margin-right: -1px
       @include border-left-radius($radio-borde)
       @include border-right-radius(0)
     &:last-child

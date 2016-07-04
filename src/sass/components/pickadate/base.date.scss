@@ -1,0 +1,304 @@
+
+/* ==========================================================================
+   $BASE-DATE-PICKER
+   ========================================================================== */
+
+@import "_variables.scss";
+
+
+/**
+ * The picker box.
+ */
+.picker__box {
+    padding: $espacio-chico;
+}
+
+
+.picker__header,
+.picker__footer {
+    width: 100%;
+    @include clearfix;  
+}
+/**
+ * The header containing the month and year stuff.
+ */
+.picker__header {
+    @media ( min-width: $primer--bp ) {
+        margin: $espacio-muy-chico 0;
+    }
+}
+
+
+/**
+ * The month and year labels.
+ */
+.picker__month,
+.picker__year {
+    color: $gris-mas-oscuro;
+    font-size: $alto-boton / 2;
+    line-height: 1;
+    text-transform: $trans-encabezados;
+    @include span-columns(6);
+}
+.picker__month {
+    text-align: right;
+}
+.picker__year {
+    text-align: left;
+    @include omega;
+}
+
+
+/**
+ * The month and year selectors.
+ */
+.picker__select--month,
+.picker__select--year {
+    color: $gris-mas-oscuro;
+    border: none;
+    font-size: $alto-boton / 2;
+    text-transform: $trans-encabezados;
+
+    // For `tiny` width screens, move it up a bit.
+    @media ( min-width: $primer--bp ) {
+    }
+}
+.picker__select--month {
+    padding-left: 0;
+    @include omega;
+    @include span-columns(4)
+}
+.picker__select--year {
+    padding-right: 0;
+    @include shift(2);
+    @include span-columns(4)
+    @media (min-width: $primer--bp) {
+        @include shift(4);
+        @include span-columns(2);
+    }
+
+}
+
+
+/**
+ * The month navigation buttons.
+ */
+.picker__nav--prev,
+.picker__nav--next {
+    top: $espacio-muy-chico;
+    width: $alto-boton / 4;
+    cursor: pointer;
+    height: $alto-boton / 4;
+    content: '';
+    position: absolute;
+    box-sizing: content-box;
+    border-width: 0.2rem 0.2rem 0 0;
+    border-style: solid;
+    vertical-align: top;
+    display: inline-block;
+}
+.picker__nav--prev {
+    left: $alto-boton / 4;
+    @include transform(rotate(225deg));
+
+    // For `tiny` width screens, increase the padding a bit.
+    @media ( min-width: $primer--bp ) {
+        left: $alto-boton;
+    }
+}
+.picker__nav--next {
+    right: $alto-boton / 4;
+    @include transform(rotate(45deg));
+
+    // For `tiny` width screens, increase the padding a bit.
+    @media ( min-width: $primer--bp ) {
+        right: $alto-boton;
+    }
+}
+
+// Hovered date picker items.
+//.picker__nav--prev:hover,
+//.picker__nav--next:hover {
+//    @include picker-item-hovered;
+//}
+
+// Disabled month nav.
+.picker__nav--disabled,
+.picker__nav--disabled:hover,
+.picker__nav--disabled:before,
+.picker__nav--disabled:before:hover {
+    cursor: default;
+    background: $color-variante-fondo;
+}
+
+
+
+
+/**
+ * The calendar table of dates
+ */
+.picker__table {
+    font-size: inherit;
+    border-color: transparent;
+    margin-bottom: $espacio-muy-chico;
+
+    // For `small` screens, increase the spacing a tad.
+    @media ( min-height: $breakpoint-small ) {
+    }
+}
+
+.picker__table {
+    > thead,
+    > tbody,
+    > tfoot {
+        > tr {
+            > td,
+            > th {
+                font-size: $tamano-fuente-grande;
+                text-align: center;
+                border-bottom: none;
+            }
+            > td {
+                padding: 0;
+                border-bottom: none;
+            }
+            > th {
+                padding: $padding-tabla-vertical $padding-tabla-horizontal;
+            }
+        }
+    }
+    tbody tr {
+        &:hover {
+            background: $color-alerta-fondo-info;
+        }
+        td > .picker__day {
+            &:focus,
+            &:hover,
+            &:active {
+                background: $color-alerta-borde-info;
+            }
+        }
+        td .picker__day.picker__day--outfocus {
+            &:focus,
+            &:hover,
+            &:active {
+                background: $color-fondo;
+            }
+        }
+        td:last-child {
+            color: $color-alerta-texto-error;
+            background: $color-alerta-fondo-error;
+            .picker__day {
+                color: $color-alerta-texto-error;
+            }
+            .picker__day.picker__day--infocus {
+                &:focus,
+                &:hover,
+                &:active {
+                    background: $color-alerta-borde-error;
+                }
+            }
+            .picker_day.picker__day--outfocus {
+                color: $color-borde;
+                background: $color-fondo;
+            }
+        }
+    }
+}
+
+
+/**
+ * The weekday labels
+ */
+.picker__weekday {
+    /* Increase the spacing a tad */
+    @media ( min-height: $breakpoint-small ) {
+    }
+}
+
+
+/**
+ * The days on the calendar
+ */
+.picker__day {
+    padding: $padding-tabla-horizontal;
+}
+
+// Today.
+.picker__day--today {
+}
+.picker__day--today:before {
+    content: ' ';
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    width: 0;
+    height: 0;
+    border-top: $padding-tabla-horizontal solid;
+    border-left: $padding-tabla-horizontal solid transparent;
+}
+
+// Disabled day.
+.picker__day--disabled:before {
+}
+
+// Out of focus days.
+.picker__day--outfocus {
+    color: $color-borde;
+    background: $color-fondo;
+}
+
+// Hovered date picker items.
+//.picker__day--infocus:hover,
+//.picker__day--outfocus:hover {
+//    @include picker-item-hovered;
+//}
+
+// Highlighted and hovered/focused dates.
+.picker__day--highlighted {
+    @include picker-item-highlighted;
+}
+//.picker__day--highlighted:hover,
+//.picker--focused .picker__day--highlighted {
+//    @include picker-item-hovered;
+//}
+
+// Selected and hovered/focused dates.
+.picker__day--selected,
+.picker__day--selected:hover,
+.picker--focused .picker__day--selected {
+    @include picker-item-selected;
+}
+
+// Disabled dates.
+.picker__day--disabled,
+.picker__day--disabled:hover,
+.picker--focused .picker__day--disabled {
+    @include picker-item-disabled;
+}
+
+// Disabled and highlighted dates.
+.picker__day--highlighted.picker__day--disabled,
+.picker__day--highlighted.picker__day--disabled:hover {
+}
+
+
+/**
+ * The footer containing the "today", "clear", and "close" buttons.
+ */
+.picker__footer {
+}
+
+.picker__day--Btn-Hoy {
+    @include span-columns(4);
+}
+
+.picker__day--Btn-Borrar {
+    @include span-columns(4);
+}
+
+.picker__day--Btn-Cerrar {
+    @include omega;
+    @include span-columns(4);
+}
+

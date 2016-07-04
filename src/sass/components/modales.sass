@@ -1,0 +1,51 @@
+/* ===========================================================================
+   Ventanas Modales
+   =========================================================================== */
+
+.Wrapper-VModal
+  top: 0
+  left: 0
+  right: 0
+  width: 100%; /* Ancho completo */
+  bottom: 0
+  height: 0; /* Invisible al inicio */
+  display: block
+  opacity: 0
+  z-index: $capa-wrapper-vmodal
+  position: fixed
+  background: $color-sombra
+  @include transition(all .5s $timing)
+
+.Ventana-Modal
+  top: -100vh
+  left: 0
+  right: 0
+  margin: $espacio auto 0 auto
+  display: none
+  padding: $espacio
+  max-width: 75%
+  min-width: $primer--bp
+  background: $color-fondo
+  border-radius: $radio-borde * 2
+  @include transition(all .5s $timing)
+
+.Btn-Cerrar
+  color: $gris-oscuro
+  float: right
+  margin: $espacio-muy-chico
+  font-size: $tamano-fuente-h1
+  font-weight: 600
+  line-height: 1
+  &:focus,
+  &:hover
+    color: $gris-mas-oscuro
+    cursor: pointer
+    text-decoration: none
+
+.Wrapper-VModal.--visible
+  opacity: 1
+  height: 100%
+
+  .Ventana-Modal.--vmodal-visible
+    top: 50%
+    display: block

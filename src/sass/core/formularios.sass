@@ -55,12 +55,13 @@ input[type="password"]
  * Autofill
  */
 input:-webkit-autofill
-  box-shadow: 0 0 0 $alto-control $color-alerta-fondo-info inset
-  -webkit-text-fill-color: $gris-oscuro
+  box-shadow: 0 0 0 $alto-control $color-alerta-fondo-warning inset
+  border-color: $color-alerta-borde-warning
+  -webkit-text-fill-color: tint($color-alerta-texto-warning, 45%)
   @include transition(border-color $duracion $timing)
   &:focus,
   &:active
-    -webkit-text-fill-color: $gris-mas-oscuro
+    -webkit-text-fill-color: $color-alerta-texto-warning
     @include transition(border-color $duracion $timing)
 
 /**

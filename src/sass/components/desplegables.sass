@@ -4,8 +4,6 @@
 
 
 nav.Menu-Desplegable
-  top: 0
-  left: 0
   float: left
   border: $borde-claro
   display: none
@@ -15,12 +13,12 @@ nav.Menu-Desplegable
   .--desplegable-visible
     display: block
 
+nav.Menu-Desplegable.Negativo
+  border: transparent
+  background: $gris-oscuro
+
 ul.Lista-Menu-Desplegable
   float: left
-  margin: 0 auto
-  padding: $padding-tabla-horizontal 0
-  position: relative
-  text-align: center
 
 li.Item-Menu-Desplegable
   float: left
@@ -40,4 +38,12 @@ li.Item-Menu-Desplegable
 a.Link-Menu-Desplegable
   float: left
   width: 100%
-  padding: $padding-tabla-horizontal 0
+  padding: $padding-tabla-vertical 2rem
+
+nav.Menu-Desplegable.Negativo
+  li.Item-Menu-Desplegable
+    &:focus,
+    &:hover
+      background: $gris-mas-oscuro
+  a.Link-Menu-Desplegable
+    color: $color-fondo

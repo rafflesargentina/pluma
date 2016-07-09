@@ -35,21 +35,22 @@ header.Navegacion
       > div.Barra
         background: $gris-mas-oscuro
     > div.Barra
-      top: 1rem
-      width: 100%
-      height: 0.4rem
+      top: (14 / 15) + rem
+      width: 70%
+      height: (1 / 3) + rem
+      margin: 0 auto
       background: $gris-oscuro
       @include transition(all $duracion $timing)
       &:first-child
-        top: 0.4rem
+        top: (10 / 15) + rem
       &:last-child
-        top: 1.6rem
+        top: 1.2rem
   div.Btn-Menu-Navegacion.--activado
     > div.Barra
       opacity: 0
     > div.Barra
       &:first-child
-        top: 1.4rem
+        top: (19 / 15) + rem
         opacity: 1 !important
         @include transform(rotate(45deg))
         @include transition(all $duracion $timing)
@@ -58,6 +59,14 @@ header.Navegacion
         opacity: 1 !important
         @include transform(rotate(-45deg))
         @include transition(all $duracion $timing)
+
+  div.Btn-Menu-Navegacion.Negativo.--activado 
+    background: $gris-oscuro
+    &:focus,
+    &:hover
+      background: $gris-mas-oscuro
+    > div.Barra
+      background: $color-fondo
 
   nav.Menu-Navegacion
     float: left

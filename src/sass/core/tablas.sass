@@ -11,6 +11,12 @@ table
   border-spacing: 0
   border-collapse: separate
 
+caption
+  width: 100%
+  display: table-caption
+  font-size: $tamano-fuente-grande
+  text-align: center
+  margin-bottom: $espacio-muy-chico
 
 thead
   display: table-header-group
@@ -34,6 +40,7 @@ tr
 
 td,
 th
+  display: table-cell
   padding: $padding-tabla-vertical $padding-tabla-horizontal
   overflow: hidden
   text-align: left
@@ -123,7 +130,7 @@ thead th
    =========================================================================== */
 div.Caja-Tabla
   min-width: 20rem
-  overflow-x: scroll
+  overflow-x: auto
   -webkit-overflow-scrolling: touch
   > table.Adaptable
     min-width: $max-width - rem($primer--bp)

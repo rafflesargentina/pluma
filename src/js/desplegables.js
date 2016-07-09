@@ -1,4 +1,5 @@
 function mostrarDesplegable() {
+    event.target.preventDefault();
     var gatillo = event.target;
     if(supportsQuerySelectors()) {
         var blanco = document.querySelector("#" + gatillo.getAttribute("data-desplegable"));

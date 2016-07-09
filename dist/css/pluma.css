@@ -84,6 +84,12 @@ hr {
   border-bottom: 1px solid #e6e6e6; }
 
 /**
+ * Imagen adaptable
+ */
+img.Adaptable {
+  max-width: 100%; }
+
+/**
  * Oculta el overflow en IE.
  */
 svg:not(:root) {
@@ -382,6 +388,13 @@ table {
   border-spacing: 0;
   border-collapse: separate; }
 
+caption {
+  width: 100%;
+  display: table-caption;
+  font-size: 1.0666rem;
+  text-align: center;
+  margin-bottom: 1rem; }
+
 thead {
   display: table-header-group;
   vertical-align: middle;
@@ -404,6 +417,7 @@ tr {
 
 td,
 th {
+  display: table-cell;
   padding: 1.2rem 0.6rem;
   overflow: hidden;
   text-align: left;
@@ -502,7 +516,7 @@ thead th {
    @mixin ========================================================================== */
 div.Caja-Tabla {
   min-width: 20rem;
-  overflow-x: scroll;
+  overflow-x: auto;
   -webkit-overflow-scrolling: touch; }
   div.Caja-Tabla > table.Adaptable {
     min-width: 56.4rem;
@@ -688,6 +702,14 @@ button::-moz-focus-inner {
 .Texto-Izquierda {
   text-align: left !important; }
 
+/* Borde
+   @mixin ========================================================================== */
+.--con-borde {
+  border: 1px solid #c6c6c6; }
+
+.--con-borde-claro {
+  border: 1px solid #e6e6e6; }
+
 /* Sombra
    @mixin ========================================================================== */
 .--con-sombra {
@@ -700,7 +722,7 @@ button::-moz-focus-inner {
  * 1. Previene la inaccesibilidad al elemento cuando se encuentra flotado.
  */
 form {
-  z-index: 100;
+  z-index: 1;
   /* 1 */ }
 
 form.Formulario-Tabla {
@@ -793,13 +815,14 @@ input[type="password"] {
  * Autofill
  */
 input:-webkit-autofill {
-  box-shadow: 0 0 0 3.2rem #e6f6fe inset;
-  -webkit-text-fill-color: #858585;
+  box-shadow: 0 0 0 3.2rem #f7f8ea inset;
+  border-color: #ebecca;
+  -webkit-text-fill-color: #d5d890;
   -webkit-transition: border-color 0.25s ease;
   -moz-transition: border-color 0.25s ease;
   transition: border-color 0.25s ease; }
   input:-webkit-autofill:focus, input:-webkit-autofill:active {
-    -webkit-text-fill-color: #4a4a4a;
+    -webkit-text-fill-color: #b3b836;
     -webkit-transition: border-color 0.25s ease;
     -moz-transition: border-color 0.25s ease;
     transition: border-color 0.25s ease; }
@@ -858,7 +881,7 @@ label {
 i.Icono-Control-Derecha,
 i.Icono-Control-Izquierda {
   color: #c6c6c6;
-  z-index: 100;
+  z-index: 1;
   position: absolute;
   font-size: 1rem;
   font-weight: 600;
@@ -1140,7 +1163,7 @@ i.Icono-Control-Izquierda {
  */
 a {
   color: #4a4a4a;
-  z-index: 100;
+  z-index: 1;
   /* 3 */
   font-size: inherit;
   font-weight: 400;
@@ -1374,7 +1397,7 @@ small {
   /* Invisible al inicio */
   display: block;
   opacity: 0;
-  z-index: 700;
+  z-index: 500;
   position: fixed;
   background: rgba(0, 0, 0, 0.07);
   -webkit-transition: all 0.5s ease;
@@ -1512,7 +1535,7 @@ div.Col-4 figure > div.Miniatura {
   .pagination > li > span:focus,
   .pagination > li > span:hover {
     color: #fff;
-    z-index: 100;
+    z-index: 1;
     background: #03a9f4;
     border-color: #03a9f4; }
   .pagination > .active > a:focus, .pagination > .active > a:hover,
@@ -1520,7 +1543,7 @@ div.Col-4 figure > div.Miniatura {
   .pagination > .active > span:hover {
     color: #fff;
     cursor: default;
-    z-index: 200;
+    z-index: 20;
     background: #0288d1;
     border-color: #03a9f4; }
   .pagination > .disabled > span,
@@ -1538,23 +1561,21 @@ div.Col-4 figure > div.Miniatura {
    Desplegables
    @mixin ========================================================================== */
 nav.Menu-Desplegable {
-  top: 0;
-  left: 0;
   float: left;
   border: 1px solid #e6e6e6;
   display: none;
-  z-index: 600;
+  z-index: 300;
   position: absolute;
   background: #fafafa; }
   nav.Menu-Desplegable .--desplegable-visible {
     display: block; }
 
+nav.Menu-Desplegable.Negativo {
+  border: transparent;
+  background: #858585; }
+
 ul.Lista-Menu-Desplegable {
-  float: left;
-  margin: 0 auto;
-  padding: 0.6rem 0;
-  position: relative;
-  text-align: center; }
+  float: left; }
 
 li.Item-Menu-Desplegable {
   float: left;
@@ -1577,7 +1598,13 @@ li.Item-Menu-Desplegable {
 a.Link-Menu-Desplegable {
   float: left;
   width: 100%;
-  padding: 0.6rem 0; }
+  padding: 1.2rem 2rem; }
+
+nav.Menu-Desplegable.Negativo li.Item-Menu-Desplegable:focus, nav.Menu-Desplegable.Negativo li.Item-Menu-Desplegable:hover {
+  background: #4a4a4a; }
+
+nav.Menu-Desplegable.Negativo a.Link-Menu-Desplegable {
+  color: #fff; }
 
 .select2-container {
   float: left;
@@ -1683,7 +1710,7 @@ a.Link-Menu-Desplegable {
   height: auto;
   display: block;
   opacity: 0;
-  z-index: 100;
+  z-index: 1;
   position: fixed;
   min-width: 100%;
   min-height: 100%;
@@ -2305,7 +2332,7 @@ a.Link-Menu-Desplegable {
   .Botones-Agrupados > .Btn:focus, .Botones-Agrupados > .Btn:active,
   .Botones-Agrupados > button:focus,
   .Botones-Agrupados > button:active, .Botones-Agrupados input[type="button"]:focus, .Botones-Agrupados input[type="button"]:active, .Botones-Agrupados input[type="reset"]:focus, .Botones-Agrupados input[type="reset"]:active, .Botones-Agrupados input[type="submit"]:focus, .Botones-Agrupados input[type="submit"]:active {
-    z-index: 200; }
+    z-index: 20; }
 
 /* ===========================================================================
    Controles Agrupados
@@ -2329,7 +2356,7 @@ a.Link-Menu-Desplegable {
     .Controles-Agrupados input[type="email"]:active,
     .Controles-Agrupados input[type="password"]:focus,
     .Controles-Agrupados input[type="password"]:active {
-      z-index: 200; }
+      z-index: 20; }
     .Controles-Agrupados input[type="text"]:not(:first-child):not(:last-child),
     .Controles-Agrupados input[type="email"]:not(:first-child):not(:last-child),
     .Controles-Agrupados input[type="password"]:not(:first-child):not(:last-child) {

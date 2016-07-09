@@ -1,0 +1,18 @@
+/* ===========================================================================
+   Desplegables
+   =========================================================================== */
+
+
+nav#menuNavegacion
+  top: $alto-header-mobile
+  width: 100%
+  position: fixed
+
+
+/* Media Queries
+   =========================================================================== */
+@include media(min-width $segundo-bp)
+  nav#menuNavegacion
+    top: $alto-header-mobile + 1rem
+    width: $primer--bp
+    z-index: $capa-navegacion + 1

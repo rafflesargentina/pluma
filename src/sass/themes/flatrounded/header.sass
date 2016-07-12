@@ -28,7 +28,7 @@ header.Navegacion
     width: $alto-logo
     cursor: pointer
     height: $alto-logo
-    display: block
+    display: inline-block
     &:focus,
     &:hover,
     &:active
@@ -45,7 +45,7 @@ header.Navegacion
         top: (10 / 15) + rem
       &:last-child
         top: 1.2rem
-  div.Btn-Menu-Navegacion.--activado
+  div.Btn-Menu-Navegacion.--activo
     > div.Barra
       opacity: 0
     > div.Barra
@@ -60,7 +60,7 @@ header.Navegacion
         @include transform(rotate(-45deg))
         @include transition(all $duracion $timing)
 
-  div.Btn-Menu-Navegacion.Negativo.--activado 
+  div.Btn-Menu-Navegacion.Negativo.--activo 
     background: $gris-oscuro
     &:focus,
     &:hover

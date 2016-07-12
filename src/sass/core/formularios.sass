@@ -40,7 +40,8 @@ input[type="password"]
   @include transition(color $duracion $timing, border-color $duracion $timing)
   @include placeholder
     color: $color-borde
-  &:not([disabled]):focus
+  &:not([disabled]):focus,
+  &:not([disabled]):active,
     color: $gris-mas-oscuro
     border-color: $color-primario
     @include transition(color $duracion $timing, border-color $duracion $timing)
@@ -51,18 +52,19 @@ input[type="password"]
     color: $gris-claro
     background: $color-deshabilitado
 
-/**
- * Autofill
- */
-input:-webkit-autofill
-  box-shadow: 0 0 0 $alto-control $color-alerta-fondo-warning inset
-  border-color: $color-alerta-borde-warning
-  -webkit-text-fill-color: tint($color-alerta-texto-warning, 45%)
-  @include transition(border-color $duracion $timing)
-  &:focus,
-  &:active
+  /**
+   * Autofill
+   */
+  &:-webkit-autofill
+    box-shadow: 0 0 0 $alto-control $color-alerta-fondo-warning inset
+    border: 1px solid $color-alerta-borde-warning
     -webkit-text-fill-color: $color-alerta-texto-warning
     @include transition(border-color $duracion $timing)
+    &:not([disabled]):focus,
+    &:not([disabled]):active
+      border-color: $color-alerta-texto-warning
+      -webkit-text-fill-color: $color-alerta-texto-warning
+      @include transition(border-color $duracion $timing)
 
 /**
  * 1. Permite solo resize vertical.
@@ -104,6 +106,10 @@ label
   font-weight: $peso-fuente-etiquetas
   letter-spacing: 1px
   text-transform: $trans-fuente-etiquetas
+  @include transition(color $duracion $timing)
+
+label.--con-foco
+  color: $color-primario
   @include transition(color $duracion $timing)
 
 /* Controles con icono

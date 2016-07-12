@@ -12,13 +12,16 @@
   input[type="text"],
   input[type="email"],
   input[type="password"]
+    box-shadow: 0 0 0 $alto-control $color-fondo-control inset
     border-color: $color-borde-control
     background-color: $color-fondo-control
+    -webkit-text-fill-color: $color-texto-control
     @include placeholder
-      color: tint($color-texto-control, 45%)
+      color: $color-borde-control
     &:focus,
     &:active
       border-color: $color-texto-control
+      -webkit-text-fill-color: $color-texto-control
     + label
       color: $color-borde-control
 

@@ -231,7 +231,7 @@ header.Navegacion {
     width: 3rem;
     cursor: pointer;
     height: 3rem;
-    display: block; }
+    display: inline-block; }
     header.Navegacion div.Btn-Menu-Navegacion:focus > div.Barra, header.Navegacion div.Btn-Menu-Navegacion:hover > div.Barra, header.Navegacion div.Btn-Menu-Navegacion:active > div.Barra {
       background: #4a4a4a; }
     header.Navegacion div.Btn-Menu-Navegacion > div.Barra {
@@ -247,9 +247,9 @@ header.Navegacion {
         top: 0.66667rem; }
       header.Navegacion div.Btn-Menu-Navegacion > div.Barra:last-child {
         top: 1.2rem; }
-  header.Navegacion div.Btn-Menu-Navegacion.--activado > div.Barra {
+  header.Navegacion div.Btn-Menu-Navegacion.--activo > div.Barra {
     opacity: 0; }
-  header.Navegacion div.Btn-Menu-Navegacion.--activado > div.Barra:first-child {
+  header.Navegacion div.Btn-Menu-Navegacion.--activo > div.Barra:first-child {
     top: 1.26667rem;
     opacity: 1 !important;
     -webkit-transform: rotate(45deg);
@@ -260,7 +260,7 @@ header.Navegacion {
     -webkit-transition: all 0.25s ease;
     -moz-transition: all 0.25s ease;
     transition: all 0.25s ease; }
-  header.Navegacion div.Btn-Menu-Navegacion.--activado > div.Barra:last-child {
+  header.Navegacion div.Btn-Menu-Navegacion.--activo > div.Barra:last-child {
     top: 0.6rem;
     opacity: 1 !important;
     -webkit-transform: rotate(-45deg);
@@ -271,11 +271,11 @@ header.Navegacion {
     -webkit-transition: all 0.25s ease;
     -moz-transition: all 0.25s ease;
     transition: all 0.25s ease; }
-  header.Navegacion div.Btn-Menu-Navegacion.Negativo.--activado {
+  header.Navegacion div.Btn-Menu-Navegacion.Negativo.--activo {
     background: #858585; }
-    header.Navegacion div.Btn-Menu-Navegacion.Negativo.--activado:focus, header.Navegacion div.Btn-Menu-Navegacion.Negativo.--activado:hover {
+    header.Navegacion div.Btn-Menu-Navegacion.Negativo.--activo:focus, header.Navegacion div.Btn-Menu-Navegacion.Negativo.--activo:hover {
       background: #4a4a4a; }
-    header.Navegacion div.Btn-Menu-Navegacion.Negativo.--activado > div.Barra {
+    header.Navegacion div.Btn-Menu-Navegacion.Negativo.--activo > div.Barra {
       background: #fff; }
   header.Navegacion nav.Menu-Navegacion {
     float: left;

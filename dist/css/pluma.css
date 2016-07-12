@@ -759,7 +759,10 @@ input[type="password"] {
   appearance: none;
   -webkit-transition: color 0.25s ease, border-color 0.25s ease;
   -moz-transition: color 0.25s ease, border-color 0.25s ease;
-  transition: color 0.25s ease, border-color 0.25s ease; }
+  transition: color 0.25s ease, border-color 0.25s ease;
+  /**
+   * Autofill
+   */ }
   select::-webkit-input-placeholder,
   textarea::-webkit-input-placeholder,
   input[type="text"]::-webkit-input-placeholder,
@@ -784,21 +787,29 @@ input[type="password"] {
   input[type="email"]:-ms-input-placeholder,
   input[type="password"]:-ms-input-placeholder {
     color: #c6c6c6; }
-  select:not([disabled]):focus,
+  select:not([disabled]):focus, select:not([disabled]):active,
   textarea:not([disabled]):focus,
+  textarea:not([disabled]):active,
   input[type="text"]:not([disabled]):focus,
+  input[type="text"]:not([disabled]):active,
   input[type="email"]:not([disabled]):focus,
-  input[type="password"]:not([disabled]):focus {
+  input[type="email"]:not([disabled]):active,
+  input[type="password"]:not([disabled]):focus,
+  input[type="password"]:not([disabled]):active {
     color: #4a4a4a;
     border-color: #03a9f4;
     -webkit-transition: color 0.25s ease, border-color 0.25s ease;
     -moz-transition: color 0.25s ease, border-color 0.25s ease;
     transition: color 0.25s ease, border-color 0.25s ease; }
-    select:not([disabled]):focus + label,
+    select:not([disabled]):focus + label, select:not([disabled]):active + label,
     textarea:not([disabled]):focus + label,
+    textarea:not([disabled]):active + label,
     input[type="text"]:not([disabled]):focus + label,
+    input[type="text"]:not([disabled]):active + label,
     input[type="email"]:not([disabled]):focus + label,
-    input[type="password"]:not([disabled]):focus + label {
+    input[type="email"]:not([disabled]):active + label,
+    input[type="password"]:not([disabled]):focus + label,
+    input[type="password"]:not([disabled]):active + label {
       color: #03a9f4;
       -webkit-transition: color 0.25s ease;
       -moz-transition: color 0.25s ease;
@@ -810,22 +821,31 @@ input[type="password"] {
   input[type="password"]:disabled {
     color: #c6c6c6;
     background: #fafafa; }
-
-/**
- * Autofill
- */
-input:-webkit-autofill {
-  box-shadow: 0 0 0 3.2rem #f7f8ea inset;
-  border-color: #ebecca;
-  -webkit-text-fill-color: #d5d890;
-  -webkit-transition: border-color 0.25s ease;
-  -moz-transition: border-color 0.25s ease;
-  transition: border-color 0.25s ease; }
-  input:-webkit-autofill:focus, input:-webkit-autofill:active {
+  select:-webkit-autofill,
+  textarea:-webkit-autofill,
+  input[type="text"]:-webkit-autofill,
+  input[type="email"]:-webkit-autofill,
+  input[type="password"]:-webkit-autofill {
+    box-shadow: 0 0 0 3.2rem #f7f8ea inset;
+    border: 1px solid #ebecca;
     -webkit-text-fill-color: #b3b836;
     -webkit-transition: border-color 0.25s ease;
     -moz-transition: border-color 0.25s ease;
     transition: border-color 0.25s ease; }
+    select:-webkit-autofill:not([disabled]):focus, select:-webkit-autofill:not([disabled]):active,
+    textarea:-webkit-autofill:not([disabled]):focus,
+    textarea:-webkit-autofill:not([disabled]):active,
+    input[type="text"]:-webkit-autofill:not([disabled]):focus,
+    input[type="text"]:-webkit-autofill:not([disabled]):active,
+    input[type="email"]:-webkit-autofill:not([disabled]):focus,
+    input[type="email"]:-webkit-autofill:not([disabled]):active,
+    input[type="password"]:-webkit-autofill:not([disabled]):focus,
+    input[type="password"]:-webkit-autofill:not([disabled]):active {
+      border-color: #b3b836;
+      -webkit-text-fill-color: #b3b836;
+      -webkit-transition: border-color 0.25s ease;
+      -moz-transition: border-color 0.25s ease;
+      transition: border-color 0.25s ease; }
 
 /**
  * 1. Permite solo resize vertical.
@@ -866,6 +886,12 @@ label {
   font-weight: 600;
   letter-spacing: 1px;
   text-transform: uppercase;
+  -webkit-transition: color 0.25s ease;
+  -moz-transition: color 0.25s ease;
+  transition: color 0.25s ease; }
+
+label.--con-foco {
+  color: #03a9f4;
   -webkit-transition: color 0.25s ease;
   -moz-transition: color 0.25s ease;
   transition: color 0.25s ease; }
@@ -926,30 +952,33 @@ i.Icono-Control-Izquierda {
 .--con-info input[type="text"],
 .--con-info input[type="email"],
 .--con-info input[type="password"] {
+  box-shadow: 0 0 0 3.2rem #e6f6fe inset;
   border-color: #c0eafc;
-  background-color: #e6f6fe; }
+  background-color: #e6f6fe;
+  -webkit-text-fill-color: #10adf5; }
   .--con-info input[type="text"]::-webkit-input-placeholder,
   .--con-info input[type="email"]::-webkit-input-placeholder,
   .--con-info input[type="password"]::-webkit-input-placeholder {
-    color: #7cd2fa; }
+    color: #c0eafc; }
   .--con-info input[type="text"]::-moz-placeholder,
   .--con-info input[type="email"]::-moz-placeholder,
   .--con-info input[type="password"]::-moz-placeholder {
-    color: #7cd2fa; }
+    color: #c0eafc; }
   .--con-info input[type="text"]:-moz-placeholder,
   .--con-info input[type="email"]:-moz-placeholder,
   .--con-info input[type="password"]:-moz-placeholder {
-    color: #7cd2fa; }
+    color: #c0eafc; }
   .--con-info input[type="text"]:-ms-input-placeholder,
   .--con-info input[type="email"]:-ms-input-placeholder,
   .--con-info input[type="password"]:-ms-input-placeholder {
-    color: #7cd2fa; }
+    color: #c0eafc; }
   .--con-info input[type="text"]:focus, .--con-info input[type="text"]:active,
   .--con-info input[type="email"]:focus,
   .--con-info input[type="email"]:active,
   .--con-info input[type="password"]:focus,
   .--con-info input[type="password"]:active {
-    border-color: #10adf5; }
+    border-color: #10adf5;
+    -webkit-text-fill-color: #10adf5; }
   .--con-info input[type="text"] + label,
   .--con-info input[type="email"] + label,
   .--con-info input[type="password"] + label {
@@ -973,30 +1002,33 @@ i.Icono-Control-Izquierda {
 .--con-error input[type="text"],
 .--con-error input[type="email"],
 .--con-error input[type="password"] {
+  box-shadow: 0 0 0 3.2rem #fbeaea inset;
   border-color: #f4cbcb;
-  background-color: #fbeaea; }
+  background-color: #fbeaea;
+  -webkit-text-fill-color: #d53939; }
   .--con-error input[type="text"]::-webkit-input-placeholder,
   .--con-error input[type="email"]::-webkit-input-placeholder,
   .--con-error input[type="password"]::-webkit-input-placeholder {
-    color: #e89292; }
+    color: #f4cbcb; }
   .--con-error input[type="text"]::-moz-placeholder,
   .--con-error input[type="email"]::-moz-placeholder,
   .--con-error input[type="password"]::-moz-placeholder {
-    color: #e89292; }
+    color: #f4cbcb; }
   .--con-error input[type="text"]:-moz-placeholder,
   .--con-error input[type="email"]:-moz-placeholder,
   .--con-error input[type="password"]:-moz-placeholder {
-    color: #e89292; }
+    color: #f4cbcb; }
   .--con-error input[type="text"]:-ms-input-placeholder,
   .--con-error input[type="email"]:-ms-input-placeholder,
   .--con-error input[type="password"]:-ms-input-placeholder {
-    color: #e89292; }
+    color: #f4cbcb; }
   .--con-error input[type="text"]:focus, .--con-error input[type="text"]:active,
   .--con-error input[type="email"]:focus,
   .--con-error input[type="email"]:active,
   .--con-error input[type="password"]:focus,
   .--con-error input[type="password"]:active {
-    border-color: #d53939; }
+    border-color: #d53939;
+    -webkit-text-fill-color: #d53939; }
   .--con-error input[type="text"] + label,
   .--con-error input[type="email"] + label,
   .--con-error input[type="password"] + label {
@@ -1020,30 +1052,33 @@ i.Icono-Control-Izquierda {
 .--con-success input[type="text"],
 .--con-success input[type="email"],
 .--con-success input[type="password"] {
+  box-shadow: 0 0 0 3.2rem #ebf4ec inset;
   border-color: #cde3ce;
-  background-color: #ebf4ec; }
+  background-color: #ebf4ec;
+  -webkit-text-fill-color: #429446; }
   .--con-success input[type="text"]::-webkit-input-placeholder,
   .--con-success input[type="email"]::-webkit-input-placeholder,
   .--con-success input[type="password"]::-webkit-input-placeholder {
-    color: #97c499; }
+    color: #cde3ce; }
   .--con-success input[type="text"]::-moz-placeholder,
   .--con-success input[type="email"]::-moz-placeholder,
   .--con-success input[type="password"]::-moz-placeholder {
-    color: #97c499; }
+    color: #cde3ce; }
   .--con-success input[type="text"]:-moz-placeholder,
   .--con-success input[type="email"]:-moz-placeholder,
   .--con-success input[type="password"]:-moz-placeholder {
-    color: #97c499; }
+    color: #cde3ce; }
   .--con-success input[type="text"]:-ms-input-placeholder,
   .--con-success input[type="email"]:-ms-input-placeholder,
   .--con-success input[type="password"]:-ms-input-placeholder {
-    color: #97c499; }
+    color: #cde3ce; }
   .--con-success input[type="text"]:focus, .--con-success input[type="text"]:active,
   .--con-success input[type="email"]:focus,
   .--con-success input[type="email"]:active,
   .--con-success input[type="password"]:focus,
   .--con-success input[type="password"]:active {
-    border-color: #429446; }
+    border-color: #429446;
+    -webkit-text-fill-color: #429446; }
   .--con-success input[type="text"] + label,
   .--con-success input[type="email"] + label,
   .--con-success input[type="password"] + label {
@@ -1067,30 +1102,33 @@ i.Icono-Control-Izquierda {
 .--con-warning input[type="text"],
 .--con-warning input[type="email"],
 .--con-warning input[type="password"] {
+  box-shadow: 0 0 0 3.2rem #f7f8ea inset;
   border-color: #ebecca;
-  background-color: #f7f8ea; }
+  background-color: #f7f8ea;
+  -webkit-text-fill-color: #b3b836; }
   .--con-warning input[type="text"]::-webkit-input-placeholder,
   .--con-warning input[type="email"]::-webkit-input-placeholder,
   .--con-warning input[type="password"]::-webkit-input-placeholder {
-    color: #d5d890; }
+    color: #ebecca; }
   .--con-warning input[type="text"]::-moz-placeholder,
   .--con-warning input[type="email"]::-moz-placeholder,
   .--con-warning input[type="password"]::-moz-placeholder {
-    color: #d5d890; }
+    color: #ebecca; }
   .--con-warning input[type="text"]:-moz-placeholder,
   .--con-warning input[type="email"]:-moz-placeholder,
   .--con-warning input[type="password"]:-moz-placeholder {
-    color: #d5d890; }
+    color: #ebecca; }
   .--con-warning input[type="text"]:-ms-input-placeholder,
   .--con-warning input[type="email"]:-ms-input-placeholder,
   .--con-warning input[type="password"]:-ms-input-placeholder {
-    color: #d5d890; }
+    color: #ebecca; }
   .--con-warning input[type="text"]:focus, .--con-warning input[type="text"]:active,
   .--con-warning input[type="email"]:focus,
   .--con-warning input[type="email"]:active,
   .--con-warning input[type="password"]:focus,
   .--con-warning input[type="password"]:active {
-    border-color: #b3b836; }
+    border-color: #b3b836;
+    -webkit-text-fill-color: #b3b836; }
   .--con-warning input[type="text"] + label,
   .--con-warning input[type="email"] + label,
   .--con-warning input[type="password"] + label {
@@ -1567,8 +1605,9 @@ nav.Menu-Desplegable {
   z-index: 300;
   position: absolute;
   background: #fafafa; }
-  nav.Menu-Desplegable .--desplegable-visible {
-    display: block; }
+
+nav.Menu-Desplegable.--desplegable-visible {
+  display: block; }
 
 nav.Menu-Desplegable.Negativo {
   border: transparent;
@@ -1604,7 +1643,8 @@ nav.Menu-Desplegable.Negativo li.Item-Menu-Desplegable:focus, nav.Menu-Desplegab
   background: #4a4a4a; }
 
 nav.Menu-Desplegable.Negativo a.Link-Menu-Desplegable {
-  color: #fff; }
+  color: #fff;
+  font-weight: 600; }
 
 .select2-container {
   float: left;

@@ -98,6 +98,52 @@ var domReady = function(callback) {
     }
 };
 
+function qsById(id) {
+    var elemento;
+    if(supportsQuerySelectors()) {
+        elemento = document.querySelector("#" + id);
+    } else {
+        elemento = document.getElementById(id);
+    }
+    return elemento;
+}
+
+function qsByName(nodo, name) {
+    var elementos;
+    if(supportsQuerySelectors()) {
+        elementos = nodo.querySelectorAll("[name$=" + name + "]");
+    } else {
+        elementos = nodo.getElementsByName(name);
+    }
+    return elementos;
+}
+
+function qsByTagName(nodo, tagName) {
+    var elementos;
+    if(supportsQuerySelectors()) {
+        elementos = nodo.querySelectorAll(tagName);
+    } else {
+        elementos = nodo.getElementByTagName(tagName);
+    }
+    return elementos;
+}
+
+function qsByClassName(nodo, nombreClase) {
+    var elementos = [];
+    if(supportsQuerySelectors()) {
+        elementos = nodo.querySelectorAll("." + nombreClase);
+    } else {
+        var re = new RegExp('(^| )'+nombreClase+'( |$)');
+        var todosNodos = nodo.getElementsByTagName("*");
+        for(var n = 0; n < todosNodos.length; n++) {
+            if(re.test(todosNodos[n].className)) {
+                elementos.push(todosNodos[n]);
+            }
+        }
+    }
+    return elementos;
+}
+
 /**
  *  Fuente: https://davidwalsh.name/css-animation-callback
  */
@@ -145,13 +191,8 @@ function supportsQuerySelectors() {
 
 function mostrarVModal() {
     var gatillo = event.target;
-    if(supportsQuerySelectors()) {
-        var blanco = document.querySelector("#" + gatillo.getAttribute("data-vmodal"));
-        var wrapperVModal = document.querySelector(".Wrapper-VModal");
-    } else {
-        var blanco = document.getElementById(gatillo.getAttribute("data-vmodal"));
-        var wrapperVModal = document.getElementsByClassName("Wrapper-VModal")[0];
-    }
+    var blanco = qsById(gatillo.getAttribute("data-vmodal"));
+    var wrapperVModal = qsByClassName(document.body, ".Wrapper-VModal")[0];
     if(wrapperVModal) {
         addClass(wrapperVModal, "--visible");
     }
@@ -164,15 +205,10 @@ function mostrarVModal() {
 }
 
 function ocultarVModales(ev,gatillos) {
-    for(n = 0; n < gatillos.length; n++) {
+    for(var n = 0; n < gatillos.length; n++) {
         var gatillo = gatillos[n];
-        if(supportsQuerySelectors()) {
-            var blanco = document.querySelector("#" + gatillo.getAttribute("data-vmodal"));
-            var wrapperVModal = document.querySelector(".Wrapper-VModal");
-        } else {
-            var blanco = document.getElementById(gatillo.getAttribute("data-vmodal"));
-        var wrapperVModal = document.querySelector(".Wrapper-VModal");
-        }
+        var blanco = qsById(gatillo.getAttribute("data-vmodal"));
+        var wrapperVModal = qsByClassName(document.body, ".Wrapper-VModal")[0];
         if(!blanco.contains(ev.target) && !gatillo.contains(ev.target)) {
             removeClass(blanco, "--vmodal-visible");
             removeClass(gatillo, "--activo");
@@ -184,57 +220,101 @@ function ocultarVModales(ev,gatillos) {
 }
 
 domReady(function() {
-    if(supportsQuerySelectors()) {
-        var gatillosVModal = document.querySelectorAll(".Btn-VModal");
-    } else {
-        var gatillosVModal = document.getElementsByClassName("Btn-VModal");
-    }
+    var gatillosVModal = qsByClassName(document.body, ".Btn-VModal");
 
     addEvent(window,"click", function(ev) {
         ocultarVModales(ev,gatillosVModal)
     });
 });
 
-function mostrarDesplegable() {
-    event.target.preventDefault();
+function alternarDesplegable() {
+    event.preventDefault();
+    var main = qsByTagName(document.body, "main");
     var gatillo = event.target;
-    if(supportsQuerySelectors()) {
-        var blanco = document.querySelector("#" + gatillo.getAttribute("data-desplegable"));
-    } else {
-        var blanco = document.getElementById(gatillo.getAttribute("data-desplegable"));
+    var blanco = qsById(gatillo.getAttribute("data-desplegable"));
+    if(!blanco) {
+        gatillo = gatillo.parentNode;
+        blanco = qsById(gatillo.getAttribute("data-desplegable"))
     }
     if(blanco) {
-        addClass(gatillo, "--activo");
-        addClass(blanco, "--desplegable-visible");
-        var rect = gatillo.getBoundingClientRect();
-        blanco.style.top = rect.top + gatillo.offsetHeight + "px";
-        blanco.style.left = rect.left + "px";
+        if(hasClass(gatillo, "--activo") && hasClass(blanco, "--desplegable-visible")) {
+            removeClass(gatillo, "--activo");
+            removeClass(blanco, "--desplegable-visible");
+            removeEvent(window, "resize", function() { posicionarDesplegable(gatillo,blanco) });
+        } else {
+            addClass(gatillo, "--activo");
+            addClass(blanco, "--desplegable-visible");
+            posicionarDesplegable(gatillo,blanco);
+            addEvent(window, "resize", function()  { posicionarDesplegable(gatillo,blanco) });
+        }
     }
 }
   
 function ocultarDesplegables(ev,gatillos) {
-    for(n = 0; n < gatillos.length; n++) {
+    for(var n = 0; n < gatillos.length; n++) {
         var gatillo = gatillos[n];
-        if(supportsQuerySelectors()) {
-            var blanco = document.querySelector("#" + gatillo.getAttribute("data-desplegable"));
-        } else {
-            var blanco = document.getElementById(gatillo.getAttribute("data-desplegable"));
-        }
+        var blanco = qsById(gatillo.getAttribute("data-desplegable"));
         if(!blanco.contains(ev.target) && !gatillo.contains(ev.target)) {
             removeClass(blanco, "--desplegable-visible");
             removeClass(gatillo, "--activo");
+            removeEvent(window, "resize", function() { posicionarDesplegable(gatillo,blanco) });
+        }
+    }
+}
+
+function posicionarDesplegable(gatillo,blanco) {
+    var rect = gatillo.getBoundingClientRect();
+    var posicionY = rect.top + gatillo.offsetHeight + "px";
+    if(blanco.offsetWidth + rect.left < main.offsetWidth) {
+       var posicionX = rect.left + "px";
+       blanco.style.top = posicionY;
+       blanco.style.left = posicionX;
+    } else {
+        var posicionX = rect.left - blanco.offsetWidth + gatillo.offsetWidth;
+        if(posicionX < 0) {
+            posicionX = 0;
+            blanco.style.top = "";
+            blanco.style.left = posicionX + "px";
+        } else {
+            blanco.style.top = posicionY;
+            blanco.style.left = posicionX + "px";
         }
     }
 }
 
 domReady(function() {
-    if(supportsQuerySelectors()) {
-        var gatillosDesplegable = document.querySelectorAll(".Btn-Desplegable");
-    } else {
-        var gatillosDesplegable = document.getElementsByClassName("Btn-Desplegable");
-    }
-
+    var gatillosDesplegable = qsByClassName(document.body, ".Btn-Desplegable");
     addEvent(window,"click", function(ev) {
         ocultarDesplegables(ev,gatillosDesplegable)
     });
+});
+
+function enfocarEtiqueta() {
+    var nombre = event.target.name;
+    var etiquetas = qsByTagName(document.body, "label");
+    for(var n = 0; n < etiquetas.length; n++)
+        if(etiquetas[n].htmlFor == nombre) var etiqueta = etiquetas[n];
+    addClass(etiqueta, "--con-foco");
+}
+
+function desenfocarEtiqueta() {
+    var nombre = event.target.name;
+    var etiquetas = qsByTagName(document.body, "label");
+    for(var n = 0; n < etiquetas.length; n++)
+        if(etiquetas[n].htmlFor == nombre) var etiqueta = etiquetas[n];
+    removeClass(etiqueta, "--con-foco");
+}
+
+domReady(function() {
+    var etiquetas = qsByTagName(document.body, "label");
+    if(etiquetas) {
+        for(var n = 0; n < etiquetas.length; n++) {
+            var nombre = etiquetas[n].htmlFor;
+            if(nombre) var control = qsByName(document.body, nombre)[0];
+            if(control) {
+                addEvent(control, "focus", function() { enfocarEtiqueta() });
+                addEvent(control, "blur", function() { desenfocarEtiqueta() });
+            }
+        }
+    }
 });

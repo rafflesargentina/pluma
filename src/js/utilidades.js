@@ -97,3 +97,49 @@ var domReady = function(callback) {
         }
     }
 };
+
+function qsById(id) {
+    var elemento;
+    if(supportsQuerySelectors()) {
+        elemento = document.querySelector("#" + id);
+    } else {
+        elemento = document.getElementById(id);
+    }
+    return elemento;
+}
+
+function qsByName(nodo, name) {
+    var elementos;
+    if(supportsQuerySelectors()) {
+        elementos = nodo.querySelectorAll("[name$=" + name + "]");
+    } else {
+        elementos = nodo.getElementsByName(name);
+    }
+    return elementos;
+}
+
+function qsByTagName(nodo, tagName) {
+    var elementos;
+    if(supportsQuerySelectors()) {
+        elementos = nodo.querySelectorAll(tagName);
+    } else {
+        elementos = nodo.getElementByTagName(tagName);
+    }
+    return elementos;
+}
+
+function qsByClassName(nodo, nombreClase) {
+    var elementos = [];
+    if(supportsQuerySelectors()) {
+        elementos = nodo.querySelectorAll("." + nombreClase);
+    } else {
+        var re = new RegExp('(^| )'+nombreClase+'( |$)');
+        var todosNodos = nodo.getElementsByTagName("*");
+        for(var n = 0; n < todosNodos.length; n++) {
+            if(re.test(todosNodos[n].className)) {
+                elementos.push(todosNodos[n]);
+            }
+        }
+    }
+    return elementos;
+}

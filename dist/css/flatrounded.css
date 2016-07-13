@@ -272,6 +272,7 @@ header.Navegacion {
     -moz-transition: all 0.25s ease;
     transition: all 0.25s ease; }
   header.Navegacion div.Btn-Menu-Navegacion.Negativo.--activo {
+    border: transparent;
     background: #858585; }
     header.Navegacion div.Btn-Menu-Navegacion.Negativo.--activo:focus, header.Navegacion div.Btn-Menu-Navegacion.Negativo.--activo:hover {
       background: #4a4a4a; }

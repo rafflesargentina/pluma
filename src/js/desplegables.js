@@ -54,7 +54,7 @@ function posicionarDesplegable(gatillo,blanco) {
 }
 
 domReady(function() {
-    var gatillosDesplegable = qsByClassName(document.body, ".Btn-Desplegable");
+    var gatillosDesplegable = qsByClassName(document.body, "Btn-Desplegable");
     addEvent(window,"click", function(ev) {
         ocultarDesplegables(ev,gatillosDesplegable)
     });

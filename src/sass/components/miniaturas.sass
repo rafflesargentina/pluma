@@ -9,10 +9,11 @@ figure
 div.Miniatura
   overflow: hidden
   background: $gris-mas-claro
-  text-align: center
   background-repeat: no-repeat
   background-position: center
   @include border-top-radius($radio-borde)
+  > img
+    width: 100%
 
 figcaption
   border: $borde-claro
@@ -34,8 +35,11 @@ figcaption
 div.Miniatura + figcaption
   border-top: none
 
-div.Col-3 figure > div.Miniatura
+div.Col-3 > div.Miniatura
   height: 13rem
 
-div.Col-4 figure > div.Miniatura
+div.Col-4 > div.Miniatura
   height: 14rem
+
+div.Col-6 > div.Miniatura
+  height: 19rem

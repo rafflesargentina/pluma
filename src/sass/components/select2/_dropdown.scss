@@ -3,7 +3,7 @@
   width: 100%;
   border: $borde;
   display: block;
-  z-index: $capa9;
+  z-index: $capa-navegacion + 2;
   position: absolute;
   background: $color-fondo;
   border-radius: $radio-borde;

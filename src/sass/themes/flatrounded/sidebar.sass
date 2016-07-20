@@ -8,7 +8,7 @@ aside.Sidebar
   width: $ancho-sidebar
   height: 100%
   display: none
-  z-index: $capa-navegacion
+  z-index: $capa-navegacion + 1
   position: fixed
   background: $color-variante-fondo
   border-right: $borde-claro
@@ -26,12 +26,12 @@ li.Item-Sidebar
     background: $color-borde-claro
     @include transition(background, $timing, $duracion)
 
-a.Link-Sidebar
-  color: $gris-claro
-  padding: $padding-tabla-vertical $padding-header
-  font-weight: 300
-  > i
-    margin-right: $espacio-chico / 2
+  > a
+    color: $gris-claro
+    padding: $padding-tabla-vertical $padding-header
+    font-weight: 300
+    > i
+      margin-right: $espacio-muy-chico
 
 /* Media Queries
    =========================================================================== */

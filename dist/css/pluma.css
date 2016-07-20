@@ -447,7 +447,7 @@ thead th {
 .Tabla-Condensada > tbody > tr > th,
 .Tabla-Condensada > tfoot > tr > td,
 .Tabla-Condensada > tfoot > tr > th {
-  padding: 0.75rem 0.6rem;
+  padding: 0.6rem;
   font-size: 0.7333rem; }
 
 .Tabla-Condensada .Btn-Tabla {
@@ -907,7 +907,6 @@ label.--con-foco {
 i.Icono-Control-Derecha,
 i.Icono-Control-Izquierda {
   color: #c6c6c6;
-  z-index: 1;
   position: absolute;
   font-size: 1rem;
   font-weight: 600;
@@ -1435,7 +1434,7 @@ small {
   /* Invisible al inicio */
   display: block;
   opacity: 0;
-  z-index: 500;
+  z-index: 100;
   position: fixed;
   background: rgba(0, 0, 0, 0.07);
   -webkit-transition: all 0.5s ease;
@@ -1509,11 +1508,12 @@ figure {
 div.Miniatura {
   overflow: hidden;
   background: #e6e6e6;
-  text-align: center;
   background-repeat: no-repeat;
   background-position: center;
   border-top-left-radius: 0.2666rem;
   border-top-right-radius: 0.2666rem; }
+  div.Miniatura > img {
+    width: 100%; }
 
 figcaption {
   border: 1px solid #e6e6e6;
@@ -1533,11 +1533,14 @@ figcaption {
 div.Miniatura + figcaption {
   border-top: none; }
 
-div.Col-3 figure > div.Miniatura {
+div.Col-3 > div.Miniatura {
   height: 13rem; }
 
-div.Col-4 figure > div.Miniatura {
+div.Col-4 > div.Miniatura {
   height: 14rem; }
+
+div.Col-6 > div.Miniatura {
+  height: 19rem; }
 
 /* ===========================================================================
    Pagination
@@ -1581,7 +1584,7 @@ div.Col-4 figure > div.Miniatura {
   .pagination > .active > span:hover {
     color: #fff;
     cursor: default;
-    z-index: 20;
+    z-index: 2;
     background: #0288d1;
     border-color: #03a9f4; }
   .pagination > .disabled > span,
@@ -1602,7 +1605,7 @@ nav.Menu-Desplegable {
   float: left;
   border: 1px solid #e6e6e6;
   display: none;
-  z-index: 300;
+  z-index: 12;
   position: absolute;
   background: #fafafa; }
 
@@ -1631,18 +1634,17 @@ li.Item-Menu-Desplegable {
     -webkit-transition: background ease 0.25s;
     -moz-transition: background ease 0.25s;
     transition: background ease 0.25s; }
-    li.Item-Menu-Desplegable:focus > a.Link-Menu-Desplegable, li.Item-Menu-Desplegable:hover > a.Link-Menu-Desplegable {
+    li.Item-Menu-Desplegable:focus > a, li.Item-Menu-Desplegable:hover > a {
       color: #fff; }
-
-a.Link-Menu-Desplegable {
-  float: left;
-  width: 100%;
-  padding: 1.2rem 2rem; }
+  li.Item-Menu-Desplegable > a {
+    float: left;
+    width: 100%;
+    padding: 1.2rem 2rem; }
 
 nav.Menu-Desplegable.Negativo li.Item-Menu-Desplegable:focus, nav.Menu-Desplegable.Negativo li.Item-Menu-Desplegable:hover {
   background: #4a4a4a; }
 
-nav.Menu-Desplegable.Negativo a.Link-Menu-Desplegable {
+nav.Menu-Desplegable.Negativo li.Item-Menu-Desplegable > a {
   color: #fff;
   font-weight: 600; }
 
@@ -1698,7 +1700,7 @@ nav.Menu-Desplegable.Negativo a.Link-Menu-Desplegable {
   width: 100%;
   border: 1px solid #c6c6c6;
   display: block;
-  z-index: 900;
+  z-index: 12;
   position: absolute;
   background: #fff;
   border-radius: 0.2666rem; }
@@ -1784,7 +1786,8 @@ nav.Menu-Desplegable.Negativo a.Link-Menu-Desplegable {
     font-weight: 600;
     margin-left: 0.4rem; }
   .select2-container--default .select2-selection--single .select2-selection__placeholder {
-    color: #c6c6c6; }
+    color: #c6c6c6;
+    line-height: 3.2rem; }
   .select2-container--default .select2-selection--single .select2-selection__arrow {
     top: 0;
     right: 0;
@@ -2372,7 +2375,7 @@ nav.Menu-Desplegable.Negativo a.Link-Menu-Desplegable {
   .Botones-Agrupados > .Btn:focus, .Botones-Agrupados > .Btn:active,
   .Botones-Agrupados > button:focus,
   .Botones-Agrupados > button:active, .Botones-Agrupados input[type="button"]:focus, .Botones-Agrupados input[type="button"]:active, .Botones-Agrupados input[type="reset"]:focus, .Botones-Agrupados input[type="reset"]:active, .Botones-Agrupados input[type="submit"]:focus, .Botones-Agrupados input[type="submit"]:active {
-    z-index: 20; }
+    z-index: 2; }
 
 /* ===========================================================================
    Controles Agrupados
@@ -2396,7 +2399,7 @@ nav.Menu-Desplegable.Negativo a.Link-Menu-Desplegable {
     .Controles-Agrupados input[type="email"]:active,
     .Controles-Agrupados input[type="password"]:focus,
     .Controles-Agrupados input[type="password"]:active {
-      z-index: 20; }
+      z-index: 2; }
     .Controles-Agrupados input[type="text"]:not(:first-child):not(:last-child),
     .Controles-Agrupados input[type="email"]:not(:first-child):not(:last-child),
     .Controles-Agrupados input[type="password"]:not(:first-child):not(:last-child) {

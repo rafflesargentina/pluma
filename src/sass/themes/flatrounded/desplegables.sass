@@ -2,11 +2,17 @@
    Desplegables
    =========================================================================== */
 
-
+nav#menuAuth,
 nav#menuNavegacion
   top: $alto-header-mobile
   width: 100%
   position: fixed
+
+  li.Item-Menu-Desplegable
+    > i
+      margin-right: $padding-tabla-vertical
+    > a > i
+      margin-right: $padding-tabla-vertical
 
 
 /* Media Queries
@@ -14,5 +20,5 @@ nav#menuNavegacion
 @include media(min-width $segundo-bp)
   nav#menuNavegacion
     top: $alto-header-mobile + 1rem
-    width: $primer--bp
+    width: $ancho-sidebar
     z-index: $capa-navegacion + 1

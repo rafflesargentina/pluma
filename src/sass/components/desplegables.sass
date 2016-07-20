@@ -7,7 +7,7 @@ nav.Menu-Desplegable
   float: left
   border: $borde-claro
   display: none
-  z-index: $capa-desplegables
+  z-index: $capa-navegacion + 2
   position: absolute
   background: $color-variante-fondo
 
@@ -33,19 +33,18 @@ li.Item-Menu-Desplegable
   &:hover
     background: $color-primario
     @include transition(background $timing $duracion)
-    > a.Link-Menu-Desplegable
+    > a
       color: $color-fondo
-
-a.Link-Menu-Desplegable
-  float: left
-  width: 100%
-  padding: $padding-tabla-vertical 2rem
+  > a
+    float: left
+    width: 100%
+    padding: $padding-tabla-vertical 2rem
 
 nav.Menu-Desplegable.Negativo
   li.Item-Menu-Desplegable
     &:focus,
     &:hover
       background: $gris-mas-oscuro
-  a.Link-Menu-Desplegable
-    color: $color-fondo
-    font-weight: 600
+    > a
+      color: $color-fondo
+      font-weight: 600

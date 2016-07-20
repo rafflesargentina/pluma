@@ -1,6 +1,5 @@
 function alternarDesplegable() {
     event.preventDefault();
-    var main = qsByTagName(document.body, "main");
     var gatillo = event.target;
     var blanco = qsById(gatillo.getAttribute("data-desplegable"));
     if(!blanco) {
@@ -25,16 +24,19 @@ function ocultarDesplegables(ev,gatillos) {
     for(var n = 0; n < gatillos.length; n++) {
         var gatillo = gatillos[n];
         var blanco = qsById(gatillo.getAttribute("data-desplegable"));
-        if(!blanco.contains(ev.target) && !gatillo.contains(ev.target)) {
-            removeClass(blanco, "--desplegable-visible");
-            removeClass(gatillo, "--activo");
-            removeEvent(window, "resize", function() { posicionarDesplegable(gatillo,blanco) });
+        if(blanco) {
+            if(!blanco.contains(ev.target) && !gatillo.contains(ev.target)) {
+                removeClass(blanco, "--desplegable-visible");
+                removeClass(gatillo, "--activo");
+                removeEvent(window, "resize", function() { posicionarDesplegable(gatillo,blanco) });
+            }
         }
     }
 }
 
 function posicionarDesplegable(gatillo,blanco) {
     var rect = gatillo.getBoundingClientRect();
+    var main = qsByTagName(document.body, "main")[0];
     var posicionY = rect.top + gatillo.offsetHeight + "px";
     if(blanco.offsetWidth + rect.left < main.offsetWidth) {
        var posicionX = rect.left + "px";

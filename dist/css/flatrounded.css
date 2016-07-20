@@ -55,8 +55,8 @@ div.Logo,
 aside.Sidebar,
 section.Email,
 section.Login,
-a.Link-Sidebar,
 li.Item-Sidebar,
+li.Item-Sidebar > a,
 section.Register,
 span.Cuenta-Resultados,
 div.Wrapper-Interior-Principal {
@@ -100,6 +100,8 @@ section.Register {
   section.Email h3,
   section.Login h3,
   section.Register h3 {
+    float: left;
+    width: 100%;
     border-top: 1px solid #e6e6e6;
     padding-top: 2rem;
     margin-bottom: 2rem; }
@@ -136,7 +138,7 @@ main.Admin {
   /* $alto-header-mobile */ }
   main.Admin div.Wrapper-Interior-Principal {
     padding: 1rem; }
-  main.Admin h3.Titulo-Seccion {
+  main.Admin .Titulo-Seccion {
     color: #4a4a4a;
     border-bottom: 1px solid #4a4a4a;
     margin-bottom: 2rem;
@@ -187,7 +189,7 @@ footer {
     footer li.Item-Copyright a.Link-Copyright {
       color: inherit;
       float: left;
-      font-size: 0.8667rem;
+      font-size: inherit;
       font-style: italic; }
       footer li.Item-Copyright a.Link-Copyright:focus, footer li.Item-Copyright a.Link-Copyright:hover, footer li.Item-Copyright a.Link-Copyright:active {
         color: #4a4a4a;
@@ -203,7 +205,7 @@ footer {
   width: 100%;
   height: 5rem;
   padding: 1rem;
-  z-index: 400;
+  z-index: 10;
   position: fixed;
   background: #fff; }
 
@@ -223,34 +225,58 @@ header.Navegacion {
     float: left;
     display: block;
     margin-right: 2.35765%;
-    width: 14.70196%; }
+    width: 23.23176%; }
     header.Navegacion div.Logo:last-child {
       margin-right: 0; }
+  header.Navegacion div.Btn-Menu-Auth,
+  header.Navegacion div.Btn-Menu-Busqueda,
   header.Navegacion div.Btn-Menu-Navegacion {
     float: right;
     width: 3rem;
     cursor: pointer;
     height: 3rem;
     display: inline-block; }
-    header.Navegacion div.Btn-Menu-Navegacion:focus > div.Barra, header.Navegacion div.Btn-Menu-Navegacion:hover > div.Barra, header.Navegacion div.Btn-Menu-Navegacion:active > div.Barra {
-      background: #4a4a4a; }
-    header.Navegacion div.Btn-Menu-Navegacion > div.Barra {
-      top: 0.93333rem;
-      width: 70%;
-      height: 0.33333rem;
-      margin: 0 auto;
-      background: #858585;
-      -webkit-transition: all 0.25s ease;
-      -moz-transition: all 0.25s ease;
-      transition: all 0.25s ease; }
-      header.Navegacion div.Btn-Menu-Navegacion > div.Barra:first-child {
-        top: 0.66667rem; }
-      header.Navegacion div.Btn-Menu-Navegacion > div.Barra:last-child {
-        top: 1.2rem; }
+  header.Navegacion div.Btn-Menu-Auth,
+  header.Navegacion div.Btn-Menu-Busqueda {
+    margin-right: 0.6rem; }
+    header.Navegacion div.Btn-Menu-Auth > i,
+    header.Navegacion div.Btn-Menu-Busqueda > i {
+      width: 100%;
+      line-height: 3rem;
+      text-align: center; }
+    header.Navegacion div.Btn-Menu-Auth:focus > i, header.Navegacion div.Btn-Menu-Auth:hover > i, header.Navegacion div.Btn-Menu-Auth:active > i,
+    header.Navegacion div.Btn-Menu-Busqueda:focus > i,
+    header.Navegacion div.Btn-Menu-Busqueda:hover > i,
+    header.Navegacion div.Btn-Menu-Busqueda:active > i {
+      color: #4a4a4a; }
+  header.Navegacion div.Btn-Menu-Auth {
+    background: #e6e6e6; }
+  header.Navegacion div.Btn-Menu-Auth.Negativo.--activo {
+    color: #fff;
+    border: transparent;
+    background: #4a4a4a; }
+    header.Navegacion div.Btn-Menu-Auth.Negativo.--activo:focus > i, header.Navegacion div.Btn-Menu-Auth.Negativo.--activo:hover > i, header.Navegacion div.Btn-Menu-Auth.Negativo.--activo:active > i {
+      color: #fff; }
+  header.Navegacion div.Btn-Menu-Navegacion:focus > div.Barra, header.Navegacion div.Btn-Menu-Navegacion:hover > div.Barra, header.Navegacion div.Btn-Menu-Navegacion:active > div.Barra {
+    background: #4a4a4a; }
+  header.Navegacion div.Btn-Menu-Navegacion > div.Barra {
+    top: 1.06667rem;
+    width: 70%;
+    height: 0.26667rem;
+    margin: 0 auto;
+    background: #858585;
+    -webkit-transition: all 0.25s ease;
+    -moz-transition: all 0.25s ease;
+    transition: all 0.25s ease; }
+    header.Navegacion div.Btn-Menu-Navegacion > div.Barra:first-child {
+      top: 0.8rem; }
+    header.Navegacion div.Btn-Menu-Navegacion > div.Barra:last-child {
+      top: 1.33333rem; }
   header.Navegacion div.Btn-Menu-Navegacion.--activo > div.Barra {
+    width: 50%;
     opacity: 0; }
   header.Navegacion div.Btn-Menu-Navegacion.--activo > div.Barra:first-child {
-    top: 1.26667rem;
+    top: 1.33333rem;
     opacity: 1 !important;
     -webkit-transform: rotate(45deg);
     -moz-transform: rotate(45deg);
@@ -261,7 +287,7 @@ header.Navegacion {
     -moz-transition: all 0.25s ease;
     transition: all 0.25s ease; }
   header.Navegacion div.Btn-Menu-Navegacion.--activo > div.Barra:last-child {
-    top: 0.6rem;
+    top: 0.8rem;
     opacity: 1 !important;
     -webkit-transform: rotate(-45deg);
     -moz-transform: rotate(-45deg);
@@ -281,7 +307,13 @@ header.Navegacion {
   header.Navegacion nav.Menu-Navegacion {
     float: left;
     display: none;
-    min-width: 36rem; }
+    min-width: 36rem;
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 48.82117%; }
+    header.Navegacion nav.Menu-Navegacion:last-child {
+      margin-right: 0; }
   header.Navegacion ul.Lista-Menu-Navegacion {
     width: 100%;
     text-align: center; }
@@ -298,25 +330,40 @@ header.Navegacion {
     letter-spacing: 1px;
     text-transform: uppercase; }
   header.Navegacion nav.Menu-Sesion {
-    float: left;
+    float: right !important;
     height: 3rem;
-    display: none;
+    display: block;
     overflow: hidden;
-    min-width: 10rem; }
+    min-width: 10rem;
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 23.23176%; }
+    header.Navegacion nav.Menu-Sesion:last-child {
+      margin-right: 0; }
   header.Navegacion ul.Lista-Menu-Sesion {
     float: right;
-    width: auto; }
+    width: auto;
+    border-right: 1px solid #c6c6c6;
+    margin-right: 1.2rem;
+    padding-right: 1.2rem; }
   header.Navegacion li.Item-Menu-Sesion {
     display: inline;
-    font-size: 0.8667rem;
+    font-size: 1.0666rem;
     line-height: 3rem; }
     header.Navegacion li.Item-Menu-Sesion:first-child a.Link-Menu-Sesion {
+      color: #4a4a4a;
       border-left: none;
+      font-weight: 600;
       margin-left: 0;
       padding-left: 0; }
+      header.Navegacion li.Item-Menu-Sesion:first-child a.Link-Menu-Sesion > i {
+        color: #858585; }
     header.Navegacion li.Item-Menu-Sesion:last-child a.Link-Menu-Sesion {
       margin-right: 0;
       padding-right: 0; }
+    header.Navegacion li.Item-Menu-Sesion i {
+      margin-right: 1.2rem; }
   header.Navegacion a.Link-Menu-Sesion {
     color: inherit;
     font-size: inherit;
@@ -334,52 +381,9 @@ header.Navegacion {
     height: 9rem;
     padding: 3rem; } }
 
-@media screen and (min-width: 1024px) {
-  header.Navegacion nav.Menu-Navegacion {
-    display: block !important;
-    float: left;
-    display: block;
-    margin-right: 2.35765%;
-    width: 48.82117%; }
-    header.Navegacion nav.Menu-Navegacion:last-child {
-      margin-right: 0; }
-  header.Navegacion nav.Menu-Sesion {
-    display: block !important;
-    float: left;
-    display: block;
-    margin-right: 2.35765%;
-    width: 14.70196%; }
-    header.Navegacion nav.Menu-Sesion:last-child {
-      margin-right: 0; }
-  header.Navegacion div.Btn-Menu-Navegacion {
-    display: none !important; } }
-
 @media screen and (min-width: 84rem) {
   div.Wrapper-Navegacion {
-    padding: 3rem 0; }
-  header.Navegacion div.Logo {
-    float: left;
-    display: block;
-    margin-right: 2.35765%;
-    width: 23.23176%; }
-    header.Navegacion div.Logo:last-child {
-      margin-right: 0; }
-  header.Navegacion nav.Menu-Navegacion {
-    display: block !important;
-    float: left;
-    display: block;
-    margin-right: 2.35765%;
-    width: 48.82117%; }
-    header.Navegacion nav.Menu-Navegacion:last-child {
-      margin-right: 0; }
-  header.Navegacion nav.Menu-Sesion {
-    display: block !important;
-    float: left;
-    display: block;
-    margin-right: 2.35765%;
-    width: 23.23176%; }
-    header.Navegacion nav.Menu-Sesion:last-child {
-      margin-right: 0; } }
+    padding: 3rem 0; } }
 
 /* ===========================================================================
    Default
@@ -412,7 +416,7 @@ aside.Sidebar {
   width: 16rem;
   height: 100%;
   display: none;
-  z-index: 400;
+  z-index: 11;
   position: fixed;
   background: #fafafa;
   border-right: 1px solid #e6e6e6; }
@@ -431,13 +435,12 @@ li.Item-Sidebar {
     -webkit-transition: background, ease, 0.25s;
     -moz-transition: background, ease, 0.25s;
     transition: background, ease, 0.25s; }
-
-a.Link-Sidebar {
-  color: #c6c6c6;
-  padding: 1.2rem 3rem;
-  font-weight: 300; }
-  a.Link-Sidebar > i {
-    margin-right: 1rem; }
+  li.Item-Sidebar > a {
+    color: #c6c6c6;
+    padding: 1.2rem 3rem;
+    font-weight: 300; }
+    li.Item-Sidebar > a > i {
+      margin-right: 1rem; }
 
 /* Media Queries
    @mixin ========================================================================== */
@@ -446,16 +449,17 @@ a.Link-Sidebar {
     display: block; } }
 
 form.Formulario-Filtros {
+  z-index: 3;
   margin-bottom: 2rem; }
 
-span.Cuenta-Resultados {
+.Cuenta-Resultados {
   font-size: 0.7333rem;
   margin-bottom: 2rem; }
 
 div.Pagination .pagination {
   float: right; }
 
-div.Pagination span.Cuenta-Resultados {
+div.Pagination .Cuenta-Resultados {
   width: auto;
   line-height: 3.2rem;
   margin-bottom: 0; }
@@ -463,15 +467,22 @@ div.Pagination span.Cuenta-Resultados {
 /* ===========================================================================
    Desplegables
    @mixin ========================================================================== */
+nav#menuAuth,
 nav#menuNavegacion {
   top: 5rem;
   width: 100%;
   position: fixed; }
+  nav#menuAuth li.Item-Menu-Desplegable > i,
+  nav#menuNavegacion li.Item-Menu-Desplegable > i {
+    margin-right: 1.2rem; }
+  nav#menuAuth li.Item-Menu-Desplegable > a > i,
+  nav#menuNavegacion li.Item-Menu-Desplegable > a > i {
+    margin-right: 1.2rem; }
 
 /* Media Queries
    @mixin ========================================================================== */
 @media screen and (min-width: 768px) {
   nav#menuNavegacion {
     top: 6rem;
-    width: 414px;
-    z-index: 401; } }
+    width: 16rem;
+    z-index: 11; } }

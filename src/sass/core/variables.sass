@@ -122,6 +122,14 @@ $espacio-grande: $espacio * 2
 $espacio-muy-chico: $espacio / 4
 $espacio-muy-grande: $espacio * 4
 
+/* Relaciones de aspecto
+   =========================================================================== */
+$aspecto1-1:  100%
+$aspecto4-3:  75%
+$aspecto3-2:  (200 / 3) + %
+$aspecto8-5:  62.5%
+$aspecto16-9: 56.25%
+
 /* Animaciones
    =========================================================================== */
 $timing:   ease
@@ -151,7 +159,7 @@ $escritorio: new-breakpoint(min-width (rem($tercer--bp)))
 /* Sombra
    =========================================================================== */
 $color-sombra: rgba(0,0,0,0.07)
-$tamano-sombra: 0 0.4rem 0 0
+$tamano-sombra: 0 $radio-borde $espacio-muy-chico 0
 
 /* Ventana modal
    =========================================================================== */

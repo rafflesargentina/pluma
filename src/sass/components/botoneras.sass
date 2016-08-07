@@ -1,5 +1,5 @@
-div.Botonera-Inferior
-  float: left
+.Botonera-Inferior,
+.Botonera-Inferior-Derecha
   width: 100%
   margin-top: $espacio-chico
   .Btn,
@@ -7,11 +7,28 @@ div.Botonera-Inferior
     width: 100%
     margin-bottom: $espacio-muy-chico
 
+.Botonera-Inferior
+  float: left
+
+.Botonera-Inferior-Derecha
+  float: right
+
 @include media($tercer--bp)
-  div.Botonera-Inferior
+  .Botonera-Inferior,
+  .Botonera-Inferior-Derecha
     margin-top: $alto-boton
     margin-bottom: $alto-boton
     .Btn,
     #{$all-buttons}
       margin-bottom: 0
+
+  .Botonera-Inferior
+    .Btn,
+    #{$all-buttons}
       @include span-columns(3)
+
+  .Botonera-Inferior-Derecha
+    .Btn,
+    #{$all-buttons}
+      @include direction-context(right-to-left)
+        @include span-columns(3)

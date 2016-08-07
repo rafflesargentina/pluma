@@ -6,7 +6,7 @@
 figure
   margin-bottom: $espacio-chico
 
-div.Miniatura
+.Miniatura
   overflow: hidden
   background: $gris-mas-claro
   background-repeat: no-repeat
@@ -32,14 +32,10 @@ figcaption
   p
     margin-bottom: $espacio-chico
 
-div.Miniatura + figcaption
+.Miniatura + figcaption
   border-top: none
 
-div.Col-3 > div.Miniatura
-  height: 13rem
-
-div.Col-4 > div.Miniatura
-  height: 14rem
-
-div.Col-6 > div.Miniatura
-  height: 19rem
+.Col-3 .Miniatura,
+.Col-4 .Miniatura,
+.Col-6 .Miniatura
+  padding-top: $aspecto16-9

@@ -67,6 +67,18 @@ input[type="password"]
       @include transition(border-color $duracion $timing)
 
 /**
+ * Input File
+ */
+input[type="file"]
+  top: 0
+  left: 0
+  right: 0
+  opacity: 0
+  min-width: 100%
+  min-height: 100%
+  position: absolute
+
+/**
  * 1. Permite solo resize vertical.
  * 2. Remueve la barra de scroll vertical por defecto en IE.
  */
@@ -100,7 +112,7 @@ div.Radiobtn
 time,
 label
   color: $gris-claro
-  margin: ($espacio-muy-chico / 3) 0
+  margin: $padding-tabla-horizontal 0
   display: inline-block
   font-size: $tamano-fuente-chico
   font-weight: $peso-fuente-etiquetas
@@ -108,16 +120,16 @@ label
   text-transform: $trans-fuente-etiquetas
   @include transition(color $duracion $timing)
 
-label.--con-foco
+label.El--con-foco
   color: $color-primario
   @include transition(color $duracion $timing)
 
 /* Controles con icono
    =========================================================================== */
-.--con-icono-derecha
+.El--con-icono-derecha
   padding-right: ($padding-tabla-vertical * 2) !important
 
-.--con-icono-izquierda
+.El--con-icono-izquierda
   padding-left: ($padding-tabla-vertical * 2) !important
 
 i.Icono-Control-Derecha,
@@ -153,16 +165,16 @@ i.Icono-Control-Izquierda
 
 /* Validacion de controles
    =========================================================================== */
-.--con-info
+.El--con-info
   @include validacion-controles($color-alerta-texto-info, $color-alerta-borde-info, $color-alerta-fondo-info)
 
-.--con-error
+.El--con-error
   @include validacion-controles($color-alerta-texto-error, $color-alerta-borde-error, $color-alerta-fondo-error)
 
-.--con-success
+.El--con-success
   @include validacion-controles($color-alerta-texto-success, $color-alerta-borde-success, $color-alerta-fondo-success)
 
-.--con-warning
+.El--con-warning
   @include validacion-controles($color-alerta-texto-warning, $color-alerta-borde-warning, $color-alerta-fondo-warning)
 
 .Mensaje-Validacion

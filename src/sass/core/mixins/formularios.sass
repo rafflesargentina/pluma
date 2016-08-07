@@ -1,17 +1,23 @@
 @mixin validacion-controles($color-texto-control, $color-borde-control, $color-fondo-control)
+  select,
+  textarea,
   div.Checkbox,
   div.Radiobtn,
   input[type="text"],
   input[type="email"],
-  input[type="password"]
+  input[type="password"],
+  .select2-container--default .select2-selection--single
     color: $color-texto-control
   & label,
   & span.Mensaje-Validacion 
     color: $color-texto-control
 
+  select,
+  textarea,
   input[type="text"],
   input[type="email"],
-  input[type="password"]
+  input[type="password"],
+  .select2-container--default .select2-selection--single
     box-shadow: 0 0 0 $alto-control $color-fondo-control inset
     border-color: $color-borde-control
     background-color: $color-fondo-control
@@ -25,6 +31,16 @@
     + label
       color: $color-borde-control
 
+  .select2-container--default .select2-selection--single .select2-selection__arrow b,
+    border-color: $color-texto-control transparent transparent transparent
+  .select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b
+    border-color: transparent transparent $color-texto-control transparent
+
   .Controles-Agrupados
     color: $color-texto-control
     border-color: $color-borde-control
+
+  .Complemento-Agrupados
+    color: $color-texto-control
+    border-color: $color-borde-control
+    background-color: $color-borde-control

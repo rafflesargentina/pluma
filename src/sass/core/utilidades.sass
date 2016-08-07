@@ -38,15 +38,29 @@
 .Texto-Izquierda
   text-align: left !important
 
+/* Iconos
+   =========================================================================== */
+i:first-child:not(:only-child)
+  margin-left: 0
+  margin-right: $padding-tabla-horizontal
+i:last-child:not(:only-child)
+  margin-left: $padding-tabla-horizontal
+  margin-right: 0
+i:only-child
+  margin-right: $padding-tabla-horizontal
+i:not(:first-child):not(:last-child)
+  margin-left: $padding-tabla-horizontal
+  margin-right: $padding-tabla-horizontal
+
 /* Borde
    =========================================================================== */
-.--con-borde
+.El--con-borde
   border: $borde
 
-.--con-borde-claro
+.El--con-borde-claro
   border: $borde-claro
 
 /* Sombra
    =========================================================================== */
-.--con-sombra
+.El--con-sombra
   box-shadow: $tamano-sombra $color-sombra

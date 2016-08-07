@@ -48,7 +48,7 @@ header.Navegacion
   div.Btn-Menu-Auth
     background: $color-borde-claro
 
-  div.Btn-Menu-Auth.Negativo.--activo
+  div.Btn-Menu-Auth.Negativo.El--activo
     color: $color-fondo
     border: transparent
     background: $gris-mas-oscuro
@@ -75,7 +75,7 @@ header.Navegacion
         top: 0.8rem
       &:last-child
         top: (4 / 3) + rem
-  div.Btn-Menu-Navegacion.--activo
+  div.Btn-Menu-Navegacion.El--activo
     > div.Barra
       width: 50%
       opacity: 0
@@ -91,7 +91,7 @@ header.Navegacion
         @include transform(rotate(-45deg))
         @include transition(all $duracion $timing)
 
-  div.Btn-Menu-Navegacion.Negativo.--activo 
+  div.Btn-Menu-Navegacion.Negativo.El--activo 
     border: transparent
     background: $gris-oscuro
     &:focus,
@@ -107,7 +107,7 @@ header.Navegacion
     @include span-columns(6)
 
   ul.Lista-Menu-Navegacion
-      width: 100%
+      width: auto
       text-align: center
 
   li.Item-Menu-Navegacion
@@ -156,9 +156,6 @@ header.Navegacion
       a.Link-Menu-Sesion
         margin-right: 0
         padding-right: 0
-    i
-      margin-right: $padding-tabla-vertical
-    
 
   a.Link-Menu-Sesion
     color: inherit

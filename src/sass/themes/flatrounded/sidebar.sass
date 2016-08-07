@@ -25,13 +25,16 @@ li.Item-Sidebar
   &:active
     background: $color-borde-claro
     @include transition(background, $timing, $duracion)
-
   > a
     color: $gris-claro
     padding: $padding-tabla-vertical $padding-header
     font-weight: 300
-    > i
-      margin-right: $espacio-muy-chico
+
+li.Item-Sidebar.active
+  background: $color-fondo
+  box-shadow: inset 4px 0 0 0 $gris-mas-oscuro
+  > a
+    color: $gris-mas-oscuro
 
 /* Media Queries
    =========================================================================== */

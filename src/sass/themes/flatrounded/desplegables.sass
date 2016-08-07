@@ -8,16 +8,11 @@ nav#menuNavegacion
   width: 100%
   position: fixed
 
-  li.Item-Menu-Desplegable
-    > i
-      margin-right: $padding-tabla-vertical
-    > a > i
-      margin-right: $padding-tabla-vertical
-
 
 /* Media Queries
    =========================================================================== */
 @include media(min-width $segundo-bp)
+  nav#menuAuth,
   nav#menuNavegacion
     top: $alto-header-mobile + 1rem
     width: $ancho-sidebar

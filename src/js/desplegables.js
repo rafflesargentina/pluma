@@ -7,13 +7,13 @@ function alternarDesplegable() {
         blanco = qsById(gatillo.getAttribute("data-desplegable"))
     }
     if(blanco) {
-        if(hasClass(gatillo, "--activo") && hasClass(blanco, "--desplegable-visible")) {
-            removeClass(gatillo, "--activo");
-            removeClass(blanco, "--desplegable-visible");
+        if(hasClass(gatillo, "El--activo") && hasClass(blanco, "El--visible")) {
+            removeClass(gatillo, "El--activo");
+            removeClass(blanco, "El--visible");
             removeEvent(window, "resize", function() { posicionarDesplegable(gatillo,blanco) });
         } else {
-            addClass(gatillo, "--activo");
-            addClass(blanco, "--desplegable-visible");
+            addClass(gatillo, "El--activo");
+            addClass(blanco, "El--visible");
             posicionarDesplegable(gatillo,blanco);
             addEvent(window, "resize", function()  { posicionarDesplegable(gatillo,blanco) });
         }
@@ -26,8 +26,8 @@ function ocultarDesplegables(ev,gatillos) {
         var blanco = qsById(gatillo.getAttribute("data-desplegable"));
         if(blanco) {
             if(!blanco.contains(ev.target) && !gatillo.contains(ev.target)) {
-                removeClass(blanco, "--desplegable-visible");
-                removeClass(gatillo, "--activo");
+                removeClass(blanco, "El--visible");
+                removeClass(gatillo, "El--activo");
                 removeEvent(window, "resize", function() { posicionarDesplegable(gatillo,blanco) });
             }
         }
@@ -35,8 +35,8 @@ function ocultarDesplegables(ev,gatillos) {
 }
 
 function posicionarDesplegable(gatillo,blanco) {
-    var rect = gatillo.getBoundingClientRect();
     var main = qsByTagName(document.body, "main")[0];
+    var rect = gatillo.getBoundingClientRect();
     var posicionY = rect.top + gatillo.offsetHeight + "px";
     if(blanco.offsetWidth + rect.left < main.offsetWidth) {
        var posicionX = rect.left + "px";

@@ -3,7 +3,7 @@
   width: 100%;
   border: $borde;
   display: block;
-  z-index: $capa-navegacion + 2;
+  z-index: 3;
   position: absolute;
   background: $color-fondo;
   border-radius: $radio-borde;
@@ -30,20 +30,19 @@
 }
 
 .select2-container--open .select2-dropdown--above {
-  box-shadow: 1px (0 - $alto-control / 16) ($alto-control / 8) 1px rgba(0,0,0,0.07);
+  box-shadow: 1px (0 - $alto-control / 16) ($alto-control / 8) 1px $color-sombra;
   border-bottom: none;
   @include border-bottom-radius(0);
 }
 
 .select2-container--open .select2-dropdown--below {
-  box-shadow: 1px ($alto-control / 16) ($alto-control / 8) 1px rgba(0,0,0,0.07);
+  box-shadow: 1px ($alto-control / 16) ($alto-control / 8) 1px $color-sombra;
   border-top: none;
   @include border-top-radius(0);
 }
 
 .select2-search--dropdown {
   display: block;
-  padding: $alto-control / 8;
 
   .select2-search__field {
     width: 100%;

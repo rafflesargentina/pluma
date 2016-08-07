@@ -24,6 +24,8 @@ html {
    @mixin ========================================================================== */
 /* Espacios
    @mixin ========================================================================== */
+/* Relaciones de aspecto
+   @mixin ========================================================================== */
 /* Animaciones
    @mixin ========================================================================== */
 /* Grilla
@@ -161,7 +163,7 @@ progress {
 /**
  * Visible solo para impresion
  */
-.--visible-impresion {
+.El--visible-impresion {
   display: none; }
 
 /**
@@ -180,6 +182,7 @@ figcaption,
 div.Checkbox,
 div.Radiobtn,
 input[type="text"],
+.Mensaje-Validacion,
 input[type="email"],
 div.Grupo-Formulario,
 div.Botones-Agrupados,
@@ -447,7 +450,7 @@ thead th {
 .Tabla-Condensada > tbody > tr > th,
 .Tabla-Condensada > tfoot > tr > td,
 .Tabla-Condensada > tfoot > tr > th {
-  padding: 0.6rem;
+  padding: 0.3rem 0.6rem;
   font-size: 0.7333rem; }
 
 .Tabla-Condensada .Btn-Tabla {
@@ -593,6 +596,11 @@ button::-moz-focus-inner {
     background: #0288d1;
     border-color: #0288d1; }
 
+/* Boton File
+   @mixin ========================================================================== */
+.Btn-File {
+  overflow: hidden; }
+
 /* Boton Link
    @mixin ========================================================================== */
 .Btn-Link {
@@ -619,14 +627,12 @@ button::-moz-focus-inner {
   color: #9b9f9b;
   border: none;
   height: auto;
-  padding: 0 0.33333rem;
+  padding: 0 0.3rem;
   font-size: 0.7333rem;
   background: transparent;
   line-height: 1rem;
-  margin-right: 0.33333rem;
   text-transform: none; }
   .Btn-Tabla > i {
-    margin: auto;
     font-size: 1.0666rem; }
   .Btn-Tabla:focus:not(:disabled), .Btn-Tabla:hover:not(:disabled), .Btn-Tabla:active:not(:disabled) {
     color: #03a9f4;
@@ -702,18 +708,35 @@ button::-moz-focus-inner {
 .Texto-Izquierda {
   text-align: left !important; }
 
+/* Iconos
+   @mixin ========================================================================== */
+i:first-child:not(:only-child) {
+  margin-left: 0;
+  margin-right: 0.6rem; }
+
+i:last-child:not(:only-child) {
+  margin-left: 0.6rem;
+  margin-right: 0; }
+
+i:only-child {
+  margin-right: 0.6rem; }
+
+i:not(:first-child):not(:last-child) {
+  margin-left: 0.6rem;
+  margin-right: 0.6rem; }
+
 /* Borde
    @mixin ========================================================================== */
-.--con-borde {
+.El--con-borde {
   border: 1px solid #c6c6c6; }
 
-.--con-borde-claro {
+.El--con-borde-claro {
   border: 1px solid #e6e6e6; }
 
 /* Sombra
    @mixin ========================================================================== */
-.--con-sombra {
-  box-shadow: 0 0.4rem 0 0 rgba(0, 0, 0, 0.07); }
+.El--con-sombra {
+  box-shadow: 0 0.2666rem 1rem 0 rgba(0, 0, 0, 0.07); }
 
 /* ===========================================================================
    Formularios
@@ -848,6 +871,18 @@ input[type="password"] {
       transition: border-color 0.25s ease; }
 
 /**
+ * Input File
+ */
+input[type="file"] {
+  top: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  min-width: 100%;
+  min-height: 100%;
+  position: absolute; }
+
+/**
  * 1. Permite solo resize vertical.
  * 2. Remueve la barra de scroll vertical por defecto en IE.
  */
@@ -880,7 +915,7 @@ div.Radiobtn label {
 time,
 label {
   color: #c6c6c6;
-  margin: 0.33333rem 0;
+  margin: 0.6rem 0;
   display: inline-block;
   font-size: 0.7333rem;
   font-weight: 600;
@@ -890,7 +925,7 @@ label {
   -moz-transition: color 0.25s ease;
   transition: color 0.25s ease; }
 
-label.--con-foco {
+label.El--con-foco {
   color: #03a9f4;
   -webkit-transition: color 0.25s ease;
   -moz-transition: color 0.25s ease;
@@ -898,10 +933,10 @@ label.--con-foco {
 
 /* Controles con icono
    @mixin ========================================================================== */
-.--con-icono-derecha {
+.El--con-icono-derecha {
   padding-right: 2.4rem !important; }
 
-.--con-icono-izquierda {
+.El--con-icono-izquierda {
   padding-left: 2.4rem !important; }
 
 i.Icono-Control-Derecha,
@@ -937,205 +972,357 @@ i.Icono-Control-Izquierda {
 
 /* Validacion de controles
    @mixin ========================================================================== */
-.--con-info div.Checkbox,
-.--con-info div.Radiobtn,
-.--con-info input[type="text"],
-.--con-info input[type="email"],
-.--con-info input[type="password"] {
+.El--con-info select,
+.El--con-info textarea,
+.El--con-info div.Checkbox,
+.El--con-info div.Radiobtn,
+.El--con-info input[type="text"],
+.El--con-info input[type="email"],
+.El--con-info input[type="password"],
+.El--con-info .select2-container--default .select2-selection--single {
   color: #10adf5; }
 
-.--con-info label,
-.--con-info span.Mensaje-Validacion {
+.El--con-info label,
+.El--con-info span.Mensaje-Validacion {
   color: #10adf5; }
 
-.--con-info input[type="text"],
-.--con-info input[type="email"],
-.--con-info input[type="password"] {
+.El--con-info select,
+.El--con-info textarea,
+.El--con-info input[type="text"],
+.El--con-info input[type="email"],
+.El--con-info input[type="password"],
+.El--con-info .select2-container--default .select2-selection--single {
   box-shadow: 0 0 0 3.2rem #e6f6fe inset;
   border-color: #c0eafc;
   background-color: #e6f6fe;
   -webkit-text-fill-color: #10adf5; }
-  .--con-info input[type="text"]::-webkit-input-placeholder,
-  .--con-info input[type="email"]::-webkit-input-placeholder,
-  .--con-info input[type="password"]::-webkit-input-placeholder {
+  .El--con-info select::-webkit-input-placeholder,
+  .El--con-info textarea::-webkit-input-placeholder,
+  .El--con-info input[type="text"]::-webkit-input-placeholder,
+  .El--con-info input[type="email"]::-webkit-input-placeholder,
+  .El--con-info input[type="password"]::-webkit-input-placeholder,
+  .El--con-info .select2-container--default .select2-selection--single::-webkit-input-placeholder {
     color: #c0eafc; }
-  .--con-info input[type="text"]::-moz-placeholder,
-  .--con-info input[type="email"]::-moz-placeholder,
-  .--con-info input[type="password"]::-moz-placeholder {
+  .El--con-info select::-moz-placeholder,
+  .El--con-info textarea::-moz-placeholder,
+  .El--con-info input[type="text"]::-moz-placeholder,
+  .El--con-info input[type="email"]::-moz-placeholder,
+  .El--con-info input[type="password"]::-moz-placeholder,
+  .El--con-info .select2-container--default .select2-selection--single::-moz-placeholder {
     color: #c0eafc; }
-  .--con-info input[type="text"]:-moz-placeholder,
-  .--con-info input[type="email"]:-moz-placeholder,
-  .--con-info input[type="password"]:-moz-placeholder {
+  .El--con-info select:-moz-placeholder,
+  .El--con-info textarea:-moz-placeholder,
+  .El--con-info input[type="text"]:-moz-placeholder,
+  .El--con-info input[type="email"]:-moz-placeholder,
+  .El--con-info input[type="password"]:-moz-placeholder,
+  .El--con-info .select2-container--default .select2-selection--single:-moz-placeholder {
     color: #c0eafc; }
-  .--con-info input[type="text"]:-ms-input-placeholder,
-  .--con-info input[type="email"]:-ms-input-placeholder,
-  .--con-info input[type="password"]:-ms-input-placeholder {
+  .El--con-info select:-ms-input-placeholder,
+  .El--con-info textarea:-ms-input-placeholder,
+  .El--con-info input[type="text"]:-ms-input-placeholder,
+  .El--con-info input[type="email"]:-ms-input-placeholder,
+  .El--con-info input[type="password"]:-ms-input-placeholder,
+  .El--con-info .select2-container--default .select2-selection--single:-ms-input-placeholder {
     color: #c0eafc; }
-  .--con-info input[type="text"]:focus, .--con-info input[type="text"]:active,
-  .--con-info input[type="email"]:focus,
-  .--con-info input[type="email"]:active,
-  .--con-info input[type="password"]:focus,
-  .--con-info input[type="password"]:active {
+  .El--con-info select:focus, .El--con-info select:active,
+  .El--con-info textarea:focus,
+  .El--con-info textarea:active,
+  .El--con-info input[type="text"]:focus,
+  .El--con-info input[type="text"]:active,
+  .El--con-info input[type="email"]:focus,
+  .El--con-info input[type="email"]:active,
+  .El--con-info input[type="password"]:focus,
+  .El--con-info input[type="password"]:active,
+  .El--con-info .select2-container--default .select2-selection--single:focus,
+  .El--con-info .select2-container--default .select2-selection--single:active {
     border-color: #10adf5;
     -webkit-text-fill-color: #10adf5; }
-  .--con-info input[type="text"] + label,
-  .--con-info input[type="email"] + label,
-  .--con-info input[type="password"] + label {
+  .El--con-info select + label,
+  .El--con-info textarea + label,
+  .El--con-info input[type="text"] + label,
+  .El--con-info input[type="email"] + label,
+  .El--con-info input[type="password"] + label,
+  .El--con-info .select2-container--default .select2-selection--single + label {
     color: #c0eafc; }
 
-.--con-info .Controles-Agrupados {
+.El--con-info .select2-container--default .select2-selection--single .select2-selection__arrow b {
+  border-color: #10adf5 transparent transparent transparent; }
+
+.El--con-info .select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b {
+  border-color: transparent transparent #10adf5 transparent; }
+
+.El--con-info .Controles-Agrupados {
   color: #10adf5;
   border-color: #c0eafc; }
 
-.--con-error div.Checkbox,
-.--con-error div.Radiobtn,
-.--con-error input[type="text"],
-.--con-error input[type="email"],
-.--con-error input[type="password"] {
+.El--con-info .Complemento-Agrupados {
+  color: #10adf5;
+  border-color: #c0eafc;
+  background-color: #c0eafc; }
+
+.El--con-error select,
+.El--con-error textarea,
+.El--con-error div.Checkbox,
+.El--con-error div.Radiobtn,
+.El--con-error input[type="text"],
+.El--con-error input[type="email"],
+.El--con-error input[type="password"],
+.El--con-error .select2-container--default .select2-selection--single {
   color: #d53939; }
 
-.--con-error label,
-.--con-error span.Mensaje-Validacion {
+.El--con-error label,
+.El--con-error span.Mensaje-Validacion {
   color: #d53939; }
 
-.--con-error input[type="text"],
-.--con-error input[type="email"],
-.--con-error input[type="password"] {
+.El--con-error select,
+.El--con-error textarea,
+.El--con-error input[type="text"],
+.El--con-error input[type="email"],
+.El--con-error input[type="password"],
+.El--con-error .select2-container--default .select2-selection--single {
   box-shadow: 0 0 0 3.2rem #fbeaea inset;
   border-color: #f4cbcb;
   background-color: #fbeaea;
   -webkit-text-fill-color: #d53939; }
-  .--con-error input[type="text"]::-webkit-input-placeholder,
-  .--con-error input[type="email"]::-webkit-input-placeholder,
-  .--con-error input[type="password"]::-webkit-input-placeholder {
+  .El--con-error select::-webkit-input-placeholder,
+  .El--con-error textarea::-webkit-input-placeholder,
+  .El--con-error input[type="text"]::-webkit-input-placeholder,
+  .El--con-error input[type="email"]::-webkit-input-placeholder,
+  .El--con-error input[type="password"]::-webkit-input-placeholder,
+  .El--con-error .select2-container--default .select2-selection--single::-webkit-input-placeholder {
     color: #f4cbcb; }
-  .--con-error input[type="text"]::-moz-placeholder,
-  .--con-error input[type="email"]::-moz-placeholder,
-  .--con-error input[type="password"]::-moz-placeholder {
+  .El--con-error select::-moz-placeholder,
+  .El--con-error textarea::-moz-placeholder,
+  .El--con-error input[type="text"]::-moz-placeholder,
+  .El--con-error input[type="email"]::-moz-placeholder,
+  .El--con-error input[type="password"]::-moz-placeholder,
+  .El--con-error .select2-container--default .select2-selection--single::-moz-placeholder {
     color: #f4cbcb; }
-  .--con-error input[type="text"]:-moz-placeholder,
-  .--con-error input[type="email"]:-moz-placeholder,
-  .--con-error input[type="password"]:-moz-placeholder {
+  .El--con-error select:-moz-placeholder,
+  .El--con-error textarea:-moz-placeholder,
+  .El--con-error input[type="text"]:-moz-placeholder,
+  .El--con-error input[type="email"]:-moz-placeholder,
+  .El--con-error input[type="password"]:-moz-placeholder,
+  .El--con-error .select2-container--default .select2-selection--single:-moz-placeholder {
     color: #f4cbcb; }
-  .--con-error input[type="text"]:-ms-input-placeholder,
-  .--con-error input[type="email"]:-ms-input-placeholder,
-  .--con-error input[type="password"]:-ms-input-placeholder {
+  .El--con-error select:-ms-input-placeholder,
+  .El--con-error textarea:-ms-input-placeholder,
+  .El--con-error input[type="text"]:-ms-input-placeholder,
+  .El--con-error input[type="email"]:-ms-input-placeholder,
+  .El--con-error input[type="password"]:-ms-input-placeholder,
+  .El--con-error .select2-container--default .select2-selection--single:-ms-input-placeholder {
     color: #f4cbcb; }
-  .--con-error input[type="text"]:focus, .--con-error input[type="text"]:active,
-  .--con-error input[type="email"]:focus,
-  .--con-error input[type="email"]:active,
-  .--con-error input[type="password"]:focus,
-  .--con-error input[type="password"]:active {
+  .El--con-error select:focus, .El--con-error select:active,
+  .El--con-error textarea:focus,
+  .El--con-error textarea:active,
+  .El--con-error input[type="text"]:focus,
+  .El--con-error input[type="text"]:active,
+  .El--con-error input[type="email"]:focus,
+  .El--con-error input[type="email"]:active,
+  .El--con-error input[type="password"]:focus,
+  .El--con-error input[type="password"]:active,
+  .El--con-error .select2-container--default .select2-selection--single:focus,
+  .El--con-error .select2-container--default .select2-selection--single:active {
     border-color: #d53939;
     -webkit-text-fill-color: #d53939; }
-  .--con-error input[type="text"] + label,
-  .--con-error input[type="email"] + label,
-  .--con-error input[type="password"] + label {
+  .El--con-error select + label,
+  .El--con-error textarea + label,
+  .El--con-error input[type="text"] + label,
+  .El--con-error input[type="email"] + label,
+  .El--con-error input[type="password"] + label,
+  .El--con-error .select2-container--default .select2-selection--single + label {
     color: #f4cbcb; }
 
-.--con-error .Controles-Agrupados {
+.El--con-error .select2-container--default .select2-selection--single .select2-selection__arrow b {
+  border-color: #d53939 transparent transparent transparent; }
+
+.El--con-error .select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b {
+  border-color: transparent transparent #d53939 transparent; }
+
+.El--con-error .Controles-Agrupados {
   color: #d53939;
   border-color: #f4cbcb; }
 
-.--con-success div.Checkbox,
-.--con-success div.Radiobtn,
-.--con-success input[type="text"],
-.--con-success input[type="email"],
-.--con-success input[type="password"] {
+.El--con-error .Complemento-Agrupados {
+  color: #d53939;
+  border-color: #f4cbcb;
+  background-color: #f4cbcb; }
+
+.El--con-success select,
+.El--con-success textarea,
+.El--con-success div.Checkbox,
+.El--con-success div.Radiobtn,
+.El--con-success input[type="text"],
+.El--con-success input[type="email"],
+.El--con-success input[type="password"],
+.El--con-success .select2-container--default .select2-selection--single {
   color: #429446; }
 
-.--con-success label,
-.--con-success span.Mensaje-Validacion {
+.El--con-success label,
+.El--con-success span.Mensaje-Validacion {
   color: #429446; }
 
-.--con-success input[type="text"],
-.--con-success input[type="email"],
-.--con-success input[type="password"] {
+.El--con-success select,
+.El--con-success textarea,
+.El--con-success input[type="text"],
+.El--con-success input[type="email"],
+.El--con-success input[type="password"],
+.El--con-success .select2-container--default .select2-selection--single {
   box-shadow: 0 0 0 3.2rem #ebf4ec inset;
   border-color: #cde3ce;
   background-color: #ebf4ec;
   -webkit-text-fill-color: #429446; }
-  .--con-success input[type="text"]::-webkit-input-placeholder,
-  .--con-success input[type="email"]::-webkit-input-placeholder,
-  .--con-success input[type="password"]::-webkit-input-placeholder {
+  .El--con-success select::-webkit-input-placeholder,
+  .El--con-success textarea::-webkit-input-placeholder,
+  .El--con-success input[type="text"]::-webkit-input-placeholder,
+  .El--con-success input[type="email"]::-webkit-input-placeholder,
+  .El--con-success input[type="password"]::-webkit-input-placeholder,
+  .El--con-success .select2-container--default .select2-selection--single::-webkit-input-placeholder {
     color: #cde3ce; }
-  .--con-success input[type="text"]::-moz-placeholder,
-  .--con-success input[type="email"]::-moz-placeholder,
-  .--con-success input[type="password"]::-moz-placeholder {
+  .El--con-success select::-moz-placeholder,
+  .El--con-success textarea::-moz-placeholder,
+  .El--con-success input[type="text"]::-moz-placeholder,
+  .El--con-success input[type="email"]::-moz-placeholder,
+  .El--con-success input[type="password"]::-moz-placeholder,
+  .El--con-success .select2-container--default .select2-selection--single::-moz-placeholder {
     color: #cde3ce; }
-  .--con-success input[type="text"]:-moz-placeholder,
-  .--con-success input[type="email"]:-moz-placeholder,
-  .--con-success input[type="password"]:-moz-placeholder {
+  .El--con-success select:-moz-placeholder,
+  .El--con-success textarea:-moz-placeholder,
+  .El--con-success input[type="text"]:-moz-placeholder,
+  .El--con-success input[type="email"]:-moz-placeholder,
+  .El--con-success input[type="password"]:-moz-placeholder,
+  .El--con-success .select2-container--default .select2-selection--single:-moz-placeholder {
     color: #cde3ce; }
-  .--con-success input[type="text"]:-ms-input-placeholder,
-  .--con-success input[type="email"]:-ms-input-placeholder,
-  .--con-success input[type="password"]:-ms-input-placeholder {
+  .El--con-success select:-ms-input-placeholder,
+  .El--con-success textarea:-ms-input-placeholder,
+  .El--con-success input[type="text"]:-ms-input-placeholder,
+  .El--con-success input[type="email"]:-ms-input-placeholder,
+  .El--con-success input[type="password"]:-ms-input-placeholder,
+  .El--con-success .select2-container--default .select2-selection--single:-ms-input-placeholder {
     color: #cde3ce; }
-  .--con-success input[type="text"]:focus, .--con-success input[type="text"]:active,
-  .--con-success input[type="email"]:focus,
-  .--con-success input[type="email"]:active,
-  .--con-success input[type="password"]:focus,
-  .--con-success input[type="password"]:active {
+  .El--con-success select:focus, .El--con-success select:active,
+  .El--con-success textarea:focus,
+  .El--con-success textarea:active,
+  .El--con-success input[type="text"]:focus,
+  .El--con-success input[type="text"]:active,
+  .El--con-success input[type="email"]:focus,
+  .El--con-success input[type="email"]:active,
+  .El--con-success input[type="password"]:focus,
+  .El--con-success input[type="password"]:active,
+  .El--con-success .select2-container--default .select2-selection--single:focus,
+  .El--con-success .select2-container--default .select2-selection--single:active {
     border-color: #429446;
     -webkit-text-fill-color: #429446; }
-  .--con-success input[type="text"] + label,
-  .--con-success input[type="email"] + label,
-  .--con-success input[type="password"] + label {
+  .El--con-success select + label,
+  .El--con-success textarea + label,
+  .El--con-success input[type="text"] + label,
+  .El--con-success input[type="email"] + label,
+  .El--con-success input[type="password"] + label,
+  .El--con-success .select2-container--default .select2-selection--single + label {
     color: #cde3ce; }
 
-.--con-success .Controles-Agrupados {
+.El--con-success .select2-container--default .select2-selection--single .select2-selection__arrow b {
+  border-color: #429446 transparent transparent transparent; }
+
+.El--con-success .select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b {
+  border-color: transparent transparent #429446 transparent; }
+
+.El--con-success .Controles-Agrupados {
   color: #429446;
   border-color: #cde3ce; }
 
-.--con-warning div.Checkbox,
-.--con-warning div.Radiobtn,
-.--con-warning input[type="text"],
-.--con-warning input[type="email"],
-.--con-warning input[type="password"] {
+.El--con-success .Complemento-Agrupados {
+  color: #429446;
+  border-color: #cde3ce;
+  background-color: #cde3ce; }
+
+.El--con-warning select,
+.El--con-warning textarea,
+.El--con-warning div.Checkbox,
+.El--con-warning div.Radiobtn,
+.El--con-warning input[type="text"],
+.El--con-warning input[type="email"],
+.El--con-warning input[type="password"],
+.El--con-warning .select2-container--default .select2-selection--single {
   color: #b3b836; }
 
-.--con-warning label,
-.--con-warning span.Mensaje-Validacion {
+.El--con-warning label,
+.El--con-warning span.Mensaje-Validacion {
   color: #b3b836; }
 
-.--con-warning input[type="text"],
-.--con-warning input[type="email"],
-.--con-warning input[type="password"] {
+.El--con-warning select,
+.El--con-warning textarea,
+.El--con-warning input[type="text"],
+.El--con-warning input[type="email"],
+.El--con-warning input[type="password"],
+.El--con-warning .select2-container--default .select2-selection--single {
   box-shadow: 0 0 0 3.2rem #f7f8ea inset;
   border-color: #ebecca;
   background-color: #f7f8ea;
   -webkit-text-fill-color: #b3b836; }
-  .--con-warning input[type="text"]::-webkit-input-placeholder,
-  .--con-warning input[type="email"]::-webkit-input-placeholder,
-  .--con-warning input[type="password"]::-webkit-input-placeholder {
+  .El--con-warning select::-webkit-input-placeholder,
+  .El--con-warning textarea::-webkit-input-placeholder,
+  .El--con-warning input[type="text"]::-webkit-input-placeholder,
+  .El--con-warning input[type="email"]::-webkit-input-placeholder,
+  .El--con-warning input[type="password"]::-webkit-input-placeholder,
+  .El--con-warning .select2-container--default .select2-selection--single::-webkit-input-placeholder {
     color: #ebecca; }
-  .--con-warning input[type="text"]::-moz-placeholder,
-  .--con-warning input[type="email"]::-moz-placeholder,
-  .--con-warning input[type="password"]::-moz-placeholder {
+  .El--con-warning select::-moz-placeholder,
+  .El--con-warning textarea::-moz-placeholder,
+  .El--con-warning input[type="text"]::-moz-placeholder,
+  .El--con-warning input[type="email"]::-moz-placeholder,
+  .El--con-warning input[type="password"]::-moz-placeholder,
+  .El--con-warning .select2-container--default .select2-selection--single::-moz-placeholder {
     color: #ebecca; }
-  .--con-warning input[type="text"]:-moz-placeholder,
-  .--con-warning input[type="email"]:-moz-placeholder,
-  .--con-warning input[type="password"]:-moz-placeholder {
+  .El--con-warning select:-moz-placeholder,
+  .El--con-warning textarea:-moz-placeholder,
+  .El--con-warning input[type="text"]:-moz-placeholder,
+  .El--con-warning input[type="email"]:-moz-placeholder,
+  .El--con-warning input[type="password"]:-moz-placeholder,
+  .El--con-warning .select2-container--default .select2-selection--single:-moz-placeholder {
     color: #ebecca; }
-  .--con-warning input[type="text"]:-ms-input-placeholder,
-  .--con-warning input[type="email"]:-ms-input-placeholder,
-  .--con-warning input[type="password"]:-ms-input-placeholder {
+  .El--con-warning select:-ms-input-placeholder,
+  .El--con-warning textarea:-ms-input-placeholder,
+  .El--con-warning input[type="text"]:-ms-input-placeholder,
+  .El--con-warning input[type="email"]:-ms-input-placeholder,
+  .El--con-warning input[type="password"]:-ms-input-placeholder,
+  .El--con-warning .select2-container--default .select2-selection--single:-ms-input-placeholder {
     color: #ebecca; }
-  .--con-warning input[type="text"]:focus, .--con-warning input[type="text"]:active,
-  .--con-warning input[type="email"]:focus,
-  .--con-warning input[type="email"]:active,
-  .--con-warning input[type="password"]:focus,
-  .--con-warning input[type="password"]:active {
+  .El--con-warning select:focus, .El--con-warning select:active,
+  .El--con-warning textarea:focus,
+  .El--con-warning textarea:active,
+  .El--con-warning input[type="text"]:focus,
+  .El--con-warning input[type="text"]:active,
+  .El--con-warning input[type="email"]:focus,
+  .El--con-warning input[type="email"]:active,
+  .El--con-warning input[type="password"]:focus,
+  .El--con-warning input[type="password"]:active,
+  .El--con-warning .select2-container--default .select2-selection--single:focus,
+  .El--con-warning .select2-container--default .select2-selection--single:active {
     border-color: #b3b836;
     -webkit-text-fill-color: #b3b836; }
-  .--con-warning input[type="text"] + label,
-  .--con-warning input[type="email"] + label,
-  .--con-warning input[type="password"] + label {
+  .El--con-warning select + label,
+  .El--con-warning textarea + label,
+  .El--con-warning input[type="text"] + label,
+  .El--con-warning input[type="email"] + label,
+  .El--con-warning input[type="password"] + label,
+  .El--con-warning .select2-container--default .select2-selection--single + label {
     color: #ebecca; }
 
-.--con-warning .Controles-Agrupados {
+.El--con-warning .select2-container--default .select2-selection--single .select2-selection__arrow b {
+  border-color: #b3b836 transparent transparent transparent; }
+
+.El--con-warning .select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b {
+  border-color: transparent transparent #b3b836 transparent; }
+
+.El--con-warning .Controles-Agrupados {
   color: #b3b836;
   border-color: #ebecca; }
+
+.El--con-warning .Complemento-Agrupados {
+  color: #b3b836;
+  border-color: #ebecca;
+  background-color: #ebecca; }
 
 .Mensaje-Validacion {
   top: 0.33333rem;
@@ -1231,6 +1418,7 @@ p {
 h1,
 h2,
 h3 {
+  color: #4a4a4a;
   font-family: "Lucida Grande", "Tahoma", "Verdana", "Arial", sans-serif;
   font-weight: 400;
   line-height: 1.2;
@@ -1273,52 +1461,52 @@ small {
    Utilidades Responsive
    @mixin ========================================================================== */
 @media screen and (max-width: 27.53333rem) {
-  .--visible-desde-telefonos {
+  .El--visible-desde-telefonos {
     display: block; }
-  .--oculto-desde-telefonos,
-  .--oculto-desde-phablets,
-  .--oculto-desde-tablets,
-  .--oculto-desde-escritorios,
-  .--visible-desde-phablets,
-  .--visible-desde-tablets,
-  .--visible-desde-escritorios {
+  .El--oculto-desde-telefonos,
+  .El--oculto-desde-phablets,
+  .El--oculto-desde-tablets,
+  .El--oculto-desde-escritorios,
+  .El--visible-desde-phablets,
+  .El--visible-desde-tablets,
+  .El--visible-desde-escritorios {
     display: none; } }
 
 @media screen and (min-width: 27.6rem) and (max-width: 51.13333rem) {
-  .--oculto-desde-telefonos,
-  .--visible-desde-telefonos,
-  .--visible-desde-phablets {
+  .El--oculto-desde-telefonos,
+  .El--visible-desde-telefonos,
+  .El--visible-desde-phablets {
     display: block; }
-  .--oculto-desde-phablets,
-  .--oculto-desde-tablets,
-  .--oculto-desde-escritorios,
-  .--visible-desde-tablets,
-  .--visible-desde-escritorios {
+  .El--oculto-desde-phablets,
+  .El--oculto-desde-tablets,
+  .El--oculto-desde-escritorios,
+  .El--visible-desde-tablets,
+  .El--visible-desde-escritorios {
     display: none; } }
 
 @media screen and (min-width: 51.2rem) and (max-width: 68.2rem) {
-  .--oculto-desde-telefonos,
-  .--oculto-desde-phablets,
-  .--visible-desde-telefonos,
-  .--visible-desde-phablets,
-  .--visible-desde-tablets {
+  .El--oculto-desde-telefonos,
+  .El--oculto-desde-phablets,
+  .El--visible-desde-telefonos,
+  .El--visible-desde-phablets,
+  .El--visible-desde-tablets {
     display: block; }
-  .--oculto-desde-tablets,
-  .--oculto-desde-escritorios,
-  .--visible-desde-tablets,
-  .--visible-desde-escritorios {
+  .El--oculto-desde-tablets,
+  .El--oculto-desde-escritorios,
+  .El--visible-desde-tablets,
+  .El--visible-desde-escritorios {
     display: none; } }
 
 @media screen and (min-width: 84rem) {
-  .--oculto-desde-telefonos,
-  .--oculto-desde-phablets,
-  .--oculto-desde-tablets,
-  .--visible-desde-telefonos,
-  .--visible-desde-phablets,
-  .--visible-desde-tablets,
-  .--visible-desde-escritorios {
+  .El--oculto-desde-telefonos,
+  .El--oculto-desde-phablets,
+  .El--oculto-desde-tablets,
+  .El--visible-desde-telefonos,
+  .El--visible-desde-phablets,
+  .El--visible-desde-tablets,
+  .El--visible-desde-escritorios {
     display: block; }
-  .--oculto-desde-escritorios {
+  .El--oculto-desde-escritorios {
     display: none; } }
 
 /* ===========================================================================
@@ -1380,37 +1568,37 @@ small {
     margin-bottom: 0; }
   .Alerta > p + p {
     margin-top: 0.33333rem; }
-  .Alerta .--con-success {
+  .Alerta .El--con-success {
     color: #429446;
     border-color: #cde3ce;
     background-color: #ebf4ec; }
-    .Alerta .--con-success hr {
+    .Alerta .El--con-success hr {
       border-color: #cde3ce; }
-    .Alerta .--con-success .Link-Alerta {
+    .Alerta .El--con-success .Link-Alerta {
       color: #cde3ce; }
-  .Alerta .--con-info {
+  .Alerta .El--con-info {
     color: #10adf5;
     border-color: #c0eafc;
     background-color: #e6f6fe; }
-    .Alerta .--con-info hr {
+    .Alerta .El--con-info hr {
       border-color: #c0eafc; }
-    .Alerta .--con-info .Link-Alerta {
+    .Alerta .El--con-info .Link-Alerta {
       color: #c0eafc; }
-  .Alerta .--con-error {
+  .Alerta .El--con-error {
     color: #d53939;
     border-color: #f4cbcb;
     background-color: #fbeaea; }
-    .Alerta .--con-error hr {
+    .Alerta .El--con-error hr {
       border-color: #f4cbcb; }
-    .Alerta .--con-error .Link-Alerta {
+    .Alerta .El--con-error .Link-Alerta {
       color: #f4cbcb; }
-  .Alerta .--con-warning {
+  .Alerta .El--con-warning {
     color: #b3b836;
     border-color: #ebecca;
     background-color: #f7f8ea; }
-    .Alerta .--con-warning hr {
+    .Alerta .El--con-warning hr {
       border-color: #ebecca; }
-    .Alerta .--con-warning .Link-Alerta {
+    .Alerta .El--con-warning .Link-Alerta {
       color: #ebecca; }
 
 .Alerta-Desestimable {
@@ -1468,36 +1656,64 @@ small {
     cursor: pointer;
     text-decoration: none; }
 
-.Wrapper-VModal.--visible {
+.Wrapper-VModal.El--visible {
   opacity: 1;
   height: 100%; }
-  .Wrapper-VModal.--visible .Ventana-Modal.--vmodal-visible {
+  .Wrapper-VModal.El--visible .Ventana-Modal.El--visible {
     top: 50%;
     display: block; }
 
-div.Botonera-Inferior {
-  float: left;
+.Botonera-Inferior,
+.Botonera-Inferior-Derecha {
   width: 100%;
   margin-top: 2rem; }
-  div.Botonera-Inferior .Btn,
-  div.Botonera-Inferior button, div.Botonera-Inferior input[type="button"], div.Botonera-Inferior input[type="reset"], div.Botonera-Inferior input[type="submit"] {
+  .Botonera-Inferior .Btn,
+  .Botonera-Inferior button, .Botonera-Inferior input[type="button"], .Botonera-Inferior input[type="reset"], .Botonera-Inferior input[type="submit"],
+  .Botonera-Inferior-Derecha .Btn,
+  .Botonera-Inferior-Derecha button,
+  .Botonera-Inferior-Derecha input[type="button"],
+  .Botonera-Inferior-Derecha input[type="reset"],
+  .Botonera-Inferior-Derecha input[type="submit"] {
     width: 100%;
     margin-bottom: 1rem; }
 
+.Botonera-Inferior {
+  float: left; }
+
+.Botonera-Inferior-Derecha {
+  float: right; }
+
 @media screen and (min-width: 1024px) {
-  div.Botonera-Inferior {
+  .Botonera-Inferior,
+  .Botonera-Inferior-Derecha {
     margin-top: 3.2rem;
     margin-bottom: 3.2rem; }
-    div.Botonera-Inferior .Btn,
-    div.Botonera-Inferior button, div.Botonera-Inferior input[type="button"], div.Botonera-Inferior input[type="reset"], div.Botonera-Inferior input[type="submit"] {
-      margin-bottom: 0;
-      float: left;
-      display: block;
-      margin-right: 2.35765%;
-      width: 23.23176%; }
-      div.Botonera-Inferior .Btn:last-child,
-      div.Botonera-Inferior button:last-child, div.Botonera-Inferior input[type="button"]:last-child, div.Botonera-Inferior input[type="reset"]:last-child, div.Botonera-Inferior input[type="submit"]:last-child {
-        margin-right: 0; } }
+    .Botonera-Inferior .Btn,
+    .Botonera-Inferior button, .Botonera-Inferior input[type="button"], .Botonera-Inferior input[type="reset"], .Botonera-Inferior input[type="submit"],
+    .Botonera-Inferior-Derecha .Btn,
+    .Botonera-Inferior-Derecha button,
+    .Botonera-Inferior-Derecha input[type="button"],
+    .Botonera-Inferior-Derecha input[type="reset"],
+    .Botonera-Inferior-Derecha input[type="submit"] {
+      margin-bottom: 0; }
+  .Botonera-Inferior .Btn,
+  .Botonera-Inferior button, .Botonera-Inferior input[type="button"], .Botonera-Inferior input[type="reset"], .Botonera-Inferior input[type="submit"] {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 23.23176%; }
+    .Botonera-Inferior .Btn:last-child,
+    .Botonera-Inferior button:last-child, .Botonera-Inferior input[type="button"]:last-child, .Botonera-Inferior input[type="reset"]:last-child, .Botonera-Inferior input[type="submit"]:last-child {
+      margin-right: 0; }
+  .Botonera-Inferior-Derecha .Btn,
+  .Botonera-Inferior-Derecha button, .Botonera-Inferior-Derecha input[type="button"], .Botonera-Inferior-Derecha input[type="reset"], .Botonera-Inferior-Derecha input[type="submit"] {
+    float: right;
+    display: block;
+    margin-left: 2.35765%;
+    width: 23.23176%; }
+    .Botonera-Inferior-Derecha .Btn:last-child,
+    .Botonera-Inferior-Derecha button:last-child, .Botonera-Inferior-Derecha input[type="button"]:last-child, .Botonera-Inferior-Derecha input[type="reset"]:last-child, .Botonera-Inferior-Derecha input[type="submit"]:last-child {
+      margin-left: 0; } }
 
 /* ===========================================================================
    Miniaturas
@@ -1505,14 +1721,14 @@ div.Botonera-Inferior {
 figure {
   margin-bottom: 2rem; }
 
-div.Miniatura {
+.Miniatura {
   overflow: hidden;
   background: #e6e6e6;
   background-repeat: no-repeat;
   background-position: center;
   border-top-left-radius: 0.2666rem;
   border-top-right-radius: 0.2666rem; }
-  div.Miniatura > img {
+  .Miniatura > img {
     width: 100%; }
 
 figcaption {
@@ -1530,17 +1746,13 @@ figcaption {
   figcaption p {
     margin-bottom: 2rem; }
 
-div.Miniatura + figcaption {
+.Miniatura + figcaption {
   border-top: none; }
 
-div.Col-3 > div.Miniatura {
-  height: 13rem; }
-
-div.Col-4 > div.Miniatura {
-  height: 14rem; }
-
-div.Col-6 > div.Miniatura {
-  height: 19rem; }
+.Col-3 .Miniatura,
+.Col-4 .Miniatura,
+.Col-6 .Miniatura {
+  padding-top: 56.25%; }
 
 /* ===========================================================================
    Pagination
@@ -1609,7 +1821,7 @@ nav.Menu-Desplegable {
   position: absolute;
   background: #fafafa; }
 
-nav.Menu-Desplegable.--desplegable-visible {
+nav.Menu-Desplegable.El--visible {
   display: block; }
 
 nav.Menu-Desplegable.Negativo {
@@ -1700,7 +1912,7 @@ nav.Menu-Desplegable.Negativo li.Item-Menu-Desplegable > a {
   width: 100%;
   border: 1px solid #c6c6c6;
   display: block;
-  z-index: 12;
+  z-index: 3;
   position: absolute;
   background: #fff;
   border-radius: 0.2666rem; }
@@ -1734,8 +1946,7 @@ nav.Menu-Desplegable.Negativo li.Item-Menu-Desplegable > a {
   border-top-right-radius: 0; }
 
 .select2-search--dropdown {
-  display: block;
-  padding: 0.4rem; }
+  display: block; }
   .select2-search--dropdown .select2-search__field {
     width: 100%;
     height: 3.2rem;
@@ -1947,7 +2158,7 @@ nav.Menu-Desplegable.Negativo li.Item-Menu-Desplegable > a {
 .select2-container--default .select2-results__group {
   cursor: default;
   display: block;
-  padding: 1rem / 3; }
+  padding: 0.33333rem; }
 
 /* ==========================================================================
    $BASE-PICKER
@@ -2437,6 +2648,7 @@ nav.Menu-Desplegable.Negativo li.Item-Menu-Desplegable > a {
       .Controles-Agrupados .Botones-Agrupados:last-child > button, .Controles-Agrupados .Botones-Agrupados:last-child input[type="button"], .Controles-Agrupados .Botones-Agrupados:last-child input[type="reset"], .Controles-Agrupados .Botones-Agrupados:last-child input[type="submit"]:first-child {
         border-bottom-left-radius: 0;
         border-top-left-radius: 0; }
+    .Controles-Agrupados .Botones-Agrupados .Btn:not(span),
     .Controles-Agrupados .Botones-Agrupados button, .Controles-Agrupados .Botones-Agrupados input[type="button"], .Controles-Agrupados .Botones-Agrupados input[type="reset"], .Controles-Agrupados .Botones-Agrupados input[type="submit"] {
       float: none;
       line-height: inherit; }

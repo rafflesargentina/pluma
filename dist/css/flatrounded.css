@@ -23,6 +23,8 @@ html {
    @mixin ========================================================================== */
 /* Espacios
    @mixin ========================================================================== */
+/* Relaciones de aspecto
+   @mixin ========================================================================== */
 /* Animaciones
    @mixin ========================================================================== */
 /* Grilla
@@ -57,8 +59,9 @@ section.Email,
 section.Login,
 li.Item-Sidebar,
 li.Item-Sidebar > a,
+ul.Lista-Sidebar,
 section.Register,
-span.Cuenta-Resultados,
+.Cuenta-Resultados,
 div.Wrapper-Interior-Principal {
   float: left;
   width: 100%; }
@@ -71,10 +74,10 @@ main.Auth {
   left: 0;
   right: 0;
   width: 20rem;
-  height: 36rem;
+  height: 40rem;
   bottom: 0;
   margin: auto;
-  overflow: auto;
+  overflow: hidden;
   position: fixed; }
   main.Auth .Btn-Link {
     color: #fff;
@@ -251,11 +254,11 @@ header.Navegacion {
       color: #4a4a4a; }
   header.Navegacion div.Btn-Menu-Auth {
     background: #e6e6e6; }
-  header.Navegacion div.Btn-Menu-Auth.Negativo.--activo {
+  header.Navegacion div.Btn-Menu-Auth.Negativo.El--activo {
     color: #fff;
     border: transparent;
     background: #4a4a4a; }
-    header.Navegacion div.Btn-Menu-Auth.Negativo.--activo:focus > i, header.Navegacion div.Btn-Menu-Auth.Negativo.--activo:hover > i, header.Navegacion div.Btn-Menu-Auth.Negativo.--activo:active > i {
+    header.Navegacion div.Btn-Menu-Auth.Negativo.El--activo:focus > i, header.Navegacion div.Btn-Menu-Auth.Negativo.El--activo:hover > i, header.Navegacion div.Btn-Menu-Auth.Negativo.El--activo:active > i {
       color: #fff; }
   header.Navegacion div.Btn-Menu-Navegacion:focus > div.Barra, header.Navegacion div.Btn-Menu-Navegacion:hover > div.Barra, header.Navegacion div.Btn-Menu-Navegacion:active > div.Barra {
     background: #4a4a4a; }
@@ -272,10 +275,10 @@ header.Navegacion {
       top: 0.8rem; }
     header.Navegacion div.Btn-Menu-Navegacion > div.Barra:last-child {
       top: 1.33333rem; }
-  header.Navegacion div.Btn-Menu-Navegacion.--activo > div.Barra {
+  header.Navegacion div.Btn-Menu-Navegacion.El--activo > div.Barra {
     width: 50%;
     opacity: 0; }
-  header.Navegacion div.Btn-Menu-Navegacion.--activo > div.Barra:first-child {
+  header.Navegacion div.Btn-Menu-Navegacion.El--activo > div.Barra:first-child {
     top: 1.33333rem;
     opacity: 1 !important;
     -webkit-transform: rotate(45deg);
@@ -286,7 +289,7 @@ header.Navegacion {
     -webkit-transition: all 0.25s ease;
     -moz-transition: all 0.25s ease;
     transition: all 0.25s ease; }
-  header.Navegacion div.Btn-Menu-Navegacion.--activo > div.Barra:last-child {
+  header.Navegacion div.Btn-Menu-Navegacion.El--activo > div.Barra:last-child {
     top: 0.8rem;
     opacity: 1 !important;
     -webkit-transform: rotate(-45deg);
@@ -297,12 +300,12 @@ header.Navegacion {
     -webkit-transition: all 0.25s ease;
     -moz-transition: all 0.25s ease;
     transition: all 0.25s ease; }
-  header.Navegacion div.Btn-Menu-Navegacion.Negativo.--activo {
+  header.Navegacion div.Btn-Menu-Navegacion.Negativo.El--activo {
     border: transparent;
     background: #858585; }
-    header.Navegacion div.Btn-Menu-Navegacion.Negativo.--activo:focus, header.Navegacion div.Btn-Menu-Navegacion.Negativo.--activo:hover {
+    header.Navegacion div.Btn-Menu-Navegacion.Negativo.El--activo:focus, header.Navegacion div.Btn-Menu-Navegacion.Negativo.El--activo:hover {
       background: #4a4a4a; }
-    header.Navegacion div.Btn-Menu-Navegacion.Negativo.--activo > div.Barra {
+    header.Navegacion div.Btn-Menu-Navegacion.Negativo.El--activo > div.Barra {
       background: #fff; }
   header.Navegacion nav.Menu-Navegacion {
     float: left;
@@ -315,7 +318,7 @@ header.Navegacion {
     header.Navegacion nav.Menu-Navegacion:last-child {
       margin-right: 0; }
   header.Navegacion ul.Lista-Menu-Navegacion {
-    width: 100%;
+    width: auto;
     text-align: center; }
   header.Navegacion li.Item-Menu-Navegacion {
     color: #c6c6c6;
@@ -362,8 +365,6 @@ header.Navegacion {
     header.Navegacion li.Item-Menu-Sesion:last-child a.Link-Menu-Sesion {
       margin-right: 0;
       padding-right: 0; }
-    header.Navegacion li.Item-Menu-Sesion i {
-      margin-right: 1.2rem; }
   header.Navegacion a.Link-Menu-Sesion {
     color: inherit;
     font-size: inherit;
@@ -394,6 +395,11 @@ body {
 main.Default {
   padding: 0 1rem;
   margin-top: 2rem; }
+  main.Default .Subtitulo-Seccion {
+    color: #4a4a4a;
+    border-bottom: 1px solid #4a4a4a;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem; }
 
 /* Media Queries
    @mixin ========================================================================== */
@@ -439,8 +445,12 @@ li.Item-Sidebar {
     color: #c6c6c6;
     padding: 1.2rem 3rem;
     font-weight: 300; }
-    li.Item-Sidebar > a > i {
-      margin-right: 1rem; }
+
+li.Item-Sidebar.active {
+  background: #fff;
+  box-shadow: inset 4px 0 0 0 #4a4a4a; }
+  li.Item-Sidebar.active > a {
+    color: #4a4a4a; }
 
 /* Media Queries
    @mixin ========================================================================== */
@@ -448,9 +458,12 @@ li.Item-Sidebar {
   aside.Sidebar {
     display: block; } }
 
-form.Formulario-Filtros {
+.Formulario-Filtros {
   z-index: 3;
   margin-bottom: 2rem; }
+
+.Tabla-Resultados {
+  margin-bottom: 0.6rem; }
 
 .Cuenta-Resultados {
   font-size: 0.7333rem;
@@ -472,16 +485,11 @@ nav#menuNavegacion {
   top: 5rem;
   width: 100%;
   position: fixed; }
-  nav#menuAuth li.Item-Menu-Desplegable > i,
-  nav#menuNavegacion li.Item-Menu-Desplegable > i {
-    margin-right: 1.2rem; }
-  nav#menuAuth li.Item-Menu-Desplegable > a > i,
-  nav#menuNavegacion li.Item-Menu-Desplegable > a > i {
-    margin-right: 1.2rem; }
 
 /* Media Queries
    @mixin ========================================================================== */
 @media screen and (min-width: 768px) {
+  nav#menuAuth,
   nav#menuNavegacion {
     top: 6rem;
     width: 16rem;

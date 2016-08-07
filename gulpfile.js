@@ -31,7 +31,7 @@ gulp.task('minify-css', function() {
 });
 
 gulp.task('minify-js', function() {
-    return gulp.src(['src/js/utilidades.js', 'src/js/tests.js', 'src/js/modales.js', 'src/js/desplegables.js', 'src/js/etiquetas.js'])
+    return gulp.src(['src/js/utilidades.js', 'src/js/tests.js', 'src/js/tabs.js', 'src/js/modales.js', 'src/js/desplegables.js', 'src/js/etiquetas.js'])
         .pipe(concat('pluma.js'))
         .pipe(gulp.dest('dist/js'))
         .pipe(rename('pluma.min.js'))

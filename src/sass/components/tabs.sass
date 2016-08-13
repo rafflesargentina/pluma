@@ -1,0 +1,71 @@
+ul.Tabs
+  overflow: hidden
+
+  li.Tab
+    float: left
+    border: $borde-claro
+    background: $color-variante-fondo
+    @include transition($duracion $timing)
+    &:first-child
+      border-right: none
+      border-top-left-radius: $radio-borde
+    &:last-child
+      border-top-right-radius: $radio-borde
+    &:not(:first-child):not(:last-child)
+      border-right: none
+    > a
+      color: $gris-claro
+      display: inline-block
+      padding: $espacio-muy-chico
+      font-size: $tamano-fuente-grande
+      text-align: center
+      text-decoration: none
+
+  li.Tab.El--activo
+    z-index: 2
+    background: $color-fondo
+    box-shadow: none
+    border-bottom-color: $color-fondo
+    > a
+      color: $gris-oscuro
+
+  li.Tab.El--activo.El--con--error
+    background: initial
+    border-top-color: $color-alerta-borde-error
+    border-left-color: $color-alerta-borde-error
+    > a
+      color: $color-alerta-texto-error
+
+  li.Tab.El--con-error
+    background: $color-alerta-fondo-error
+    border-top-color: $color-alerta-borde-error
+    border-left-color: $color-alerta-borde-error
+    > a
+      color: $color-alerta-texto-error
+     
+.Contenido-Tab
+  top: -1px
+  float: left
+  width: 100%
+  border: $borde-claro
+  display: none
+  padding: $alto-control
+  z-index: 1
+  box-shadow: $tamano-sombra $color-sombra
+  border-top-right-radius: $radio-borde
+  @include animation(fadeEffect $duracion)
+  @include border-bottom-radius($radio-borde)
+
+.Contenido-Tab.El--visible
+  display: block
+
+.Contenido-Tab.El--visible.El--con-error
+  border-color: $color-alerta-borde-error
+
+@-webkit-keyframes fadeEffect
+    from {opacity: 0;}
+    to {opacity: 1;}
+
+@keyframes fadeEffect
+    from {opacity: 0;}
+    to {opacity: 1;}

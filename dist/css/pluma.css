@@ -1509,6 +1509,83 @@ small {
   .El--oculto-desde-escritorios {
     display: none; } }
 
+ul.Tabs {
+  overflow: hidden; }
+  ul.Tabs li.Tab {
+    float: left;
+    border: 1px solid #e6e6e6;
+    background: #fafafa;
+    -webkit-transition: 0.25s ease;
+    -moz-transition: 0.25s ease;
+    transition: 0.25s ease; }
+    ul.Tabs li.Tab:first-child {
+      border-right: none;
+      border-top-left-radius: 0.2666rem; }
+    ul.Tabs li.Tab:last-child {
+      border-top-right-radius: 0.2666rem; }
+    ul.Tabs li.Tab:not(:first-child):not(:last-child) {
+      border-right: none; }
+    ul.Tabs li.Tab > a {
+      color: #c6c6c6;
+      display: inline-block;
+      padding: 1rem;
+      font-size: 1.0666rem;
+      text-align: center;
+      text-decoration: none; }
+  ul.Tabs li.Tab.El--activo {
+    z-index: 2;
+    background: #fff;
+    box-shadow: none;
+    border-bottom-color: #fff; }
+    ul.Tabs li.Tab.El--activo > a {
+      color: #858585; }
+  ul.Tabs li.Tab.El--activo.El--con--error {
+    background: initial;
+    border-top-color: #f4cbcb;
+    border-left-color: #f4cbcb; }
+    ul.Tabs li.Tab.El--activo.El--con--error > a {
+      color: #d53939; }
+  ul.Tabs li.Tab.El--con-error {
+    background: #fbeaea;
+    border-top-color: #f4cbcb;
+    border-left-color: #f4cbcb; }
+    ul.Tabs li.Tab.El--con-error > a {
+      color: #d53939; }
+
+.Contenido-Tab {
+  top: -1px;
+  float: left;
+  width: 100%;
+  border: 1px solid #e6e6e6;
+  display: none;
+  padding: 3.2rem;
+  z-index: 1;
+  box-shadow: 0 0.2666rem 1rem 0 rgba(0, 0, 0, 0.07);
+  border-top-right-radius: 0.2666rem;
+  -webkit-animation: fadeEffect 0.25s;
+  -moz-animation: fadeEffect 0.25s;
+  animation: fadeEffect 0.25s;
+  border-bottom-left-radius: 0.2666rem;
+  border-bottom-right-radius: 0.2666rem; }
+
+.Contenido-Tab.El--visible {
+  display: block; }
+
+.Contenido-Tab.El--visible.El--con-error {
+  border-color: #f4cbcb; }
+
+@-webkit-keyframes fadeEffect {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+@keyframes fadeEffect {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
 /* ===========================================================================
    Pager
    @mixin ========================================================================== */

@@ -19,7 +19,7 @@ function alternarDesplegable() {
         }
     }
 }
-  
+
 function ocultarDesplegables(ev,gatillos) {
     for(var n = 0; n < gatillos.length; n++) {
         var gatillo = gatillos[n];

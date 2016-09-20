@@ -1,0 +1,125 @@
+/* ===========================================================================
+   Header
+   =========================================================================== */
+
+body
+  padding-top: $alto-header-mobile
+
+header.Navegacion
+  top: 0
+  left: 0
+  right: 0
+  height: $alto-header-mobile
+  padding: $padding-header-mobile
+  z-index: 10
+  background: $color-fondo
+  .Logo
+    float: left
+    height: $alto-logo
+    font-size: $tamano-fuente-h1
+    background: url('/img/logo.svg') center left no-repeat
+    font-weight: 400
+    line-height: $alto-logo
+    padding-right: $gutter
+    background-size: auto 100%
+
+  .Btn-Menu
+    float: left
+    width: $alto-logo
+    cursor: pointer
+    height: $alto-logo
+    display: inline-block
+
+  .Btn-Menu-Navegacion
+    &:focus,
+    &:hover,
+    &:active
+      > div.Barra
+        background: $gris-mas-oscuro
+        min-height: 4px
+    > div.Barra
+      top: 35%
+      width: 70%
+      height: $radio-borde
+      margin: 0 auto
+      background: $gris-oscuro
+      min-height: 4px
+      @include transition(all $duracion $timing)
+      &:first-child
+        top: 25%
+      &:last-child
+        top: 45%
+
+  .Btn-Menu-Navegacion.El--activo
+    > div.Barra
+      width: 50%
+      opacity: 0
+    > div.Barra
+      &:first-child
+        top: 45%
+        opacity: 1 !important
+        @include transform(rotate(45deg))
+        @include transition(all $duracion $timing)
+      &:last-child
+        top: 25%
+        opacity: 1 !important
+        @include transform(rotate(-45deg))
+        @include transition(all $duracion $timing)
+
+  .Btn-Menu-Navegacion-Negativo.El--activo
+    border: transparent
+    background: $gris-oscuro
+    &:focus,
+    &:hover
+      background: $gris-mas-oscuro
+    > div.Barra
+      background: $color-fondo
+
+  nav.Menu-Navegacion
+    float: left
+
+  nav.Menu-Navegacion-Derecha
+    float: right
+    margin-right: $gutter / -2
+
+  ul.Lista-Menu-Navegacion
+      width: auto
+      text-align: center
+
+  li.Item-Menu-Navegacion
+    color: $color-fuente-navegacion
+    display: inline
+    padding: $padding-items-navegacion
+    font-size: $tamano-fuente-navegacion
+    line-height: $alto-logo
+    font-weight: $peso-fuente-navegacion
+    text-transform: $trans-fuente-navegacion
+    > a
+      color: inherit
+      font-size: inherit
+      line-height: inherit
+      font-weight: inherit
+      text-transform: inherit
+
+.Navegacion-Fija
+  position: fixed
+
+nav#menuNavegacion
+  top: $alto-header-mobile
+  width: 100%
+  position: fixed
+
+
+/* Media Queries
+   =========================================================================== */
+@include media(min-width $segundo-bp)
+  body
+    padding-top: $alto-header
+
+  header.Navegacion
+    height: $alto-header
+    padding: $alto-header / 3
+
+  nav#menuNavegacion
+    top: $alto-header-mobile + 1rem
+    width: $ancho-sidebar

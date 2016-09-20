@@ -1,0 +1,35 @@
+.Lista-Agrupada
+  border: $borde-transparente
+  border-radius: $radio-borde
+
+.Item-Lista-Agrupada
+  border-radius: 0
+  &:first-child
+    @include border-top-radius($radio-borde)
+  &:last-child
+    @include border-bottom-radius($radio-borde)
+  &:not(:last-child)
+    border-bottom: $borde-transparente
+
+a.Item-Lista-Agrupada,
+li.Item-Lista-Agrupada
+  padding: $espaciado-grande 3rem
+
+button.Item-Lista-Agrupada
+  padding: 0 3rem
+  text-align: left
+  text-transform: none
+
+a.Item-Lista-Agrupada,
+button.Item-Lista-Agrupada
+  @include transition(background, $timing, $duracion)
+  &:focus,
+  &:hover
+    background: $color-borde-claro
+    @include transition(background, $timing, $duracion)
+
+.Lista-Agrupada-Default
+  @include variante-lista-agrupada($gris-oscuro, $borde-claro, $color-fondo)
+
+.Lista-Agrupada-Negativo
+  @include variante-lista-agrupada($color-fondo, $borde-transparente, $gris-oscuro)

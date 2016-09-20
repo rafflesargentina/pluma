@@ -4,7 +4,7 @@
 
 
 figure
-  margin-bottom: $espacio-chico
+  margin-bottom: $margen-chico
 
 .Miniatura
   overflow: hidden
@@ -17,20 +17,20 @@ figure
 
 figcaption
   border: $borde-claro
-  padding: 1.6rem
+  padding: (24 / strip-units($tamano-base)) + rem
   @include border-bottom-radius($radio-borde)
 
   time
     color: inherit
-    margin-bottom: $espacio-muy-chico
+    margin-bottom: $margen-muy-chico
 
   h3,
   a > h3
     color: $gris-mas-oscuro
-    margin-bottom: 1.4rem
+    margin-bottom: (21 / strip-units($tamano-base)) + rem
 
   p
-    margin-bottom: $espacio-chico
+    margin-bottom: $margen-chico
 
 .Miniatura + figcaption
   border-top: none

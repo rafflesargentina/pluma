@@ -9,7 +9,7 @@ var gulp = require('gulp'),
     browserSync = require('browser-sync');
 
 gulp.task('sass', function() {
-    return gulp.src(['src/sass/pluma.sass', 'src/sass/themes/flatrounded/flatrounded.sass'])
+    return gulp.src(['src/sass/pluma.sass'])
         .pipe(sass({
             includePaths: bourbon,
             includePaths: neat,
@@ -21,7 +21,7 @@ gulp.task('sass', function() {
 });
 
 gulp.task('minify-css', function() {
-    return gulp.src(['dist/css/pluma.css', 'dist/css/flatrounded.css'])
+    return gulp.src(['dist/css/pluma.css'])
         .pipe(cleanCSS({debug: true}, function(details) {
             console.log(details.name + ': ' + details.stats.originalSize);
             console.log(details.name + ': ' + details.stats.minifiedSize);
@@ -31,7 +31,7 @@ gulp.task('minify-css', function() {
 });
 
 gulp.task('minify-js', function() {
-    return gulp.src(['src/js/utilidades.js', 'src/js/tests.js', 'src/js/tabs.js', 'src/js/modales.js', 'src/js/desplegables.js', 'src/js/etiquetas.js'])
+    return gulp.src(['src/js/utilidades.js', 'src/js/tests.js', 'src/js/tabs.js', 'src/js/modales.js', 'src/js/desplegables.js', 'src/js/etiquetas.js', 'src/js/acordiones'])
         .pipe(concat('pluma.js'))
         .pipe(gulp.dest('dist/js'))
         .pipe(rename('pluma.min.js'))

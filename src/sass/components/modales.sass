@@ -11,7 +11,7 @@
   height: 0; /* Invisible al inicio */
   display: block
   opacity: 0
-  z-index: $capa-wrapper-vmodal
+  z-index: 100
   position: fixed
   background: $color-sombra
   @include transition(all .5s $timing)
@@ -20,19 +20,19 @@
   top: -100vh
   left: 0
   right: 0
-  margin: $espacio auto 0 auto
+  margin: $margen auto 0 auto
   display: none
-  padding: $espacio
+  padding: $margen
   max-width: 75%
   min-width: $primer--bp
   background: $color-fondo
-  border-radius: $radio-borde * 2
+  border-radius: $radio-borde
   @include transition(all .5s $timing)
 
 .Btn-Cerrar
   color: $gris-oscuro
   float: right
-  margin: $espacio-muy-chico
+  margin: $margen-muy-chico
   font-size: $tamano-fuente-h1
   font-weight: 600
   line-height: 1

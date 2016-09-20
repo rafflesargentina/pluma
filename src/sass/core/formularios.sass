@@ -8,13 +8,13 @@
 form
   z-index: 1; /* 1 */
 
-form.Formulario-Tabla
+.Formulario-Tabla
   min-width: 7rem
 
 /**
  * Alinea elementos del formulario horizontalmente
  */
-form.Formulario-Horizontal
+.Formulario-Horizontal
   .Btn,
   #{$all-buttons},
   .Botones-Agupados,
@@ -28,9 +28,9 @@ textarea,
 input[type="text"],
 input[type="email"],
 input[type="password"]
-  color: $color-borde
+  color: $gris-oscuro
   border: $borde
-  height: $alto-control
+  height: ceil(strip-units(3.2rem * $tamano-base)) + px
   display: inline-block
   padding: $padding-control
   background: $color-fondo
@@ -39,7 +39,7 @@ input[type="password"]
   @include appearance(none)
   @include transition(color $duracion $timing, border-color $duracion $timing)
   @include placeholder
-    color: $color-borde
+    color: $gris
   &:not([disabled]):focus,
   &:not([disabled]):active,
     color: $gris-mas-oscuro
@@ -73,10 +73,14 @@ input[type="file"]
   top: 0
   left: 0
   right: 0
+  bottom: 0
+  cursor: pointer
   opacity: 0
   min-width: 100%
   min-height: 100%
   position: absolute
+
+optgroup
 
 /**
  * 1. Permite solo resize vertical.
@@ -93,16 +97,16 @@ input
   &[type="radio"],
   &[type="checkbox"]
     display: inline
-    font-size: $tamano-fuente-parrafo
-    margin-right: $espacio-muy-chico / 3
+    font-size: $tamano-fuente
+    margin-right: $margen-muy-chico / 3
 
-div.Checkbox,
-div.Radiobtn
+.Checkbox,
+.Radiobtn
   label
     color: inherit
     margin: 0
     display: block
-    font-size: $tamano-fuente-parrafo
+    font-size: $tamano-fuente
     font-weight: $peso-fuente-parrafo
     letter-spacing: 0
     text-transform: none
@@ -111,8 +115,8 @@ div.Radiobtn
    =========================================================================== */
 time,
 label
-  color: $gris-claro
-  margin: $padding-tabla-horizontal 0
+  color: $gris-oscuro
+  margin: $espaciado 0
   display: inline-block
   font-size: $tamano-fuente-chico
   font-weight: $peso-fuente-etiquetas
@@ -127,12 +131,12 @@ label.El--con-foco
 /* Controles con icono
    =========================================================================== */
 .El--con-icono-derecha
-  padding-right: ($padding-tabla-vertical * 2) !important
+  padding-right: 2.4rem !important
 
 .El--con-icono-izquierda
-  padding-left: ($padding-tabla-vertical * 2) !important
+  padding-left: 2.4rem !important
 
-i.Icono-Control-Derecha,
+i.Icono-Derecha,
 i.Icono-Control-Izquierda
   color: $color-borde
   position: absolute
@@ -143,11 +147,11 @@ i.Icono-Control-Izquierda
 i.Icono-Control-Derecha
   right: 1px
   margin-left: $alto-control / 8
-  margin-right: $espacio-muy-chico
+  margin-right: $margen-muy-chico
 
 i.Icono-Control-Izquierda
   left: 1px
-  margin-left: $espacio-muy-chico
+  margin-left: $margen-muy-chico
   margin-right: $alto-control / 8
 
 /* Controles de formulario agrupados
@@ -158,10 +162,10 @@ i.Icono-Control-Izquierda
   display: block
 
 .Grupo-Formulario
-  margin-bottom: $espacio-muy-chico
+  margin-bottom: $margen-muy-chico
 
 .Grupo-Formulario-Grande
-  margin-bottom: $espacio-chico
+  margin-bottom: $margen
 
 /* Validacion de controles
    =========================================================================== */
@@ -178,8 +182,8 @@ i.Icono-Control-Izquierda
   @include validacion-controles($color-alerta-texto-warning, $color-alerta-borde-warning, $color-alerta-fondo-warning)
 
 .Mensaje-Validacion
-  top: $espacio-muy-chico / 3
-  font-size: $tamano-fuente-parrafo
+  top: 0.4rem
+  font-size: $tamano-fuente
 
 /* Controles adaptables
    =========================================================================== */
@@ -187,12 +191,36 @@ i.Icono-Control-Izquierda
   label.Adaptable
     margin: 0
     line-height: $alto-control
-    @include span-columns(3)
 
-  select.Adaptable,
-  textarea.Adaptable,
-  .Controles-Agrupados.Adaptable,
-  input[type="text"].Adaptable,
-  input[type="email"].Adaptable,
-  input[type="password"].Adaptable
-    @include span-columns(9)
+  .Adaptable-Col3-9
+    > label.Adaptable
+      @include span-columns(3)
+    > select.Adaptable,
+    > textarea.Adaptable,
+    > .Controles-Agrupados.Adaptable,
+    > input[type="text"].Adaptable,
+    > input[type="email"].Adaptable,
+    > input[type="password"].Adaptable
+      @include span-columns(9)
+
+  .Adaptable-Col4-8
+    > label.Adaptable
+      @include span-columns(4)
+    > select.Adaptable,
+    > textarea.Adaptable,
+    > .Controles-Agrupados.Adaptable,
+    > input[type="text"].Adaptable,
+    > input[type="email"].Adaptable,
+    > input[type="password"].Adaptable
+      @include span-columns(8)
+
+  .Adaptable-Col6-6
+    > label.Adaptable
+      @include span-columns(6)
+    > select.Adaptable,
+    > textarea.Adaptable,
+    > .Controles-Agrupados.Adaptable,
+    > input[type="text"].Adaptable,
+    > input[type="email"].Adaptable,
+    > input[type="password"].Adaptable
+      @include span-columns(6)

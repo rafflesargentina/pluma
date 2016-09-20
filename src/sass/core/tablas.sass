@@ -4,61 +4,127 @@
 
 
 table
-  width: 100%
   display: table
-  border-color: $color-borde-claro
   table-layout: fixed
   border-spacing: 0
-  border-collapse: separate
+  border-collapse: collapse
 
 caption
   width: 100%
   display: table-caption
-  font-size: $tamano-fuente-grande
-  text-align: center
-  margin-bottom: $espacio-muy-chico
+  padding: $espaciado-chico
+  text-align: left
+  caption-side: top
 
 thead
   display: table-header-group
   vertical-align: middle
-  border-color: inherit
 
 tbody
   display: table-row-group
   vertical-align: middle
-  border-color: inherit
 
 tfoot
   display: table-footer-group
   vertical-align: middle
-  border-color: inherit
 
 tr
   display: table-row
-  border-color: inherit
   vertical-align: inherit
 
 td,
 th
   display: table-cell
-  padding: $padding-tabla-vertical $padding-tabla-horizontal
-  overflow: hidden
-  text-align: left
-  white-space: nowrap
-  margin-right: $padding-tabla-horizontal
-  text-overflow: ellipsis
-  border-bottom: $borde-claro
-  &:first-child
-    padding-left: 0
-  &:last-child
-    padding-right: 0
 
+.Tabla
+  td,
+  th
+    color: $gris-mas-oscuro
+    padding: $espaciado
+    overflow: hidden
+    text-align: left
+    white-space: nowrap
+    text-overflow: ellipsis
+    border-bottom: $borde-claro
+
+  th
+    font-weight: $peso-fuente-etiquetas
+
+  thead > tr > th
+    border-bottom-width: 2px
+
+  tbody > tr:last-child
+    > td,
+    > th
+      border-bottom: none
+
+/* Clases contextuales
+   =========================================================================== */
+tr,
+td,
 th
-  color: $gris-mas-oscuro
-  font-weight: $peso-fuente-etiquetas
+  &.active
+    background-color: $color-variante-fondo !important
+  &.Info
+    background-color: $color-alerta-fondo-info !important
+  &.Error
+    background-color: $color-alerta-fondo-error !important
+  &.Warning
+    background-color: $color-alerta-fondo-warning !important
+  &.Success
+    background-color: $color-alerta-fondo-success !important
 
-thead th
-  border-width: 2px
+/* Tabla Hover
+   =========================================================================== */
+.Tabla-Hover
+  > tbody
+    > tr
+      @include transition(background $duracion $timing)
+      &:hover
+        background: $color-variante-fondo
+        @include transition(background $duracion $timing)
+        > td,
+        > th
+          @include transition(background $duracion $timing)
+          &:hover
+            background: $color-borde-claro
+            @include transition(background $duracion $timing)
+      > td,
+      > th
+        &:first-child
+          background: $color-variante-fondo
+
+/* Tabla Rayada
+   =========================================================================== */
+.Tabla-Rayada
+  > tbody
+    > tr:nth-of-type(odd)
+      background: $color-variante-fondo
+
+/* Tabla Bordada
+   =========================================================================== */
+.Tabla-Bordada
+  border: $borde-claro
+  thead,
+  tbody
+    > tr
+      > td,
+      > th
+        border: $borde-claro
+
+  thead > tr > th
+    border-bottom-width: 2px
+
+/* Tabla Adaptable
+   =========================================================================== */
+.Caja-Tabla
+  min-width: 20rem
+  overflow-x: auto
+  overflow-y: hidden
+  -webkit-overflow-scrolling: touch
+  > table.Adaptable
+    min-width: rem($segundo-bp) - $margen
+    table-layout: auto
 
 /* Tabla Condensada
    =========================================================================== */
@@ -69,69 +135,23 @@ thead th
     > tr
       > td,
       > th
-        padding: ($padding-tabla-horizontal / 2) $padding-tabla-horizontal
-        font-size: $tamano-fuente-chico
+        padding: $espaciado / 2
 
   .Btn-Tabla
     line-height: $tamano-fuente-chico
 
-/* Tabla Hover
+/* Fieldset
    =========================================================================== */
-.Tabla-Hover
-  thead th
-    border-left: $borde-claro
-    text-transform: $trans-fuente-etiquetas
-    border-bottom-width: $radio-borde
-  tbody,
-  tfoot
-    &:before
-      color: transparent
-      content: '-'
-      display: block
-      line-height: $padding-tabla-horizontal
-  thead,
-  tbody,
-  tfoot
-    > tr
-      > td,
-      > th
-        &:first-child
-          padding-left: $padding-tabla-horizontal
-        &:last-child
-          padding-right: $padding-tabla-horizontal
-  > tbody
-    > tr
-      @include transition(background $duracion $timing)
-      &:focus,
-      &:hover,
-      &:active
-        background: $color-alerta-fondo-info
-        @include transition(background $duracion $timing)
-        td
-          @include transition(background $duracion $timing)
-          &:focus,
-          &:hover,
-          &:active
-            background: $color-alerta-borde-info
-            @include transition(background $duracion $timing)
-      > td,
-        border-color: $color-fondo
-        &:first-child
-          background: $color-alerta-fondo-info
-  > tfoot
-    > tr
-      > td,
-      > th
-        overflow: visible
-        font-weight: 600
-        border-bottom: none
-
-/* Tabla Adaptable
-   =========================================================================== */
-div.Caja-Tabla
-  min-width: 20rem
-  overflow-x: auto
-  -webkit-overflow-scrolling: touch
-  > table.Adaptable
-    min-width: $max-width - rem($primer--bp)
-    table-layout: auto
+fieldset
+  width: auto
+  border: none
+  min-width: 0
+  max-width: none
+  
+/**
+ * Corrige comportamiento extraño del estilo de fieldset
+ * Fuente: https://stackoverflow.com/questions/17408815/fieldset-resizes-wrong-appears-to-have-unremovable-min-width-min-content/17863685#17863685
+ */
+@-moz-document url-prefix()
+  fieldset
+    display: table-cell

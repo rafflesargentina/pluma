@@ -1,0 +1,22 @@
+.Nota
+  float: left
+  width: 100%
+  color: $gris-oscuro
+  padding: $espaciado-grande
+  border-top: $borde-claro !important
+  border-left: $borde-claro
+  border-right: $borde-claro !important
+  border-bottom: $borde-claro !important
+  border-left-width: 4px
+
+  &.El--con-info
+    @include variante-alerta($color-alerta-texto-info, $color-alerta-texto-info, $color-fondo)
+
+  &.El--con-error
+    @include variante-alerta($color-alerta-texto-error, $color-alerta-texto-error, $color-fondo)
+
+  &.El--con-warning
+    @include variante-alerta($color-alerta-texto-warning, $color-alerta-texto-warning, $color-fondo)
+
+  &.El--con-success
+    @include variante-alerta($color-alerta-texto-success, $color-alerta-texto-success, $color-fondo)

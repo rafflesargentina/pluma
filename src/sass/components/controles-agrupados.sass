@@ -8,9 +8,9 @@
   border-spacing: 0
   border-collapse: separate
 
-  input[type="text"],
-  input[type="email"],
-  input[type="password"]
+  > input[type="text"],
+  > input[type="email"],
+  > input[type="password"]
     color: inherit
     @include clearfix
     &:focus,
@@ -52,11 +52,10 @@
       line-height: inherit
 
 .Complemento-Agrupados
-  color: $gris-claro
+  color: $gris-oscuro
   border: $borde
-  height: $alto-control
-  padding: 0 $espacio-muy-chico
-  background: $color-deshabilitado
+  padding: 0 $margen-muy-chico
+  background: $color-borde-claro
   border-radius: $radio-borde
   vertical-align: middle
   &:first-child
@@ -69,3 +68,6 @@
     border-left: none
     border-radius: 0
     border-right: none
+  > input[type="radio"],
+  > input[type="checkbox"]
+    z-index: 1

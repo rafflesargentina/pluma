@@ -1,71 +1,58 @@
 ul.Tabs
-  overflow: hidden
+  float: left
+  width: 100%
+  border-bottom: $borde-claro
 
   li.Tab
     float: left
-    border: $borde-claro
-    background: $color-variante-fondo
-    @include transition($duracion $timing)
-    &:first-child
-      border-right: none
-      border-top-left-radius: $radio-borde
-    &:last-child
-      border-top-right-radius: $radio-borde
-    &:not(:first-child):not(:last-child)
-      border-right: none
-    > a
-      color: $gris-claro
-      display: inline-block
-      padding: $espacio-muy-chico
-      font-size: $tamano-fuente-grande
-      text-align: center
-      text-decoration: none
-
-  li.Tab.El--activo
-    z-index: 2
-    background: $color-fondo
-    box-shadow: none
-    border-bottom-color: $color-fondo
+    display: block
+    margin-bottom: -1px
     > a
       color: $gris-oscuro
+      border: $borde-transparente
+      display: inline-block
+      padding: $espaciado-grande
+      font-size: $tamano-fuente-grande
+      background: transparent
+      text-align: center
+      margin-right: 2px
+      text-decoration: none
+      border-bottom-color: $color-borde-claro
+      &:first-child
+        border-right: none
+        border-top-left-radius: $radio-borde
+      &:last-child
+        border-top-right-radius: $radio-borde
+      &:not(:first-child):not(:last-child)
+        border-right: none
 
-  li.Tab.El--activo.El--con--error
-    background: initial
-    border-top-color: $color-alerta-borde-error
-    border-left-color: $color-alerta-borde-error
-    > a
-      color: $color-alerta-texto-error
+    &.active,
+    &.El--activo
+      > a
+        color: $gris-mas-oscuro
+        border: $borde-claro
+        cursor: pointer
+        z-index: 2
+        background: $color-fondo
+        border-bottom-color: transparent
+        @include border-top-radius($radio-borde)
 
   li.Tab.El--con-error
-    background: $color-alerta-fondo-error
-    border-top-color: $color-alerta-borde-error
-    border-left-color: $color-alerta-borde-error
     > a
       color: $color-alerta-texto-error
-     
+
 .Contenido-Tab
-  top: -1px
   float: left
   width: 100%
-  border: $borde-claro
   display: none
-  padding: $alto-control
+  padding: $margen-chico 0
   z-index: 1
-  box-shadow: $tamano-sombra $color-sombra
-  border-top-right-radius: $radio-borde
-  @include animation(fadeEffect $duracion)
-  @include border-bottom-radius($radio-borde)
+  @include animation(disolver $duracion)
 
-.Contenido-Tab.El--visible
-  display: block
+@-webkit-keyframes disolver
+    from {opacity: 0}
+    to {opacity: 1}
 
-.Contenido-Tab.El--visible.El--con-error
-  border-color: $color-alerta-borde-error
-
-@-webkit-keyframes fadeEffect
-    from {opacity: 0;}
-    to {opacity: 1;}
-
-@keyframes fadeEffect
-    from {opacity: 0;}
-    to {opacity: 1;}
+@keyframes disolver
+    from {opacity: 0}
+    to {opacity: 1}

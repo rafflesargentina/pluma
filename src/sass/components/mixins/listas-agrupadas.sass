@@ -1,0 +1,21 @@
+@mixin variante-lista-agrupada($color, $borde, $fondo)
+  border: $borde
+  .Item-Lista-Agrupada
+    color: $color
+    background: $fondo
+    &:not(:last-child)
+      border-bottom: $borde
+
+  a.Item-Lista-Agrupada,
+  button.Item-Lista-Agrupada
+    &:focus,
+    &:hover
+      color: $color
+      background: darken($fondo, 12%)
+
+    &.active
+      background: darken($fondo, 12%)
+      &:focus,
+      &:hover
+        color: $color
+        background: darken($fondo, 12%)

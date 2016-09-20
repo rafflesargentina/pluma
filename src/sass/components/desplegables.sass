@@ -7,44 +7,66 @@ nav.Menu-Desplegable
   float: left
   border: $borde-claro
   display: none
-  z-index: $capa-navegacion + 2
+  opacity: 0.9
+  z-index: 11
   position: absolute
   background: $color-variante-fondo
-
-nav.Menu-Desplegable.El--visible
-  display: block
-
-nav.Menu-Desplegable.Negativo
-  border: transparent
-  background: $gris-oscuro
+  &.El--con-sombra-abajo
+    box-shadow: 0 $radio-borde-chico 0 0 $color-sombra
+    &.El--con-sombra-derecha
+      box-shadow: 0 $radio-borde-chico 0 0 $color-sombra, ($radio-borde-chico) 0 0 0 $color-sombra
+    &.El--con-sombra-izquierda
+      box-shadow: 0 $radio-borde-chico 0 0 $color-sombra, (0 - $radio-borde-chico) 0 0 0 $color-sombra
+  &.El--con-sombra-arriba
+    box-shadow: 0 1px 0 0 $color-sombra
+    &.El--con-sombra-derecha
+      box-shadow: 0 1px 0 0 $color-sombra, ($radio-borde-chico) 0 0 0 $color-sombra
+    &.El--con-sombra-izquierda
+      box-shadow: 0 1px 0 0 $color-sombra, (0 - $radio-borde-chico) 0 0 0 $color-sombra
 
 ul.Lista-Menu-Desplegable
   float: left
+  padding: $espaciado 0
 
 li.Item-Menu-Desplegable
   float: left
   width: 100%
   display: block
-  font-size: $tamano-fuente-parrafo
+  font-size: $tamano-fuente
   letter-spacing: 1px
-  text-transform: uppercase
   @include transition(background $timing $duracion)
   &:focus,
   &:hover
-    background: $color-primario
     @include transition(background $timing $duracion)
-    > a
-      color: $color-fondo
   > a
     float: left
     width: 100%
-    padding: $padding-tabla-vertical 2rem
+    padding: $espaciado ($alto-boton / 2)
 
-nav.Menu-Desplegable.Negativo
+  &.Separador
+    margin: $espaciado 0
+    border-bottom: $borde-claro
+
+.Menu-Desplegable-Default
+  ul.Lista-Menu-Desplegable
+    background: $color-fondo
+  li.Item-Menu-Desplegable
+    &:focus,
+    &:hover
+      background: $gris-mas-claro
+      > a:not(:disabled)
+        color: $gris-mas-oscuro
+    > a:not(:disabled)
+      color: $gris-mas-oscuro
+
+.Menu-Desplegable-Negativo
+  ul.Lista-Menu-Desplegable
+    border: transparent
+    background: $gris-oscuro
   li.Item-Menu-Desplegable
     &:focus,
     &:hover
       background: $gris-mas-oscuro
-    > a
+    > a:not(:disabled)
       color: $color-fondo
       font-weight: 600

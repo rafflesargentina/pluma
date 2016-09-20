@@ -38,20 +38,6 @@
 .Texto-Izquierda
   text-align: left !important
 
-/* Iconos
-   =========================================================================== */
-i:first-child:not(:only-child)
-  margin-left: 0
-  margin-right: $padding-tabla-horizontal
-i:last-child:not(:only-child)
-  margin-left: $padding-tabla-horizontal
-  margin-right: 0
-i:only-child
-  margin-right: $padding-tabla-horizontal
-i:not(:first-child):not(:last-child)
-  margin-left: $padding-tabla-horizontal
-  margin-right: $padding-tabla-horizontal
-
 /* Borde
    =========================================================================== */
 .El--con-borde
@@ -60,7 +46,5 @@ i:not(:first-child):not(:last-child)
 .El--con-borde-claro
   border: $borde-claro
 
-/* Sombra
-   =========================================================================== */
-.El--con-sombra
-  box-shadow: $tamano-sombra $color-sombra
+.El--con-borde-oscuro
+  border: $borde-oscuro

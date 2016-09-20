@@ -1,0 +1,35 @@
+.Btn-Acordion
+  float: left
+  width: 100%
+  border: none
+  background: $color-variante-fondo
+  border-radius: 0
+  text-align: left
+
+.Btn-Acordion--con-simbolo
+  &:after
+    color: $gris-oscuro
+    float: right
+    content: '\02795'
+    font-size: 1rem
+    margin-left: $alto-boton / 2
+
+
+.Btn-Acordion--con-simbolo.El--activo
+  &:after
+    content: '\2796'
+
+//.Panel
+  //float: left
+  //width: 100%
+  //border: none
+  //opacity: 0
+  //padding: $alto-boton / 2
+  //overflow: hidden
+  //background: $color-fondo
+  //max-height: 0
+  //@include transition($duracion $timing)
+//
+//.Panel.El--visible
+  //opacity: 1
+  ////max-height: 50vh

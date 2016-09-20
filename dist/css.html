@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Pluma</title>
+
+<link media="all" type="text/css" rel="stylesheet" href="/css/pluma.css" />
+<link href="https://fonts.googleapis.com/css?family=Yellowtail" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+
+<style>
+.Logo { font-family: 'Yellowtail', cursive; letter-spacing: 1px; }
+.Panel { border-bottom-left-radius: 0; border-bottom-right-radius: 0; }
+.Panel p:only-child { margin: 0; }
+pre[class*=language-] { border: 1px solid #e0e0e0; background: #fafafa !important; border-top: none; margin-top: 0 !important; margin-bottom: 1rem !important; border-bottom-left-radius: 4px; border-bottom-right-radius: 4px; }
+</style>
+</head>
+<body>
+  <header class="Navegacion Navegacion-Fija">
+    <div class="Caja">
+      <div class="Fila">
+        <a href="/" class="Logo">Pluma</a>
+        <nav class="Menu-Navegacion El--visible-desde-tablets">
+          <ul class="Lista-Menu-Navegacion">
+            <li class="Item-Menu-Navegacion"><a href="#">Inicio</a></li>
+            <li class="Item-Menu-Navegacion"><a href="/css.html">CSS</a></li>
+            <li class="Item-Menu-Navegacion"><a href="/componentes.html">Componentes</a></li>
+            <li class="Item-Menu-Navegacion"><a href="#">Javascript</a></li>
+          </ul>
+        </nav>
+        <nav class="Menu-Navegacion-Derecha">
+          <ul class="Lista-Menu-Navegacion">
+            <li class="Item-Menu-Navegacion"><a href="#">Themes</a></li>
+            <li class="Item-Menu-Navegacion"><a href="#">Blog</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <div class="Caja">
+    <div class="Fila">
+      <div class="Col-9">
+        <h1 class="Subrayado-Claro">Tipografía</h1>
+        <section>
+          <h2>Encabezados</h2>
+          <p>Todos los encabezados HTML, <code>&lt;h1&gt;</code> a <code>&lt;h6&gt;</code>, están disponibles. También las clases <code>.h1</code> a <code>.h6</code>, en caso de que quieras aplicar el estilo de fuente de un encabezado a un texto mostrado inline.</p>
+          <div class="Panel">
+            <table class="Tabla">
+              <tr>
+                <td><h1 style="margin:0;">h1. Encabezado Pluma</h1></td>
+                <th class="Texto-Derecha">Semibold 2.4rem</th>
+              </tr>
+              <tr>
+                <td><h2 style="margin:0;">h2. Encabezado Pluma</h2></td>
+                <th class="Texto-Derecha">Semibold 2rem</th>
+              </tr>
+              <tr>
+                <td><h3 style="margin:0;">h3. Encabezado Pluma</h3></td>
+                <th class="Texto-Derecha">Semibold 1.6rem</th>
+              </tr>
+              <tr>
+                <td><h4 style="margin:0;">h4. Encabezado Pluma</h4></td>
+                <th class="Texto-Derecha">Semibold 1.2rem</th>
+              </tr>
+              <tr>
+                <td><h5 style="margin:0;">h5. Encabezado Pluma</h5></td>
+                <th class="Texto-Derecha">Semibold 1rem</th>
+              </tr>
+              <tr>
+                <td><h6 style="margin:0;">h6. Encabezado Pluma</h6></td>
+                <th class="Texto-Derecha">Semibold 0.8rem</th>
+              </tr>
+            </table>
+          </div>
+          <pre>
+<code class="language-html">&lt;h1&gt;h1. Encabezado Pluma&lt;/h1&gt;</code>
+<code class="language-html">&lt;h2&gt;h2. Encabezado Pluma&lt;/h2&gt;</code>
+<code class="language-html">&lt;h3&gt;h3. Encabezado Pluma&lt;/h3&gt;</code>
+<code class="language-html">&lt;h4&gt;h4. Encabezado Pluma&lt;/h4&gt;</code>
+<code class="language-html">&lt;h5&gt;h5. Encabezado Pluma&lt;/h5&gt;</code>
+<code class="language-html">&lt;h6&gt;h6. Encabezado Pluma&lt;/h6&gt;</code>
+          </pre>
+          <p>Agregá texto secundario más liviano a cualquier encabezado, con un tag <code>&lt;small&gt;</code> o la clase <code>.small</code></p>
+          <div class="Panel">
+            <table class="Tabla">
+              <tr>
+                <td><h1 style="margin:0;">h1. Encabezado Pluma <small>Texto secundario</small></h1></td>
+              </tr>
+              <tr>
+                <td><h2 style="margin:0;">h2. Encabezado Pluma <small>Texto secundario</small></h2></td>
+              </tr>
+              <tr>
+                <td><h3 style="margin:0;">h3. Encabezado Pluma <small>Texto secundario</small></h3></td>
+              </tr>
+              <tr>
+                <td><h4 style="margin:0;">h4. Encabezado Pluma <small>Texto secundario</small></h4></td>
+              </tr>
+              <tr>
+                <td><h5 style="margin:0;">h5. Encabezado Pluma <small>Texto secundario</small></h5></td>
+              </tr>
+              <tr>
+                <td><h6 style="margin:0;">h6. Encabezado Pluma <small>Texto secundario</small></h6></td>
+              </tr>
+            </table>
+          </div>
+          <pre>
+<code class="language-html">&lt;h1&gt;h1. Encabezado Pluma &lt;small&gt;Texto secundario&lt;/small&gt;&lt;/h1&gt;</code>
+<code class="language-html">&lt;h2&gt;h2. Encabezado Pluma &lt;small&gt;Texto secundario&lt;/small&gt;&lt;/h2&gt;</code>
+<code class="language-html">&lt;h3&gt;h3. Encabezado Pluma &lt;small&gt;Texto secundario&lt;/small&gt;&lt;/h3&gt;</code>
+<code class="language-html">&lt;h4&gt;h4. Encabezado Pluma &lt;small&gt;Texto secundario&lt;/small&gt;&lt;/h4&gt;</code>
+<code class="language-html">&lt;h5&gt;h5. Encabezado Pluma &lt;small&gt;Texto secundario&lt;/small&gt;&lt;/h5&gt;</code>
+<code class="language-html">&lt;h6&gt;h6. Encabezado Pluma &lt;small&gt;Texto secundario&lt;/small&gt;&lt;/h6&gt;</code>
+          </pre>
+        </section>
+        <section>
+          <h2>Párrafo</h2>
+          <p>El <code>font-size</code> global por defecto es de 1rem, equivalente a 13px del elemento raíz <code>&lt;html&gt;</code>, con un <code>line-height</code> de 1.5. Esto es aplicado al <code>&lt;body&gt;</code> y a todos los párrafos. Adicionalmente, <code>&lt;p&gt;</code> (los párrafos) reciben un <code>margin-bottom</code> de 0.6rem.</p>
+          <div class="Panel">
+    <p>Robust, strong sweet at filter, con panna affogato dark that cinnamon saucer cream. And lungo, ristretto dripper white café au lait cup brewed fair trade. Crema kopi-luwak a rich aftertaste cultivar cortado. Flavour, mug, organic extra french press pumpkin spice coffee filter blue mountain cream rich. Foam, turkish, irish aftertaste strong medium half and half fair trade.</p>
+    <p>Variety, coffee, lungo percolator, robust plunger pot, crema mazagran robust blue mountain shop. Id, java aroma, shop sugar trifecta viennese, extraction café au lait cortado mug decaffeinated. Irish, cinnamon kopi-luwak est froth lungo id mazagran sugar wings. Kopi-luwak eu, extra, dripper, viennese to go viennese single shot aged medium coffee. Irish extra shop organic viennese flavour plunger pot dripper.</p>
+    <p>Aroma fair trade percolator ut blue mountain as steamed est mazagran. Frappuccino, grounds instant, dripper sit coffee, rich, cappuccino flavour eu organic java. Latte, flavour sweet macchiato bar frappuccino qui affogato. Spoon sweet skinny barista flavour a flavour. Aftertaste robusta bar plunger pot café au lait wings americano mocha spoon.</p>
+    <p>Arabica mocha roast decaffeinated chicory, steamed, crema instant id turkish irish single origin. Spoon decaffeinated irish café au lait eu seasonal grounds. Wings caramelization doppio decaffeinated flavour chicory coffee. Bar acerbic, grinder barista medium frappuccino, redeye spoon beans blue mountain medium instant. Instant cappuccino, organic grinder crema milk cappuccino.</p>
+          </div>
+        </section>
+        <section>
+          <h3>Párrafo grande</h3>
+          <p>Hacé que un párrafo de texto se destaque agregando la clase <code>.Texto-Grande</code>.</p>
+          <div class="Panel">
+    <p class="Texto-Grande">Bar foam, mug flavour and crema whipped galão cappuccino. Milk, lungo cappuccino qui arabica affogato kopi-luwak. Organic crema qui, cultivar crema and, cup carajillo brewed café au lait cultivar. Filter, black, crema, beans flavour dripper steamed milk.</p>
+    <p class="Texto-Grande">Con panna arabica, and ut extraction wings caffeine affogato milk eu est barista. Et, instant, latte steamed cortado java variety. Extraction shop single shot, trifecta lungo body aromatic chicory. Single shot roast lungo pumpkin spice aged, ristretto kopi-luwak grounds carajillo bar café au lait single origin.</p>
+          </div>
+        </section>
+        <section>
+          <h2>Elementos de texto Inline</h2>
+          <h3>Marcas de texto</h3>
+          <p>Para resaltar un fragmento de texto usá el tag <code>&lt;mark&gt;</code>.</p>
+          <div class="Panel">
+            <p>Podés utilizar el tag mark para <mark>resaltar</mark> texto.</p>
+          </div>
+        </section>
+        <section>
+          <h3>Texto eliminado</h3>
+          <p>Para indicar bloques de texto que serán eliminados utilizá el tag <code>&lt;del&gt;</code>.</p>
+          <div class="Panel">
+            <p><del>Esta línea de texto está marcada como texto a eliminar.</del></p>
+          </div>
+        </section>
+        <section>
+          <h3>Texto insertado</h3>
+          <p>Para indicar bloques de texto agregados al documento usá el tag <code>&lt;ins&gt;</code>.</p>
+          <div class="Panel">
+            <p><ins>Esta línea de texto está marcada como texto que fue agregado al documento.</ins></p>
+          </div>
+        </section>
+        <section>
+          <h3>Texto tachado</h3>
+          <p>Para indicar bloques de texto que ya no fuesen importantes utilizá el tag <code>&lt;s&gt;</code>.</p>
+          <div class="Panel">
+            <p><s>Esta línea de texto está marcada como texto que ya no es importante.</s></p>
+          </div>
+        </section>
+        <section>
+          <h3>Texto subrayado</h3>
+          <p>Para subrayar texto utilizá el tag <code>&lt;u&gt;</code>.</p>
+          <div class="Panel">
+            <p><u>Esta línea de texto se muestra subrayada.</u></p>
+          </div>
+        </section>
+        <h1 class="Subrayado-Claro">Tablas</h1>
+        <section>
+          <h2>Ejemplo básico</h2>
+          <p>Para dar un estilo básico  (leve padding y divisiones horizontales), agregá la clase <code>.Tabla</code> a cualquier elemento <code>&lt;table&gt;</code>.</p>
+          <div class="Panel">
+          <table class="Tabla">
+            <caption>Caption opcional.</caption>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Alias</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>1</th>
+                <td>Joaquín</td>
+                <td>Lluis</td>
+                <td>Joaco</td>
+              </tr>
+              <tr>
+                <th>2</th>
+                <td>Ludmila</td>
+                <td>Hermida</td>
+                <td>Lu</td>
+              </tr>
+              <tr>
+                <th>3</th>
+                <td>Lorena</td>
+                <td>Callejas</td>
+                <td>Loly</td>
+              </tr>
+            </tbody>
+          </table> 
+          </div>
+        </section>
+        <section>
+          <h2>Filas rayadas</h2>
+          <p>Utilizá la clase <code>.Tabla-Rayada</code> para darle un estilo zebra a las filas de cualquier tabla dentro de <code>&lt;tbody&gt;</code>.</p>
+          <div class="Nota El--con-error">
+            <h4>Compatibilidad entre navegadores</h4>
+            <p>Las tablas rayadas son estiladas utilizando el selector <code>:nth-of-type</code>, que no está disponible en Internet Explorer 8.</p>
+          </div>
+          <div class="Panel">
+            <table class="Tabla Tabla-Rayada">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Nombre</th>
+                  <th>Apellido</th>
+                  <th>Alias</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th>1</th>
+                  <td>Rodrigo</td>
+                  <td>Conde</td>
+                  <td>Pak</td>
+                </tr>
+                <tr>
+                  <th>2</th>
+                  <td>Gonzalo</td>
+                  <td>Conde</td>
+                  <td>Zalo</td>
+                </tr>
+                <tr>
+                  <th>3</th>
+                  <td>Juan</td>
+                  <td>Píriz</td>
+                  <td>Pol</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <section>
+          <h2>Tabla con bordes</h2>
+          <p>Agregá la clase <code>.Tabla-Bordada</code> para tener bordes en todos los lados de la tabla y celdas.</p>
+          <div class="Panel">
+            <table class="Tabla Tabla-Bordada">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Nombre</th>
+                  <th>Apellido</th>
+                  <th>Alias</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th>1</th>
+                  <td>Santiago</td>
+                  <td>Lojo Piñero</td>
+                  <td>Cochu</td>
+                </tr>
+                <tr>
+                  <th>2</th>
+                  <td>Guido</td>
+                  <td>Forte</td>
+                  <td>Dogui</td>
+                </tr>
+                <tr>
+                  <th>3</th>
+                  <td>Fabrizio</td>
+                  <td>Parodi</td>
+                  <td>Fabri</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <section>
+          <h2>Tabla Hover</h2>
+          <p>Agregá  la clase <code>.Tabla-Hover</code> para habilitar el estado hover en filas y celdas de la tabla, dentro de <code>&lt;tbody&gt;</code>.</p>
+          <div class="Panel">
+            <table class="Tabla Tabla-Hover">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Nombre</th>
+                  <th>Apellido</th>
+                  <th>Alias</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th>1</th>
+                  <td>Hernán Formoso</td>
+                  <td>Formoso</td>
+                  <td>Kraki</td>
+                </tr>
+                <tr>
+                  <th>2</th>
+                  <td>Ramiro</td>
+                  <td>Suarez</td>
+                  <td>Rama</td>
+                </tr>
+                <tr>
+                  <th>3</th>
+                  <td>Joaquín</td>
+                  <td>Bonora</td>
+                  <td>Pachi</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <section>
+          <h2>Tabla Condensada</h2>
+          <p>Agregá  la clase <code>.Tabla-Condensada</code> para hacer las tablas más compactas al reducir el tamaño de padding a la mitad.</p>
+          <div class="Panel">
+            <table class="Tabla-Condensada">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Nombre</th>
+                  <th>Apellido</th>
+                  <th>Alias</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th>1</th>
+                  <td>Nahuel</td>
+                  <td>Gatika</td>
+                  <td>Nawi</td>
+                </tr>
+                <tr>
+                  <th>2</th>
+                  <td>Leandro</td>
+                  <td>Barabino</td>
+                  <td>Leo</td>
+                </tr>
+                <tr>
+                  <th>3</th>
+                  <td>Leonel</td>
+                  <td>Forte</td>
+                  <td>Chupi</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <section>
+          <h2>Clases contextuales</h2>
+          <p>Utilizá clases contextuales para darle table a las filas o celdas individuales de una tabla.</p>
+          <div class="Panel">
+            <table class="Tabla Tabla-Rayada Tabla-Bordada">
+              <thead>
+                <tr>
+                  <th>Clase</th>
+                  <th>Descripción</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>.active</code></td>
+                  <td>Aplica el color hover a una fila o celda en particular.</td>
+                </tr>
+                <tr>
+                  <td><code>.Success</code></td>
+                  <td>Indica una acción positiva o satisfactoria.</td>
+                </tr>
+                <tr>
+                  <td><code>.Info</code></td>
+                  <td>Indica una acción informativa o cambio neutral.</td>
+                </tr>
+                <tr>
+                  <td><code>.Warning</code></td>
+                  <td>Indica una advertencia, un mensaje que podría demandar atención.</td>
+                </tr>
+                <tr>
+                  <td><code>.Error</code></td>
+                  <td>Indica una acción potencialmente negativa o peligrosa, o un error.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="Panel">
+            <table class="Tabla">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Encabezado de columna</th>
+                  <th>Encabezado de columna</th>
+                  <th>Encabezado de columna</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="active">
+                  <th>1</th>
+                  <td>Contenido de columna</td>
+                  <td>Contenido de columna</td>
+                  <td>Contenido de columna</td>
+                </tr>
+                <tr>
+                  <th>2</th>
+                  <td>Contenido de columna</td>
+                  <td>Contenido de columna</td>
+                  <td>Contenido de columna</td>
+                </tr>
+                <tr class="Success">
+                  <th>3</th>
+                  <td>Contenido de columna</td>
+                  <td>Contenido de columna</td>
+                  <td>Contenido de columna</td>
+                </tr>
+                <tr>
+                  <th>4</th>
+                  <td>Contenido de columna</td>
+                  <td>Contenido de columna</td>
+                  <td>Contenido de columna</td>
+                </tr>
+                <tr class="Info">
+                  <th>5</th>
+                  <td>Contenido de columna</td>
+                  <td>Contenido de columna</td>
+                  <td>Contenido de columna</td>
+                </tr>
+                <tr>
+                  <th>6</th>
+                  <td>Contenido de columna</td>
+                  <td>Contenido de columna</td>
+                  <td>Contenido de columna</td>
+                </tr>
+                <tr class="Warning">
+                  <th>7</th>
+                  <td>Contenido de columna</td>
+                  <td>Contenido de columna</td>
+                  <td>Contenido de columna</td>
+                </tr>
+                <tr>
+                  <th>8</th>
+                  <td>Contenido de columna</td>
+                  <td>Contenido de columna</td>
+                  <td>Contenido de columna</td>
+                </tr>
+                <tr class="Error">
+                  <th>9</th>
+                  <td>Contenido de columna</td>
+                  <td>Contenido de columna</td>
+                  <td>Contenido de columna</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+      <div class="Col-3">
+        <aside class="El--visible-desde-tablets">
+        </aside>
+      </div>
+    </div>
+  </div>
+  <footer>
+
+  </footer>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/prism.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/themes/prism.min.css" />
+</body>
+</html>

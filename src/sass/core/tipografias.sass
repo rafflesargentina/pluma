@@ -38,37 +38,97 @@ a
 
 /* Parrafo
    =========================================================================== */
-p
+p,
+.p
+  color: $gris-mas-oscuro
   font-size: $tamano-fuente-parrafo
   font-weight: $peso-fuente-parrafo
-  margin-bottom: $alto-linea-parrafo
+  margin-bottom: $margen-muy-chico
+
+p + p
+  margin-bottom: 0.6rem
+
+.Texto-Grande
+  font-size: $tamano-fuente-grande
+
 
 /* Encabezados
    =========================================================================== */
 h1,
 h2,
 h3,
-  color: $gris-mas-oscuro
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6
   font-family: $fuente-encabezados
   font-weight: $peso-fuente-encabezados
   line-height: $alto-linea-encabezados
-  margin-bottom: $espacio
   text-transform: $trans-encabezados
 
-h1
+h1,
+.h1
+  color: $gris-mas-oscuro
   font-size: $tamano-fuente-h1
+  margin-top: 0.6rem
+  margin-bottom: $margen-chico
 
-h2
+h2,
+.h2
+  color: $gris-mas-oscuro
   font-size: $tamano-fuente-h2
+  margin-bottom: $margen-muy-chico
 
-h3
+h3,
+.h3
+  color: $gris-mas-oscuro
   font-size: $tamano-fuente-h3
+  margin-bottom: $margen-muy-chico
+
+h4,
+.h4
+  font-size: $tamano-fuente-h4
+  margin-bottom: $margen-muy-chico
+
+h5,
+.h5
+  font-size: $tamano-fuente-h5
+  margin-bottom: $margen-muy-chico
+
+h6,
+.h6
+  font-size: $tamano-fuente-h6
+  margin-bottom: $margen-muy-chico
+
+/*
+ * Subrayados
+ */
+.Subrayado-Claro
+  border-bottom: $borde-claro
+  padding-bottom: 0.6rem
+
+.Subrayado-Oscuro
+  border-bottom: $borde-oscuro
+  padding-bottom: 0.6rem
 
 /**
  * Corrige la herencia de color, font-size y line-height para negritas e italicas.
  */
 b,
 i,
+s,
+u,
+em,
+del,
+ins,
+abbr,
+mark,
+strike,
 strong
   color: inherit
   font-size: inherit
@@ -79,10 +139,32 @@ strong
  */
 b,
 strong
-  font-weight: 600
+  font-weight: 700
+
+i,
+em
+  font-style: italic
+
+s,
+del,
+strike
+  text-decoration: line-through
+
+u
+  text-decoration: underline
+
+abbr[title]
+  cursor: help
+  border-bottom: 1px dotted $gris-mas-oscuro
+
+mark
+  color: $gris-mas-oscuro
+  background: $color-alerta-fondo-warning
 
 /*
  * Estandariza el tamano small para todos los navegadores.
  */
-small
-  font-size: 80%
+small,
+.small
+  color: $gris-oscuro
+  font-size: 85%

@@ -5,16 +5,29 @@
 /* Contenedores
    =========================================================================== */
 .Caja
+  padding-left: $gutter / 2
+  padding-right: $gutter / 2
   @include outer-container()
+
+.Caja-Adaptable
+  padding-left: $gutter / 2
+  padding-right: $gutter / 2
+  @include outer-container(100%)
 
 /* Fila
    =========================================================================== */
 .Fila
+  margin-left: $gutter / -2
+  margin-right: $gutter / -2
   @include row()
 
 
 /* Columnas
    =========================================================================== */
+.Col-1,.Col-2,.Col-3,.Col-4,.Col-5,.Col-6,.Col-7,.Col-8,.Col-9,.Col-10,.Col-11,.Col-12
+  padding-left: $gutter / 2
+  padding-right: $gutter / 2
+
 @include media($mobile)
   .Col-4,
   .Col-3

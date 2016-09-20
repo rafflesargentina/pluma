@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Pluma | Componentes </title>
+
+<link media="all" type="text/css" rel="stylesheet" href="/css/pluma.css" />
+<link href="https://fonts.googleapis.com/css?family=Yellowtail" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+
+<style>
+.Logo { font-family: 'Yellowtail', cursive; letter-spacing: 1px; }
+.Panel { border-bottom-left-radius: 0; border-bottom-right-radius: 0; }
+.Panel p:only-child { margin: 0; }
+pre[class*=language-] { border: 1px solid #e0e0e0; background: #fafafa !important; border-top: none; margin-top: 0 !important; margin-bottom: 1rem !important; border-bottom-left-radius: 4px; border-bottom-right-radius: 4px; }
+</style>
+</head>
+<body>
+  <header class="Navegacion Navegacion-Fija">
+    <div class="Caja">
+      <div class="Fila">
+        <a href="/" class="Logo">Pluma</a>
+        <nav class="Menu-Navegacion El--visible-desde-tablets">
+          <ul class="Lista-Menu-Navegacion">
+            <li class="Item-Menu-Navegacion"><a href="#">Inicio</a></li>
+            <li class="Item-Menu-Navegacion"><a href="/css.html">CSS</a></li>
+            <li class="Item-Menu-Navegacion"><a href="/componentes.html">Componentes</a></li>
+            <li class="Item-Menu-Navegacion"><a href="#">Javascript</a></li>
+          </ul>
+        </nav>
+        <nav class="Menu-Navegacion-Derecha">
+          <ul class="Lista-Menu-Navegacion">
+            <li class="Item-Menu-Navegacion"><a href="#">Themes</a></li>
+            <li class="Item-Menu-Navegacion"><a href="#">Blog</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <div class="Caja">
+    <div class="Fila">
+      <div class="Col-9">
+        <h1 class="Subrayado-Claro">Controles Agrupados</h1>
+        <p class="Texto-Grande">Extendé los controles de formulario agregando texto o botones antes, después, o en ambos lados de cualquier <code>&lt;input&gt;</code> de texto. Utilizá la clase <code>.Botones-Agrupados</code> con un <code>.Complemento-Agrupados</code> o <code>.Botones-Agrupados</code> para agregar un elemento antes o después de un control de formulario.</p>
+        <section>
+          <h2>Ejemplo básico</h2>
+          <p>Ubicá un texto complementario o un botón a cualquier lado de un input. También podés ubicarlos en ambos lados del elemento.</p>
+          <div class="Panel">
+            <div class="Grupo-Formulario">
+              <div class="Controles-Agrupados">
+                <span class="Complemento-Agrupados">@</span>
+                <input type="email" placeholder="email">
+              </div>
+            </div>
+            <div class="Grupo-Formulario">
+              <div class="Controles-Agrupados">
+                <input type="text" placeholder="Nombre de usuario"><span class="Complemento-Agrupados">@example.com</span>
+              </div>
+            </div>
+            <div class="Grupo-Formulario">
+              <div class="Controles-Agrupados">
+                <span class="Complemento-Agrupados">$</span><input type="text" placeholder="Precio"><span class="Complemento-Agrupados">.00</span>
+              </div>
+            </div>
+            <div class="Grupo-Formulario">
+              <label for="url">Vanity URL</label>
+              <div class="Controles-Agrupados">
+                <span class="Complemento-Agrupados">http://example.com/</span><input type="text">
+              </div>
+            </div>
+          </div>
+          <pre>
+<code class="language-html">&lt;div class="Controles-Agrupados"&gt;</code>
+<code class="language-html">  &lt;span class="Complemento-Agrupados"&gt;@&lt;/span&gt;</code>
+<code class="language-html">  &lt;input type="text" placeholder="email"&gt;</code>
+<code class="language-html">&lt;/div&gt;</code>
+<code class="language-html">&lt;div class="Controles-Agrupados"&gt;</code>
+<code class="language-html">  &lt;input type="text" placeholder="Nombre de usuario"&gt;</code>
+<code class="language-html">  &lt;span class="Complemento-Agrupados"&gt;@example.com&lt;/span&gt;</code>
+<code class="language-html">&lt;/div&gt;</code>
+<code class="language-html">&lt;div class="Controles-Agrupados"&gt;</code>
+<code class="language-html">  &lt;span class="Complemento-Agrupados"&gt;$&lt;/span&gt;</code>
+<code class="language-html">  &lt;input type="text" placeholder="Precio"&gt;</code>
+<code class="language-html">  &lt;span class="Complemento-Agrupados"&gt;.00&lt;/span&gt;</code>
+<code class="language-html">&lt;/div&gt;</code>
+<code class="language-html">&lt;label for="url"&gt;Vanity URL&lt;/label&gt;</code>
+<code class="language-html">&lt;div class="Controles-Agrupados"&gt;</code>
+<code class="language-html">  &lt;span class="Complemento-Agrupados"&gt;http://example.com/&lt;/span&gt;</code>
+<code class="language-html">  &lt;input type="text"&gt;</code>
+<code class="language-html">&lt;/div&gt;</code>
+          </pre>
+          <h2>Casillas de verificación y opción complementarios</h2>
+          <p>Ubicá una casilla de verificación u opción dentro de un complemento en lugar de texto.</p>
+          <div class="Panel">
+            <div class="Fila">
+              <div class="Col-6">
+                <div class="Controles-Agrupados">
+                  <span class="Complemento-Agrupados"><input type="checkbox"></span>
+                  <input type="text">
+                </div>
+              </div>
+              <div class="Col-6">
+                <div class="Controles-Agrupados">
+                  <span class="Complemento-Agrupados"><input type="radio"></span>
+                  <input type="text">
+                </div>
+              </div>
+            </div>
+          </div>
+          <pre>
+<code class="language-html">&lt;div class="Fila"&gt;</code>
+<code class="language-html">  &lt;div class="Col-6"&gt;</code>
+<code class="language-html">    &lt;div class="Controles-Agrupados"&gt;</code>
+<code class="language-html">      &lt;span class="Complemento-Agrupados"&gt;</code>
+<code class="language-html">        &lt;input type="checkbox" aria-label="..."&gt;</code>
+<code class="language-html">      &lt;/span&gt;</code>
+<code class="language-html">      &lt;input type="text"&gt;</code>
+<code class="language-html">    &lt;/div&gt;</code>
+<code class="language-html">  &lt;/div&gt;</code>
+<code class="language-html">  &lt;div class="Col-6"&gt;</code>
+<code class="language-html">    &lt;div class="Controles-Agrupados"&gt;</code>
+<code class="language-html">      &lt;span class="Complemento-Agrupados"&gt;</code>
+<code class="language-html">        &lt;input type="radio" aria-label="..."&gt;</code>
+<code class="language-html">      &lt;/span&gt;</code>
+<code class="language-html">      &lt;input type="text"&gt;</code>
+<code class="language-html">    &lt;/div&gt;</code>
+<code class="language-html">  &lt;/div&gt;</code>
+<code class="language-html">&lt;/div&gt;</code>
+          </pre>
+          <h2>Botones complementarios</h2>
+          <p>Los botones dentro de <code>.Controles-Agrupados</code> requieren un nivel extra de agrupación. En lugar de utilizar la clase <code>.Complemento-Agrupados</code>, necesitás usar <code>.Botones-Agrupados</code> para envolver los botones.</p>
+          <div class="Panel">
+            <div class="Fila">
+              <div class="Col-6">
+                <div class="Grupo-Formulario">
+                  <div class="Controles-Agrupados">
+                    <div class="Botones-Agrupados">
+                      <button class="Btn-Default">Buscar</button>
+                    </div>
+                    <input type="text" placeholder="Buscar...">
+                  </div>
+                </div>
+              </div>
+              <div class="Col-6">
+                <div class="Grupo-Formulario">
+                  <div class="Controles-Agrupados">
+                    <input type="text" placeholder="Buscar...">
+                    <div class="Botones-Agrupados">
+                      <button class="Btn-Default">Buscar</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <pre>
+<code class="language-html">&lt;div class="Fila"&gt;</code>
+<code class="language-html">  &lt;div class="Col-6"&gt;</code>
+<code class="language-html">    &lt;div class="Controles-Agrupados"&gt;</code>
+<code class="language-html">      &lt;div class="Botones-Agrupados"&gt;</code>
+<code class="language-html">        &lt;button class="Btn-Default"&gt;Buscar...&lt/button&gt;</code>
+<code class="language-html">      &lt;/div&gt;</code>
+<code class="language-html">      &lt;input type="text"&gt;</code>
+<code class="language-html">    &lt;/div&gt;</code>
+<code class="language-html">  &lt;/div&gt;</code>
+<code class="language-html">  &lt;div class="Col-6"&gt;</code>
+<code class="language-html">    &lt;div class="Controles-Agrupados"&gt;</code>
+<code class="language-html">      &lt;input type="text"&gt;</code>
+<code class="language-html">      &lt;div class="Botones-Agrupados"&gt;</code>
+<code class="language-html">        &lt;button class="Btn-Default"&gt;Buscar...&lt/button&gt;</code>
+<code class="language-html">      &lt;/div&gt;</code>
+<code class="language-html">    &lt;/div&gt;</code>
+<code class="language-html">  &lt;/div&gt;</code>
+<code class="language-html">&lt;/div&gt;</code>
+          </pre>
+          <h2>Botones con desplegables</h2>
+          <div class="Panel">
+            <div class="Fila">
+              <div class="Col-6">
+                <div class="Grupo-Formulario">
+                  <div class="Controles-Agrupados">
+                    <div class="Botones-Agrupados">
+                      <button data-desplegable="accion1" class="Btn-Desplegable Btn-Default">Acción <i class="fa fa-caret-down"></i></button>
+                      <nav id="accion1" class="Menu-Desplegable Menu-Desplegable-Default">
+                        <ul class="Lista-Menu-Desplegable">
+                          <li class="Item-Menu-Desplegable"><a href="#">Acción</a></li>
+                          <li class="Item-Menu-Desplegable"><a href="#">Otra acción</a></li>
+                          <li class="Item-Menu-Desplegable Separador"></li>
+                          <li class="Item-Menu-Desplegable"><a href="#">Una acción más</a></li>
+                        </ul>
+                      </nav>
+                    </div>
+                    <input type="text" placeholder="Buscar...">
+                  </div>
+                </div>
+              </div>
+              <div class="Col-6">
+                <div class="Grupo-Formulario">
+                  <div class="Controles-Agrupados">
+                    <input type="text" placeholder="Buscar...">
+                    <div class="Botones-Agrupados">
+                      <button data-desplegable="accion2" class="Btn-Desplegable Btn-Default">Acción <i class="fa fa-caret-down"></i></button>
+                      <nav id="accion2" class="Menu-Desplegable Menu-Desplegable-Negativo">
+                        <ul class="Lista-Menu-Desplegable">
+                          <li class="Item-Menu-Desplegable"><a href="#">Acción</a></li>
+                          <li class="Item-Menu-Desplegable"><a href="#">Otra acción</a></li>
+                          <li class="Item-Menu-Desplegable Separador"></li>
+                          <li class="Item-Menu-Desplegable"><a href="#">Una acción más</a></li>
+                        </ul>
+                      </nav>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <pre>
+<code class="language-html">&lt;div class="Fila"&gt;</code>
+<code class="language-html">  &lt;div class="Col-6"&gt;</code>
+<code class="language-html">    &lt;div class="Controles-Agrupados"&gt;</code>
+<code class="language-html">      &lt;div class="Botones-Agrupados"&gt;</code>
+<code class="language-html">        &lt;button data-desplegable="accion1" class="Btn-Desplegable Btn-Default"&gt;Acción &lt;i class="caret"&gt;&lt;/i&gt;&lt/button&gt;</code>
+<code class="language-html">        &lt;nav id="accion1" class="Menu-Desplegable Menu-Desplegable-Default"&gt;</code>
+<code class="language-html">          &lt;ul class="Lista-Menu-Desplegable"&gt;</code>
+<code class="language-html">            &lt;li class="Item-Menu-Desplegable"&gt;</code>
+<code class="language-html">              &lt;a href="#"&gt;Acción&lt;/a&gt;</code>
+<code class="language-html">            &lt;/li&gt;</code>
+<code class="language-html">            &lt;li class="Item-Menu-Desplegable"&gt;</code>
+<code class="language-html">              &lt;a href="#"&gt;Otra acción&lt;/a&gt;</code>
+<code class="language-html">            &lt;/li&gt;</code>
+<code class="language-html">            &lt;li class="Item-Menu-Desplegable Separador"&gt;&lt;/li&gt;</code>
+<code class="language-html">            &lt;li class="Item-Menu-Desplegable"&gt;</code>
+<code class="language-html">              &lt;a href="#"&gt;Una acción más&lt;/a&gt;</code>
+<code class="language-html">            &lt;/li&gt;</code>
+<code class="language-html">          &lt;/ul&gt;</code>
+<code class="language-html">        &lt;/nav&gt;</code>
+<code class="language-html">      &lt;/div&gt;</code>
+<code class="language-html">      &lt;input type="text"&gt;</code>
+<code class="language-html">    &lt;/div&gt;</code>
+<code class="language-html">  &lt;/div&gt;</code>
+<code class="language-html">  &lt;div class="Col-6"&gt;</code>
+<code class="language-html">    &lt;div class="Controles-Agrupados"&gt;</code>
+<code class="language-html">      &lt;input type="text"&gt;</code>
+<code class="language-html">      &lt;div class="Botones-Agrupados"&gt;</code>
+<code class="language-html">        &lt;button data-desplegable="accion2" class="Btn-Desplegable Btn-Default"&gt;Acción &lt;i class="caret"&gt;&lt;/i&gt;&lt/button&gt;</code>
+<code class="language-html">        &lt;nav id="accion2" class="Menu-Desplegable Menu-Desplegable-Negativo"&gt;</code>
+<code class="language-html">          &lt;ul class="Lista-Menu-Desplegable"&gt;</code>
+<code class="language-html">            &lt;li class="Item-Menu-Desplegable"&gt;</code>
+<code class="language-html">              &lt;a href="#"&gt;Acción&lt;/a&gt;</code>
+<code class="language-html">            &lt;/li&gt;</code>
+<code class="language-html">            &lt;li class="Item-Menu-Desplegable"&gt;</code>
+<code class="language-html">              &lt;a href="#"&gt;Otra acción&lt;/a&gt;</code>
+<code class="language-html">            &lt;/li&gt;</code>
+<code class="language-html">            &lt;li class="Item-Menu-Desplegable Separador"&gt;&lt;/li&gt;</code>
+<code class="language-html">            &lt;li class="Item-Menu-Desplegable"&gt;</code>
+<code class="language-html">              &lt;a href="#"&gt;Una acción más&lt;/a&gt;</code>
+<code class="language-html">            &lt;/li&gt;</code>
+<code class="language-html">          &lt;/ul&gt;</code>
+<code class="language-html">        &lt;/nav&gt;</code>
+<code class="language-html">      &lt;/div&gt;</code>
+<code class="language-html">      &lt;input type="text"&gt;</code>
+<code class="language-html">    &lt;/div&gt;</code>
+<code class="language-html">  &lt;/div&gt;</code>
+<code class="language-html">&lt;/div&gt;</code>
+          </pre>
+          <h2>Botones segmentados</h2>
+          <div class="Panel">
+            <div class="Fila">
+              <div class="Col-6">
+                <div class="Controles-Agrupados">
+                  <div class="Botones-Agrupados">
+                    <button class="Btn-Default">Acción</button>
+                    <button class="Btn-Default"><i class="fa fa-caret-down"></i></button>
+                  </div>
+                  <input type="text">
+                </div>
+              </div>
+              <div class="Col-6">
+                <div class="Controles-Agrupados">
+                  <input type="text">
+                  <div class="Botones-Agrupados">
+                    <button class="Btn-Default"><i class="fa fa-caret-down"></i></button>
+                    <button class="Btn-Default">Acción</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <pre>
+<code class="language-html">&lt;div class="Controles-Agrupados"&gt;</code>
+<code class="language-html">  &lt;div class="Botones-Agrupados"&gt;</code>
+<code class="language-html">    &lt;!-- Botones y menu desplegable --&gt;</code>
+<code class="language-html">  &lt;/div&gt;</code>
+<code class="language-html">  &lt;input type="text" aria-label="..."&gt;</code>
+<code class="language-html">&lt;/div&gt;</code>
+<code class="language-html">&lt;div class="Controles-Agrupados"&gt;</code>
+<code class="language-html">  &lt;input type="text" aria-label="..."&gt;</code>
+<code class="language-html">  &lt;div class="Botones-Agrupados"&gt;</code>
+<code class="language-html">    &lt;!-- Botones y menu desplegable --&gt;</code>
+<code class="language-html">  &lt;/div&gt;</code>
+<code class="language-html">&lt;/div&gt;</code>
+          </pre>
+          <h2>Múltiples botones</h2>
+          <p>Si bien podés tener un complemento por lado, podés tener múltiples botones dentro de un único <code>.Botones-Agrupados</code>.</p>
+          <div class="Panel">
+            <div class="Fila">
+              <div class="Col-6">
+                <div class="Controles-Agrupados">
+                  <div class="Botones-Agrupados">
+                    <button class="Btn-Default"><i class="fa fa-bold"></i></button>
+                    <button class="Btn-Default"><i class="fa fa-italic"></i></button>
+                  </div>
+                  <input type="text">
+                </div>
+              </div>
+              <div class="Col-6">
+                <div class="Controles-Agrupados">
+                  <input type="text">
+                  <div class="Botones-Agrupados">
+                    <button class="Btn-Default"><i class="fa fa-question-circle"></i></button>
+                    <button class="Btn-Default">Acción <i class="fa fa-caret-down"></i></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h2>Tabs</h2>
+          <div class="Panel">
+            <ul class="Tabs">
+              <li data-contenidotab="tabuno" class="Tab El--activo"><a href="#">Tab uno</a></li>
+              <li data-contenidotab="tabdos" class="Tab"><a href="#">Tab dos</a></li>
+              <li data-contenidotab="tabtres" class="Tab"><a href="#">Tab tres</a></li>
+            </ul>
+            <div id="tabuno" class="Contenido-Tab El--visible">
+              <p>Contenido de ejemplo para el tab 1</p>
+            </div>
+            <div id="tabdos" class="Contenido-Tab">
+              <p>Contenido de ejemplo para el tab 2</p>
+            </div>
+            <div id="tabtres" class="Contenido-Tab">
+              <p>Contenido de ejemplo para el tab 3</p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+  <footer>
+
+  </footer>
+  <script type="text/javascript" src="/js/pluma.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/prism.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/themes/prism.min.css" />
+</body>
+</html>

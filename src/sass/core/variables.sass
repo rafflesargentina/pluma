@@ -5,49 +5,54 @@
 
 /* Tipografias
    =========================================================================== */
-$fuente:                  $lucida-grande
-$fuente-encabezados:      $lucida-grande
+$fuente:                  'Open Sans', sans-serif
+$fuente-encabezados:      'Open Sans', sans-serif
 
+$tamano-base:             13px
 $tamano-fuente:           1rem
-$tamano-fuente-chico:     0.7333rem
-$tamano-fuente-grande:    1.0666rem
-$tamano-fuente-parrafo:   0.8667rem
+$tamano-fuente-chico:     $tamano-fuente * 0.8
+$tamano-fuente-grande:    $tamano-fuente * 1.2
+$tamano-fuente-parrafo:   $tamano-fuente
 
-$tamano-fuente-h1:        2rem
-$tamano-fuente-h2:        1.6rem
-$tamano-fuente-h3:        1.3333rem
+$tamano-fuente-h1:        $tamano-fuente * 2.4
+$tamano-fuente-h2:        $tamano-fuente * 2
+$tamano-fuente-h3:        $tamano-fuente * 1.6
+$tamano-fuente-h4:        $tamano-fuente-grande
+$tamano-fuente-h5:        $tamano-fuente
+$tamano-fuente-h6:        $tamano-fuente-chico
 
-$alto-linea:              1.4
-$alto-linea-computado:    strip-units($alto-linea * $tamano-fuente)
-$alto-linea-parrafo:      $alto-linea * $tamano-fuente / 3
+$alto-linea:              1.5
+$alto-linea-computado:    floor(($tamano-base * $alto-linea))
 $alto-linea-encabezados:  1.2
 
 $peso-fuente-links:       400
-$peso-fuente-parrafo:     300
-$peso-fuente-encabezados: 400
+$peso-fuente-parrafo:     400
+$peso-fuente-encabezados: 600
 
-$trans-encabezados:       lowercase
+$trans-encabezados:       none
 
 $decoracion-links:        none
 $decoracion-links-hover:  none
 
 /* Colores
    =========================================================================== */
-$color-primario:        #03a9f4
-$color-primario-oscuro: #0288d1
+$color-primario:        #2196f3
+$color-primario-oscuro: #1976d2
 
 $color-info:            $color-primario
 $color-error:           #d32f2f
 $color-success:         #388e3c
 $color-warning:         #afb42b
 
+$color-sombra:          rgba(0,0,0,0.07)
+
 /* Grises
    =========================================================================== */
-$gris:                  #9b9f9b
-$gris-claro:            #c6c6c6
-$gris-oscuro:           #858585
-$gris-mas-claro:        #e6e6e6
-$gris-mas-oscuro:       #4a4a4a
+$gris:                  #9e9e9e
+$gris-claro:            #bdbdbd
+$gris-oscuro:           #757575
+$gris-mas-claro:        #e0e0e0
+$gris-mas-oscuro:       #212121
 
 $color-fuente:          $gris-oscuro
 $color-links:           $gris-mas-oscuro
@@ -55,6 +60,7 @@ $color-links-hover:     $gris-mas-oscuro
 
 $color-borde:           $gris-claro
 $color-borde-claro:     $gris-mas-claro
+$color-borde-oscuro:    $gris-mas-oscuro
 
 $color-fondo:           #fff
 $color-variante-fondo:  #fafafa
@@ -80,9 +86,14 @@ $color-alerta-fondo-warning: tint($color-warning, 90%)
 
 /* Bordes
    =========================================================================== */
-$borde:       1px solid $color-borde
-$borde-claro: 1px solid $color-borde-claro
-$radio-borde: 0.2666rem
+$borde:              1px solid $color-borde
+$borde-claro:        1px solid $color-borde-claro
+$borde-oscuro:       1px solid $color-borde-oscuro
+$borde-transparente: 1px solid transparent
+
+$radio-borde:        4px
+$radio-borde-chico:  3px
+$radio-borde-grande: 6px
 
 /*  Controles de formulario y botones
    =========================================================================== */
@@ -94,33 +105,54 @@ $alto-control:           $alto-boton
 $alto-control-chico:     $alto-boton-chico
 $alto-control-grande:    $alto-boton-grande
 
-$padding-boton:          0 ($alto-control / 2)
-$padding-boton-chico:    0 ($alto-control-chico / 2)
-$padding-boton-grande:   0 ($alto-control-grande / 2)
+$padding-boton:          0 ($alto-control / 4)
+$padding-boton-chico:    0 ($alto-control-chico / 4)
+$padding-boton-grande:   0 ($alto-control-grande / 4)
 
 $padding-control:        ($alto-control / 8) ($alto-control / 4)
 $padding-control-chico:  ($alto-control-chico / 8) ($alto-control-chico / 4)
-$padding-control-grande: ($alto-control-grande / 8) ($alto-control-grande / 4) 
+$padding-control-grande: ($alto-control-grande / 8) ($alto-control-grande / 4)
 
-$peso-fuente-boton:      600
+$peso-fuente-boton:      400
 $peso-fuente-control:    300
 $peso-fuente-etiquetas:  600
 
-$trans-fuente-boton:     uppercase
-$trans-fuente-etiquetas: uppercase
+$trans-fuente-boton:     none
+$trans-fuente-etiquetas: none
 
-/* Tablas
+/* Margenes
    =========================================================================== */
-$padding-tabla-vertical:   1.2rem
-$padding-tabla-horizontal: 0.6rem
+$margen: $tamano-fuente * 4
+$margen-chico: $tamano-fuente * 2
+$margen-grande: $margen * 2
+$margen-muy-chico: $tamano-fuente
+$margen-muy-grande: $margen * 4
 
-/* Espacios
+/* Espaciados
    =========================================================================== */
-$espacio: 4rem
-$espacio-chico: $espacio / 2
-$espacio-grande: $espacio * 2
-$espacio-muy-chico: $espacio / 4
-$espacio-muy-grande: $espacio * 4
+$espaciado: 0.6rem
+$espaciado-grande: $espaciado * 2
+$espaciado-chico: $espaciado-grande / 3
+
+/* Header
+   =========================================================================== */
+$alto-logo:                3rem
+$alto-header:              $alto-logo * 3
+
+$peso-fuente-navegacion:   600
+$color-fuente-navegacion:  $gris-oscuro
+$trans-fuente-navegacion:  none
+$tamano-fuente-navegacion: $tamano-fuente-parrafo
+
+$padding-header:           $alto-logo
+$padding-header-mobile:    $alto-logo / 3
+$padding-items-navegacion: $tamano-fuente-navegacion $espaciado-grande
+
+$alto-header-mobile:       $alto-logo + ($padding-header-mobile * 2)
+
+/* Sidebar
+   =========================================================================== */
+$ancho-sidebar:         $margen-muy-grande
 
 /* Relaciones de aspecto
    =========================================================================== */
@@ -132,14 +164,16 @@ $aspecto16-9: 56.25%
 
 /* Animaciones
    =========================================================================== */
-$timing:   ease
-$duracion: 0.25s
+$timing:   ease-in-out
+$duracion: 0.2s
+$duracion-corta: (1 / 7) + s
+$duracion-larga: 0.5s
 
 /* Grilla
    =========================================================================== */
 $column:       6rem
 $gutter:       2rem
-$em-base:      15px
+$em-base:      $tamano-base
 $max-width:    84rem
 $grid-columns: 12
 
@@ -155,17 +189,3 @@ $mobile:     new-breakpoint(max-width rem($primer--bp - 1px))
 $phablet:    new-breakpoint(min-width rem($primer--bp) max-width rem($segundo-bp - 1px))
 $tablet:     new-breakpoint(min-width rem($segundo-bp) max-width rem($tercer--bp - 1px))
 $escritorio: new-breakpoint(min-width (rem($tercer--bp)))
-
-/* Sombra
-   =========================================================================== */
-$color-sombra: rgba(0,0,0,0.07)
-$tamano-sombra: 0 $radio-borde $espacio-muy-chico 0
-
-/* Ventana modal
-   =========================================================================== */
-$color-mascara-v-modal: rgba(0,0,0,0.7)
-
-/* Capas
-   =========================================================================== */
-$capa-navegacion:      10
-$capa-wrapper-vmodal:  100

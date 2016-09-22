@@ -400,19 +400,19 @@ domReady(function() {
 });
 
 function enfocarEtiqueta() {
-    var nombre = event.target.name;
+    var nombre = event.target.id;
     var etiquetas = qsByTagName(document.body, "label");
     for(var n = 0; n < etiquetas.length; n++)
         if(etiquetas[n].htmlFor == nombre) var etiqueta = etiquetas[n];
-    addClass(etiqueta, "--con-foco");
+    if(!hasClass(etiqueta, "El--con-foco")) addClass(etiqueta, "El--con-foco");
 }
 
 function desenfocarEtiqueta() {
-    var nombre = event.target.name;
+    var nombre = event.target.id;
     var etiquetas = qsByTagName(document.body, "label");
     for(var n = 0; n < etiquetas.length; n++)
         if(etiquetas[n].htmlFor == nombre) var etiqueta = etiquetas[n];
-    removeClass(etiqueta, "--con-foco");
+    if(!hasClass(etiqueta, "El--con-foco")) removeClass(etiqueta, "El--con-foco");
 }
 
 domReady(function() {

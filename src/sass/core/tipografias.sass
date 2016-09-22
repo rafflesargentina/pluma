@@ -35,6 +35,9 @@ a
     color: $color-links-hover
     text-decoration: $decoracion-links-hover
     @include transition(color $duracion $timing)
+  &:focus,
+  &:active
+    z-index: 2
 
 /* Parrafo
    =========================================================================== */
@@ -66,6 +69,7 @@ h6,
 .h4,
 .h5,
 .h6
+  z-index: 1
   font-family: $fuente-encabezados
   font-weight: $peso-fuente-encabezados
   line-height: $alto-linea-encabezados

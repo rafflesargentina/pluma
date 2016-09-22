@@ -43,6 +43,35 @@ pre[class*=language-] { border: 1px solid #e0e0e0; background: #fafafa !importan
   <div class="Caja">
     <div class="Fila">
       <div class="Col-9">
+        <h1 class="Subrayado-Claro">Desplegables</h1>
+        <p class="Texto-Grande">Menús contextuales switchables para mostrar listas de links. Funcionan interactivamente usando el componente Javascript: <a>desplegables</a>.</p>
+        <h2>Ejemplo</h2>
+        <p>Envolvé el gatillo(<code>.Btn-Desplegable</code>) y el desplegable(<code>.Menu-Desplegable</code>) dentro de cualquier <code>&lt;div&gt;</code> con posicionado relativo.</p>
+        <div class="Panel">
+          <div>
+            <button class="Btn-Default Btn-Desplegable" data-desplegable="desplegable1">Desplegable <i class="fa fa-caret-down"></i></button>
+            <nav id="desplegable1" class="Menu-Desplegable Menu-Desplegable-Default">
+              <ul class="Lista-Menu-Desplegable">
+                <li class="Item-Menu-Desplegable"><a href="#">Acción</a></li>
+                <li class="Item-Menu-Desplegable"><a href="#">Otra acción</a></li>
+                <li class="Item-Menu-Desplegable"><a href="#">Cualquier otra cosa</a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <pre>
+<code class="language-html">&lt;div&gt;</code>
+<code class="language-html">  &lt;button class="Btn-Default Btn-Desplegable" data-desplegable="desplegable1"&gt;Desplegable &lt;i class="caret"&gt;&lt;/i&gt;&lt;/button&gt;</code>
+<code class="language-html">  &lt;nav id="desplegable1" class="Menu-Desplegable Menu-Desplegable-Default"&gt;</code>
+<code class="language-html">    &lt;ul class="Lista-Menu-Desplegable"&gt;</code>
+<code class="language-html">      &lt;li class="Item-Menu-Desplegable"&gt;&lt;a href="#"&gt;Acción&lt;/a&gt;&lt;/li&gt;</code>
+<code class="language-html">      &lt;li class="Item-Menu-Desplegable"&gt;&lt;a href="#"&gt;Otra acción&lt;/a&gt;&lt;/li&gt;</code>
+<code class="language-html">      &lt;li class="Item-Menu-Desplegable"&gt;&lt;a href="#"&gt;Cualquier otra cosa&lt;/a&gt;&lt;/li&gt;</code>
+<code class="language-html">    &lt/ul&gt;</code>
+<code class="language-html">  &lt;/nav&gt;</code>
+<code class="language-html">&lt;/div&gt;</code>
+        </pre>
+        <p>Los desplegables se expanden automáticamente hacia arriba o abajo, izquierda o derecha, en relación a los límites de la ventana del navegador.</p>
         <h1 class="Subrayado-Claro">Controles Agrupados</h1>
         <p class="Texto-Grande">Extendé los controles de formulario agregando texto o botones antes, después, o en ambos lados de cualquier <code>&lt;input&gt;</code> de texto. Utilizá la clase <code>.Botones-Agrupados</code> con un <code>.Complemento-Agrupados</code> o <code>.Botones-Agrupados</code> para agregar un elemento antes o después de un control de formulario.</p>
         <section>
@@ -68,7 +97,7 @@ pre[class*=language-] { border: 1px solid #e0e0e0; background: #fafafa !importan
             <div class="Grupo-Formulario">
               <label for="url">Vanity URL</label>
               <div class="Controles-Agrupados">
-                <span class="Complemento-Agrupados">http://example.com/</span><input type="text">
+                <span class="Complemento-Agrupados">http://example.com/</span><input type="text" name="url">
               </div>
             </div>
           </div>
@@ -97,15 +126,19 @@ pre[class*=language-] { border: 1px solid #e0e0e0; background: #fafafa !importan
           <div class="Panel">
             <div class="Fila">
               <div class="Col-6">
-                <div class="Controles-Agrupados">
-                  <span class="Complemento-Agrupados"><input type="checkbox"></span>
-                  <input type="text">
+                <div class="Grupo-Formulario">
+                  <div class="Controles-Agrupados">
+                    <span class="Complemento-Agrupados"><input type="checkbox"></span>
+                    <input type="text">
+                  </div>
                 </div>
               </div>
               <div class="Col-6">
-                <div class="Controles-Agrupados">
-                  <span class="Complemento-Agrupados"><input type="radio"></span>
-                  <input type="text">
+                <div class="Grupo-Formulario">
+                  <div class="Controles-Agrupados">
+                    <span class="Complemento-Agrupados"><input type="radio"></span>
+                    <input type="text">
+                  </div>
                 </div>
               </div>
             </div>
@@ -270,20 +303,24 @@ pre[class*=language-] { border: 1px solid #e0e0e0; background: #fafafa !importan
           <div class="Panel">
             <div class="Fila">
               <div class="Col-6">
-                <div class="Controles-Agrupados">
-                  <div class="Botones-Agrupados">
-                    <button class="Btn-Default">Acción</button>
-                    <button class="Btn-Default"><i class="fa fa-caret-down"></i></button>
+                <div class="Grupo-Formulario">
+                  <div class="Controles-Agrupados">
+                    <div class="Botones-Agrupados">
+                      <button class="Btn-Default">Acción</button>
+                      <button class="Btn-Default"><i class="fa fa-caret-down"></i></button>
+                    </div>
+                    <input type="text">
                   </div>
-                  <input type="text">
                 </div>
               </div>
               <div class="Col-6">
-                <div class="Controles-Agrupados">
-                  <input type="text">
-                  <div class="Botones-Agrupados">
-                    <button class="Btn-Default"><i class="fa fa-caret-down"></i></button>
-                    <button class="Btn-Default">Acción</button>
+                <div class="Grupo-Formulario">
+                  <div class="Controles-Agrupados">
+                    <input type="text">
+                    <div class="Botones-Agrupados">
+                      <button class="Btn-Default"><i class="fa fa-caret-down"></i></button>
+                      <button class="Btn-Default">Acción</button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -308,20 +345,24 @@ pre[class*=language-] { border: 1px solid #e0e0e0; background: #fafafa !importan
           <div class="Panel">
             <div class="Fila">
               <div class="Col-6">
-                <div class="Controles-Agrupados">
-                  <div class="Botones-Agrupados">
-                    <button class="Btn-Default"><i class="fa fa-bold"></i></button>
-                    <button class="Btn-Default"><i class="fa fa-italic"></i></button>
+                <div class="Grupo-Formulario">
+                  <div class="Controles-Agrupados">
+                    <div class="Botones-Agrupados">
+                      <button class="Btn-Default"><i class="fa fa-bold"></i></button>
+                      <button class="Btn-Default"><i class="fa fa-italic"></i></button>
+                    </div>
+                    <input type="text">
                   </div>
-                  <input type="text">
                 </div>
               </div>
               <div class="Col-6">
-                <div class="Controles-Agrupados">
-                  <input type="text">
-                  <div class="Botones-Agrupados">
-                    <button class="Btn-Default"><i class="fa fa-question-circle"></i></button>
-                    <button class="Btn-Default">Acción <i class="fa fa-caret-down"></i></button>
+                <div class="Grupo-Formulario">
+                  <div class="Controles-Agrupados">
+                    <input type="text">
+                    <div class="Botones-Agrupados">
+                      <button class="Btn-Default"><i class="fa fa-question-circle"></i></button>
+                      <button class="Btn-Default">Acción <i class="fa fa-caret-down"></i></button>
+                    </div>
                   </div>
                 </div>
               </div>

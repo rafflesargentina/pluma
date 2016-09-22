@@ -5,24 +5,12 @@
 
 nav.Menu-Desplegable
   float: left
-  border: $borde-claro
   display: none
   opacity: 0.9
   z-index: 11
   position: absolute
+  max-width: 20rem
   background: $color-variante-fondo
-  &.El--con-sombra-abajo
-    box-shadow: 0 $radio-borde-chico 0 0 $color-sombra
-    &.El--con-sombra-derecha
-      box-shadow: 0 $radio-borde-chico 0 0 $color-sombra, ($radio-borde-chico) 0 0 0 $color-sombra
-    &.El--con-sombra-izquierda
-      box-shadow: 0 $radio-borde-chico 0 0 $color-sombra, (0 - $radio-borde-chico) 0 0 0 $color-sombra
-  &.El--con-sombra-arriba
-    box-shadow: 0 1px 0 0 $color-sombra
-    &.El--con-sombra-derecha
-      box-shadow: 0 1px 0 0 $color-sombra, ($radio-borde-chico) 0 0 0 $color-sombra
-    &.El--con-sombra-izquierda
-      box-shadow: 0 1px 0 0 $color-sombra, (0 - $radio-borde-chico) 0 0 0 $color-sombra
 
 ul.Lista-Menu-Desplegable
   float: left
@@ -48,6 +36,7 @@ li.Item-Menu-Desplegable
     border-bottom: $borde-claro
 
 .Menu-Desplegable-Default
+  border: $borde-claro
   ul.Lista-Menu-Desplegable
     background: $color-fondo
   li.Item-Menu-Desplegable
@@ -58,10 +47,22 @@ li.Item-Menu-Desplegable
         color: $gris-mas-oscuro
     > a:not(:disabled)
       color: $gris-mas-oscuro
+  &.El--con-sombra-abajo
+    box-shadow: 0 $radio-borde-chico 0 0 $color-sombra
+    &.El--con-sombra-derecha
+      box-shadow: 0 $radio-borde-chico 0 0 $color-sombra, ($radio-borde-chico) 0 0 0 $color-sombra
+    &.El--con-sombra-izquierda
+      box-shadow: 0 $radio-borde-chico 0 0 $color-sombra, (0 - $radio-borde-chico) 0 0 0 $color-sombra
+  &.El--con-sombra-arriba
+    box-shadow: 0 -1px 0 0 $color-sombra
+    &.El--con-sombra-derecha
+      box-shadow: 0 -1px 0 0 $color-sombra, ($radio-borde-chico) 0 0 0 $color-sombra
+    &.El--con-sombra-izquierda
+      box-shadow: 0 -1px 0 0 $color-sombra, (0 - $radio-borde-chico) 0 0 0 $color-sombra
 
 .Menu-Desplegable-Negativo
+  border: 1px solid $gris-oscuro
   ul.Lista-Menu-Desplegable
-    border: transparent
     background: $gris-oscuro
   li.Item-Menu-Desplegable
     &:focus,
@@ -70,3 +71,7 @@ li.Item-Menu-Desplegable
     > a:not(:disabled)
       color: $color-fondo
       font-weight: 600
+  &.El--con-sombra-abajo
+    box-shadow: 0 1px 0 10000px $color-sombra
+  &.El--con-sombra-arriba
+    box-shadow: 0 1px 0 10000px $color-sombra

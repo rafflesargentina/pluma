@@ -185,6 +185,7 @@ progress {
 /**
  * Flota los elementos a la izquierda y establece un ancho del 100%.
  */
+p,
 h1,
 h2,
 h3,
@@ -608,6 +609,7 @@ button, input[type="button"], input[type="reset"], input[type="submit"] {
   height: 42px;
   display: inline-block;
   padding: 0 0.8rem;
+  z-index: 1;
   overflow: hidden;
   font-size: 1rem;
   background: transparent;
@@ -634,6 +636,10 @@ button, input[type="button"], input[type="reset"], input[type="submit"] {
     -webkit-transition: 0.14286s ease-in-out;
     -moz-transition: 0.14286s ease-in-out;
     transition: 0.14286s ease-in-out; }
+  .Btn:focus, .Btn:active,
+  button:focus,
+  button:active, input[type="button"]:focus, input[type="button"]:active, input[type="reset"]:focus, input[type="reset"]:active, input[type="submit"]:focus, input[type="submit"]:active {
+    z-index: 2; }
   .Btn:disabled,
   button:disabled, input[type="button"]:disabled, input[type="reset"]:disabled, input[type="submit"]:disabled {
     cursor: not-allowed;
@@ -855,13 +861,6 @@ button::-moz-focus-inner {
 /* ===========================================================================
    Formularios
    @mixin ========================================================================== */
-/**
- * 1. Previene la inaccesibilidad al elemento cuando se encuentra flotado.
- */
-form {
-  z-index: 1;
-  /* 1 */ }
-
 .Formulario-Tabla {
   min-width: 7rem; }
 
@@ -886,6 +885,7 @@ input[type="password"] {
   height: 42px;
   display: inline-block;
   padding: 0.4rem 0.8rem;
+  z-index: 1;
   background: #fff;
   font-weight: 300;
   border-radius: 4px;
@@ -896,10 +896,7 @@ input[type="password"] {
   appearance: none;
   -webkit-transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
   -moz-transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
-  transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
-  /**
-   * Autofill
-   */ }
+  transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out; }
   select::-webkit-input-placeholder,
   textarea::-webkit-input-placeholder,
   input[type="text"]::-webkit-input-placeholder,
@@ -934,6 +931,7 @@ input[type="password"] {
   input[type="password"]:not([disabled]):focus,
   input[type="password"]:not([disabled]):active {
     color: #212121;
+    z-index: 2;
     border-color: #2196f3;
     -webkit-transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
     -moz-transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
@@ -958,26 +956,40 @@ input[type="password"] {
   input[type="password"]:disabled {
     color: #bdbdbd;
     background: #fafafa; }
-  select:-webkit-autofill,
-  textarea:-webkit-autofill,
-  input[type="text"]:-webkit-autofill,
-  input[type="email"]:-webkit-autofill,
-  input[type="password"]:-webkit-autofill {
+
+.Select {
+  float: left;
+  width: 100%;
+  display: inline-block;
+  vertical-align: middle;
+  /**
+   * Autofill
+   */ }
+  .Select .Flecha {
+    top: 0;
+    right: 0;
+    width: 1.6rem;
+    height: 100%;
+    position: absolute; }
+    .Select .Flecha > b {
+      top: 50%;
+      left: 50%;
+      width: 0.6rem;
+      height: 0.6rem;
+      position: absolute;
+      margin-top: -0.4rem;
+      margin-left: -0.6rem;
+      border-color: #bdbdbd;
+      border-style: solid;
+      border-width: 2px 2px 0 0; }
+  .Select:-webkit-autofill {
     box-shadow: 0 0 0 3.2rem #f7f8ea inset;
     border: 1px solid #ebecca;
     -webkit-text-fill-color: #b3b836;
     -webkit-transition: border-color 0.2s ease-in-out;
     -moz-transition: border-color 0.2s ease-in-out;
     transition: border-color 0.2s ease-in-out; }
-    select:-webkit-autofill:not([disabled]):focus, select:-webkit-autofill:not([disabled]):active,
-    textarea:-webkit-autofill:not([disabled]):focus,
-    textarea:-webkit-autofill:not([disabled]):active,
-    input[type="text"]:-webkit-autofill:not([disabled]):focus,
-    input[type="text"]:-webkit-autofill:not([disabled]):active,
-    input[type="email"]:-webkit-autofill:not([disabled]):focus,
-    input[type="email"]:-webkit-autofill:not([disabled]):active,
-    input[type="password"]:-webkit-autofill:not([disabled]):focus,
-    input[type="password"]:-webkit-autofill:not([disabled]):active {
+    .Select:-webkit-autofill:not([disabled]):focus, .Select:-webkit-autofill:not([disabled]):active {
       border-color: #b3b836;
       -webkit-text-fill-color: #b3b836;
       -webkit-transition: border-color 0.2s ease-in-out;
@@ -1013,8 +1025,11 @@ textarea {
    @mixin ========================================================================== */
 input[type="radio"], input[type="checkbox"] {
   display: inline;
+  z-index: 1;
   font-size: 1rem;
   margin-right: 0.33333rem; }
+  input[type="radio"]:focus, input[type="radio"]:active, input[type="checkbox"]:focus, input[type="checkbox"]:active {
+    z-index: 2; }
 
 .Checkbox label,
 .Radiobtn label {
@@ -1075,16 +1090,9 @@ i.Icono-Control-Izquierda {
 
 /* Controles de formulario agrupados
    @mixin ========================================================================== */
-.Grupo-Formulario,
-.Grupo-Formulario-Chico,
-.Grupo-Formulario-Grande {
-  display: block; }
-
 .Grupo-Formulario {
+  display: block;
   margin-bottom: 1rem; }
-
-.Grupo-Formulario-Grande {
-  margin-bottom: 4rem; }
 
 /* Validacion de controles
    @mixin ========================================================================== */
@@ -1570,6 +1578,8 @@ a {
     -webkit-transition: color 0.2s ease-in-out;
     -moz-transition: color 0.2s ease-in-out;
     transition: color 0.2s ease-in-out; }
+  a:focus, a:active {
+    z-index: 2; }
 
 /* Parrafo
    @mixin ========================================================================== */
@@ -1600,6 +1610,7 @@ h6,
 .h4,
 .h5,
 .h6 {
+  z-index: 1;
   font-family: "Open Sans", sans-serif;
   font-weight: 600;
   line-height: 1.2;
@@ -1766,8 +1777,8 @@ samp {
 
 pre {
   padding: 1rem;
+  z-index: 1;
   overflow: auto;
-  tab-size: 2;
   background: #fafafa; }
 
 code {
@@ -2384,24 +2395,12 @@ figcaption {
    @mixin ========================================================================== */
 nav.Menu-Desplegable {
   float: left;
-  border: 1px solid #e0e0e0;
   display: none;
   opacity: 0.9;
   z-index: 11;
   position: absolute;
+  max-width: 20rem;
   background: #fafafa; }
-  nav.Menu-Desplegable.El--con-sombra-abajo {
-    box-shadow: 0 3px 0 0 rgba(0, 0, 0, 0.07); }
-    nav.Menu-Desplegable.El--con-sombra-abajo.El--con-sombra-derecha {
-      box-shadow: 0 3px 0 0 rgba(0, 0, 0, 0.07), 3px 0 0 0 rgba(0, 0, 0, 0.07); }
-    nav.Menu-Desplegable.El--con-sombra-abajo.El--con-sombra-izquierda {
-      box-shadow: 0 3px 0 0 rgba(0, 0, 0, 0.07), -3px 0 0 0 rgba(0, 0, 0, 0.07); }
-  nav.Menu-Desplegable.El--con-sombra-arriba {
-    box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.07); }
-    nav.Menu-Desplegable.El--con-sombra-arriba.El--con-sombra-derecha {
-      box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.07), 3px 0 0 0 rgba(0, 0, 0, 0.07); }
-    nav.Menu-Desplegable.El--con-sombra-arriba.El--con-sombra-izquierda {
-      box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.07), -3px 0 0 0 rgba(0, 0, 0, 0.07); }
 
 ul.Lista-Menu-Desplegable {
   float: left;
@@ -2428,27 +2427,42 @@ li.Item-Menu-Desplegable {
     margin: 0.6rem 0;
     border-bottom: 1px solid #e0e0e0; }
 
-.Menu-Desplegable-Default ul.Lista-Menu-Desplegable {
-  background: #fff; }
-
-.Menu-Desplegable-Default li.Item-Menu-Desplegable:focus, .Menu-Desplegable-Default li.Item-Menu-Desplegable:hover {
-  background: #e0e0e0; }
-  .Menu-Desplegable-Default li.Item-Menu-Desplegable:focus > a:not(:disabled), .Menu-Desplegable-Default li.Item-Menu-Desplegable:hover > a:not(:disabled) {
+.Menu-Desplegable-Default {
+  border: 1px solid #e0e0e0; }
+  .Menu-Desplegable-Default ul.Lista-Menu-Desplegable {
+    background: #fff; }
+  .Menu-Desplegable-Default li.Item-Menu-Desplegable:focus, .Menu-Desplegable-Default li.Item-Menu-Desplegable:hover {
+    background: #e0e0e0; }
+    .Menu-Desplegable-Default li.Item-Menu-Desplegable:focus > a:not(:disabled), .Menu-Desplegable-Default li.Item-Menu-Desplegable:hover > a:not(:disabled) {
+      color: #212121; }
+  .Menu-Desplegable-Default li.Item-Menu-Desplegable > a:not(:disabled) {
     color: #212121; }
+  .Menu-Desplegable-Default.El--con-sombra-abajo {
+    box-shadow: 0 3px 0 0 rgba(0, 0, 0, 0.07); }
+    .Menu-Desplegable-Default.El--con-sombra-abajo.El--con-sombra-derecha {
+      box-shadow: 0 3px 0 0 rgba(0, 0, 0, 0.07), 3px 0 0 0 rgba(0, 0, 0, 0.07); }
+    .Menu-Desplegable-Default.El--con-sombra-abajo.El--con-sombra-izquierda {
+      box-shadow: 0 3px 0 0 rgba(0, 0, 0, 0.07), -3px 0 0 0 rgba(0, 0, 0, 0.07); }
+  .Menu-Desplegable-Default.El--con-sombra-arriba {
+    box-shadow: 0 -1px 0 0 rgba(0, 0, 0, 0.07); }
+    .Menu-Desplegable-Default.El--con-sombra-arriba.El--con-sombra-derecha {
+      box-shadow: 0 -1px 0 0 rgba(0, 0, 0, 0.07), 3px 0 0 0 rgba(0, 0, 0, 0.07); }
+    .Menu-Desplegable-Default.El--con-sombra-arriba.El--con-sombra-izquierda {
+      box-shadow: 0 -1px 0 0 rgba(0, 0, 0, 0.07), -3px 0 0 0 rgba(0, 0, 0, 0.07); }
 
-.Menu-Desplegable-Default li.Item-Menu-Desplegable > a:not(:disabled) {
-  color: #212121; }
-
-.Menu-Desplegable-Negativo ul.Lista-Menu-Desplegable {
-  border: transparent;
-  background: #757575; }
-
-.Menu-Desplegable-Negativo li.Item-Menu-Desplegable:focus, .Menu-Desplegable-Negativo li.Item-Menu-Desplegable:hover {
-  background: #212121; }
-
-.Menu-Desplegable-Negativo li.Item-Menu-Desplegable > a:not(:disabled) {
-  color: #fff;
-  font-weight: 600; }
+.Menu-Desplegable-Negativo {
+  border: 1px solid #757575; }
+  .Menu-Desplegable-Negativo ul.Lista-Menu-Desplegable {
+    background: #757575; }
+  .Menu-Desplegable-Negativo li.Item-Menu-Desplegable:focus, .Menu-Desplegable-Negativo li.Item-Menu-Desplegable:hover {
+    background: #212121; }
+  .Menu-Desplegable-Negativo li.Item-Menu-Desplegable > a:not(:disabled) {
+    color: #fff;
+    font-weight: 600; }
+  .Menu-Desplegable-Negativo.El--con-sombra-abajo {
+    box-shadow: 0 1px 0 10000px rgba(0, 0, 0, 0.07); }
+  .Menu-Desplegable-Negativo.El--con-sombra-arriba {
+    box-shadow: 0 1px 0 10000px rgba(0, 0, 0, 0.07); }
 
 .Lista-Agrupada {
   border: 1px solid transparent;
@@ -2535,7 +2549,6 @@ button.Item-Lista-Agrupada {
 .Botones-Agrupados {
   float: left;
   display: inline-block;
-  z-index: 1;
   vertical-align: middle; }
   .Botones-Agrupados > .Btn:not(:first-child),
   .Botones-Agrupados > button:not(:first-child), .Botones-Agrupados input[type="button"]:not(:first-child), .Botones-Agrupados input[type="reset"]:not(:first-child), .Botones-Agrupados input[type="submit"]:not(:first-child) {
@@ -2555,10 +2568,6 @@ button.Item-Lista-Agrupada {
     border-top-left-radius: 0;
     border-bottom-right-radius: 4px;
     border-top-right-radius: 4px; }
-  .Botones-Agrupados > .Btn:focus, .Botones-Agrupados > .Btn:active,
-  .Botones-Agrupados > button:focus,
-  .Botones-Agrupados > button:active, .Botones-Agrupados input[type="button"]:focus, .Botones-Agrupados input[type="button"]:active, .Botones-Agrupados input[type="reset"]:focus, .Botones-Agrupados input[type="reset"]:active, .Botones-Agrupados input[type="submit"]:focus, .Botones-Agrupados input[type="submit"]:active {
-    z-index: 2; }
 
 /* ===========================================================================
    Controles Agrupados
@@ -2577,12 +2586,6 @@ button.Item-Lista-Agrupada {
       clear: both;
       content: "";
       display: table; }
-    .Controles-Agrupados > input[type="text"]:focus, .Controles-Agrupados > input[type="text"]:active,
-    .Controles-Agrupados > input[type="email"]:focus,
-    .Controles-Agrupados > input[type="email"]:active,
-    .Controles-Agrupados > input[type="password"]:focus,
-    .Controles-Agrupados > input[type="password"]:active {
-      z-index: 2; }
     .Controles-Agrupados > input[type="text"]:not(:first-child):not(:last-child),
     .Controles-Agrupados > input[type="email"]:not(:first-child):not(:last-child),
     .Controles-Agrupados > input[type="password"]:not(:first-child):not(:last-child) {
@@ -2644,6 +2647,3 @@ button.Item-Lista-Agrupada {
     border-left: none;
     border-radius: 0;
     border-right: none; }
-  .Complemento-Agrupados > input[type="radio"],
-  .Complemento-Agrupados > input[type="checkbox"] {
-    z-index: 1; }

@@ -6,7 +6,6 @@
 .Botones-Agrupados
   float: left
   display: inline-block
-  z-index: 1
   vertical-align: middle
   > .Btn,
   > #{$all-buttons}
@@ -20,6 +19,3 @@
     &:last-of-type:not(:only-of-type)
       @include border-left-radius(0)
       @include border-right-radius($radio-borde)
-    &:focus,
-    &:active
-      z-index: 2

@@ -2,12 +2,6 @@
    Formularios
    =========================================================================== */
 
-/**
- * 1. Previene la inaccesibilidad al elemento cuando se encuentra flotado.
- */
-form
-  z-index: 1; /* 1 */
-
 .Formulario-Tabla
   min-width: 7rem
 
@@ -33,6 +27,7 @@ input[type="password"]
   height: ceil(strip-units(3.2rem * $tamano-base)) + px
   display: inline-block
   padding: $padding-control
+  z-index: 1
   background: $color-fondo
   font-weight: $peso-fuente-control
   border-radius: $radio-borde
@@ -43,6 +38,7 @@ input[type="password"]
   &:not([disabled]):focus,
   &:not([disabled]):active,
     color: $gris-mas-oscuro
+    z-index: 2
     border-color: $color-primario
     @include transition(color $duracion $timing, border-color $duracion $timing)
     + label
@@ -51,6 +47,29 @@ input[type="password"]
   &:disabled
     color: $gris-claro
     background: $color-deshabilitado
+
+.Select
+  float: left
+  width: 100%
+  display: inline-block
+  vertical-align: middle
+  .Flecha
+    top: 0
+    right: 0
+    width: ($alto-control / 2);
+    height: 100%
+    position: absolute
+    > b
+      top: 50%
+      left: 50%
+      width: $espaciado
+      height: $espaciado
+      position: absolute
+      margin-top: $espaciado-chico * -1
+      margin-left: $espaciado * -1
+      border-color: $color-borde
+      border-style: solid
+      border-width: 2px 2px 0 0
 
   /**
    * Autofill
@@ -97,8 +116,12 @@ input
   &[type="radio"],
   &[type="checkbox"]
     display: inline
+    z-index: 1
     font-size: $tamano-fuente
     margin-right: $margen-muy-chico / 3
+    &:focus,
+    &:active
+      z-index: 2
 
 .Checkbox,
 .Radiobtn
@@ -156,16 +179,9 @@ i.Icono-Control-Izquierda
 
 /* Controles de formulario agrupados
    =========================================================================== */
-.Grupo-Formulario,
-.Grupo-Formulario-Chico,
-.Grupo-Formulario-Grande
-  display: block
-
 .Grupo-Formulario
+  display: block
   margin-bottom: $margen-muy-chico
-
-.Grupo-Formulario-Grande
-  margin-bottom: $margen
 
 /* Validacion de controles
    =========================================================================== */

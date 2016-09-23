@@ -19,14 +19,13 @@
   line-height: ceil(strip-units($alto-boton * $tamano-base)) + px
   white-space: nowrap
   border-radius: $radio-borde
-  letter-spacing: 1px
   text-transform: $trans-fuente-boton
   text-decoration: none
   @include appearance(none)
   @include transition($duracion-corta $timing)
-  &:focus:not(:disabled),
-  &:hover:not(:disabled),
-  &:active:not(:disabled)
+  &:focus,
+  &:hover,
+  &:active
     @include transition($duracion-corta $timing)
   &:focus,
   &:active
@@ -60,9 +59,9 @@ button::-moz-focus-inner
   text-shadow: 0 1px 0 darken($color-fondo, 12%)
   > i
     color: $color-fuente
-  &:focus:not(:disabled),
-  &:hover:not(:disabled),
-  &:active:not(:disabled)
+  &:focus,
+  &:hover,
+  &:active
     color: $color-fuente
     background: darken($color-fondo, 12%)
     border-color: $gris-claro
@@ -93,13 +92,6 @@ button::-moz-focus-inner
   color: $color-links
   background: transparent
   font-weight: $peso-fuente-links
-  text-transform: none
-  @include transition(all .5s $timing)
-  &:focus:not(:disabled),
-  &:hover:not(:disabled),
-  &:active:not(:disabled)
-    @include transform(scale(1.1))
-    @include transition(all .5s $timing)
 
 /* Boton de Tabla
    =========================================================================== */
@@ -114,9 +106,9 @@ button::-moz-focus-inner
   text-transform: none
   > i
     font-size: $tamano-fuente-grande
-  &:focus:not(:disabled),
-  &:hover:not(:disabled),
-  &:active:not(:disabled)
+  &:focus,
+  &:hover,
+  &:active
     color: $color-primario
 
 /* Tamanos de boton

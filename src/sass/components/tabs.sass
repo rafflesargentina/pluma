@@ -47,12 +47,8 @@ ul.Tabs
   display: none
   padding: $margen-chico 0
   z-index: 1
-  @include animation(disolver $duracion)
+  @include animation(disolver $duracion-larga)
 
-@-webkit-keyframes disolver
-    from {opacity: 0}
-    to {opacity: 1}
-
-@keyframes disolver
-    from {opacity: 0}
-    to {opacity: 1}
+@include keyframes(disolver)
+    from { opacity: 0 } 
+    to { opacity: 1 }

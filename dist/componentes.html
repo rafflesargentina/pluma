@@ -13,6 +13,25 @@
 
 <style>
 .Logo { font-family: 'Yellowtail', cursive; letter-spacing: 1px; }
+.Jumbotron {
+  padding: 4rem 0;
+  background: -moz-linear-gradient(left, #3F51B5 0,#9FA8DA 100%);
+  background: -webkit-linear-gradient(left, #3F51B5 0,#9FA8DA 100%);
+  background: linear-gradient(left, #3F51B5 0,#9FA8DA 100%);
+  margin-bottom: 4rem;
+}
+.Jumbotron h1 {
+  color: #fff;
+  font-size: 6rem;
+  font-family: 'Yellowtail', cursive;
+  font-weight: 400;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+}
+
+.Jumbotron h3 {
+  color: #C5CAE9;
+}
 .Panel { border-bottom-left-radius: 0; border-bottom-right-radius: 0; }
 .Panel p:only-child { margin: 0; }
 pre[class*=language-] { border: 1px solid #e0e0e0; background: #fafafa !important; border-top: none; margin-top: 0 !important; margin-bottom: 1rem !important; border-bottom-left-radius: 4px; border-bottom-right-radius: 4px; }
@@ -28,11 +47,33 @@ pre[class*=language-] { border: 1px solid #e0e0e0; background: #fafafa !importan
             <li class="Item-Menu-Navegacion"><a href="#">Inicio</a></li>
             <li class="Item-Menu-Navegacion"><a href="/css.html">CSS</a></li>
             <li class="Item-Menu-Navegacion"><a href="/componentes.html">Componentes</a></li>
+            <li data-desplegable="menuPlugins" class="Item-Menu-Navegacion Btn-Desplegable"><a href="#">Plugins <i class="fa fa-caret-down"></i></a></li>
             <li class="Item-Menu-Navegacion"><a href="#">Javascript</a></li>
           </ul>
+          <nav id="menuPlugins" class="Menu-Desplegable Menu-Desplegable-Default">
+            <ul class="Lista-Menu-Desplegable">
+              <li class="Item-Menu-Desplegable"><a href="http://pluma-select2.rafflesargentina.com" target="_blank">Select2</a></li>
+              <li class="Item-Menu-Desplegable"><a href="#">Pickadate</a></li>
+            </ul>
+          </nav>
         </nav>
         <nav class="Menu-Navegacion-Derecha">
-          <ul class="Lista-Menu-Navegacion">
+          <div>
+            <div data-desplegable="menuNavegacion"class="Btn-Menu Btn-Desplegable Btn-Menu-Navegacion El--oculto-desde-tablets">
+              <div class="Barra"></div>
+              <div class="Barra"></div>
+              <div class="Barra"></div>
+            </div>
+          </div>
+          <nav id="menuNavegacion" class="Menu-Desplegable Menu-Desplegable-Default">
+            <ul class="Lista-Menu-Desplegable">
+              <li class="Item-Menu-Desplegable"><a href="#">Inicio</a></li>
+              <li class="Item-Menu-Desplegable"><a href="/css.html">CSS</a></li>
+              <li class="Item-Menu-Desplegable"><a href="/componentes.html">Componentes</a></li>
+              <li class="Item-Menu-Desplegable"><a href="#">Javascript</a></li>
+            </ul>
+          </nav>
+          <ul class="Lista-Menu-Navegacion El--visible-desde-tablets">
             <li class="Item-Menu-Navegacion"><a href="#">Themes</a></li>
             <li class="Item-Menu-Navegacion"><a href="#">Blog</a></li>
           </ul>
@@ -40,26 +81,33 @@ pre[class*=language-] { border: 1px solid #e0e0e0; background: #fafafa !importan
       </div>
     </div>
   </header>
+  <div class="Jumbotron El--visible-desde-tablets">
+    <div class="Caja">
+      <h1>Componentes</h1>
+      <h3>Más de una docena de componentes reutilizables hechos para proveer menús desplegables, controles agrupados, navegación, alertas, y mucho más.</h3>
+    </div>
+  </div>
   <div class="Caja">
     <div class="Fila">
       <div class="Col-9">
-        <h1 class="Subrayado-Claro">Desplegables</h1>
-        <p class="Texto-Grande">Menús contextuales switchables para mostrar listas de links. Funcionan interactivamente usando el componente Javascript: <a>desplegables</a>.</p>
-        <h2>Ejemplo</h2>
-        <p>Envolvé el gatillo(<code>.Btn-Desplegable</code>) y el desplegable(<code>.Menu-Desplegable</code>) dentro de cualquier <code>&lt;div&gt;</code> con posicionado relativo.</p>
-        <div class="Panel">
-          <div>
-            <button class="Btn-Default Btn-Desplegable" data-desplegable="desplegable1">Desplegable <i class="fa fa-caret-down"></i></button>
-            <nav id="desplegable1" class="Menu-Desplegable Menu-Desplegable-Default">
-              <ul class="Lista-Menu-Desplegable">
-                <li class="Item-Menu-Desplegable"><a href="#">Acción</a></li>
-                <li class="Item-Menu-Desplegable"><a href="#">Otra acción</a></li>
-                <li class="Item-Menu-Desplegable"><a href="#">Cualquier otra cosa</a></li>
-              </ul>
-            </nav>
+        <section>
+          <h1 class="Subrayado-Claro">Desplegables</h1>
+          <p class="Texto-Grande">Menús contextuales switchables para mostrar listas de links. Funcionan interactivamente usando el componente Javascript: <a>desplegables</a>.</p>
+          <h2>Ejemplo</h2>
+          <p>Envolvé el gatillo(<code>.Btn-Desplegable</code>) y el desplegable(<code>.Menu-Desplegable</code>) dentro de cualquier <code>&lt;div&gt;</code> con posicionado relativo.</p>
+          <div class="Panel">
+            <div>
+              <button class="Btn-Default Btn-Desplegable" data-desplegable="desplegable1">Desplegable <i class="fa fa-caret-down"></i></button>
+              <nav id="desplegable1" class="Menu-Desplegable Menu-Desplegable-Default">
+                <ul class="Lista-Menu-Desplegable">
+                  <li class="Item-Menu-Desplegable"><a href="#">Acción</a></li>
+                  <li class="Item-Menu-Desplegable"><a href="#">Otra acción</a></li>
+                  <li class="Item-Menu-Desplegable"><a href="#">Cualquier otra cosa</a></li>
+                </ul>
+              </nav>
+            </div>
           </div>
-        </div>
-        <pre>
+          <pre>
 <code class="language-html">&lt;div&gt;</code>
 <code class="language-html">  &lt;button class="Btn-Default Btn-Desplegable" data-desplegable="desplegable1"&gt;Desplegable &lt;i class="caret"&gt;&lt;/i&gt;&lt;/button&gt;</code>
 <code class="language-html">  &lt;nav id="desplegable1" class="Menu-Desplegable Menu-Desplegable-Default"&gt;</code>
@@ -70,11 +118,92 @@ pre[class*=language-] { border: 1px solid #e0e0e0; background: #fafafa !importan
 <code class="language-html">    &lt/ul&gt;</code>
 <code class="language-html">  &lt;/nav&gt;</code>
 <code class="language-html">&lt;/div&gt;</code>
-        </pre>
-        <p>Los desplegables se expanden automáticamente hacia arriba o abajo, izquierda o derecha, en relación a los límites de la ventana del navegador.</p>
-        <h1 class="Subrayado-Claro">Controles Agrupados</h1>
-        <p class="Texto-Grande">Extendé los controles de formulario agregando texto o botones antes, después, o en ambos lados de cualquier <code>&lt;input&gt;</code> de texto. Utilizá la clase <code>.Botones-Agrupados</code> con un <code>.Complemento-Agrupados</code> o <code>.Botones-Agrupados</code> para agregar un elemento antes o después de un control de formulario.</p>
+          </pre>
+          <p>Los desplegables se expanden automáticamente hacia arriba o abajo, izquierda o derecha, en relación a los límites de la ventana del navegador.</p>
+          <h2>Títulos</h2>
+          <p>Agregá un título para etiquetar las acciones de un menú desplegable.</p>
+          <div class="Panel">
+            <div>
+              <button class="Btn-Default Btn-Desplegable" data-desplegable="desplegable2">Desplegable <i class="fa fa-caret-down"></i></button>
+              <nav id="desplegable2" class="Menu-Desplegable Menu-Desplegable-Default">
+                <ul class="Lista-Menu-Desplegable">
+                  <li class="Titulo-Menu-Desplegable">Título del desplegable</li>
+                  <li class="Item-Menu-Desplegable"><a href="#">Acción</a></li>
+                  <li class="Item-Menu-Desplegable"><a href="#">Otra acción</a></li>
+                  <li class="Item-Menu-Desplegable"><a href="#">Cualquier otra cosa</a></li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+          <pre>
+<code class="language-html">&lt;div&gt;</code>
+<code class="language-html">  &lt;button class="Btn-Default Btn-Desplegable" data-desplegable="desplegable2"&gt;Desplegable &lt;i class="caret"&gt;&lt;/i&gt;&lt;/button&gt;</code>
+<code class="language-html">  &lt;nav id="desplegable2" class="Menu-Desplegable Menu-Desplegable-Default"&gt;</code>
+<code class="language-html">    &lt;ul class="Lista-Menu-Desplegable"&gt;</code>
+<code class="language-html">      &lt;li class="Titulo-Menu-Desplegable"&gt;Título del desplegable&lt;/li&gt;</code>
+<code class="language-html">      ...</code>
+<code class="language-html">    &lt/ul&gt;</code>
+<code class="language-html">  &lt;/nav&gt;</code>
+<code class="language-html">&lt;/div&gt;</code>
+          </pre>
+          <h2>Divisor</h2>
+          <p>Agregá un divisor para separar una serie de links en el menú desplegable.</p>
+          <div class="Panel">
+            <div>
+              <button class="Btn-Default Btn-Desplegable" data-desplegable="desplegable3">Desplegable <i class="fa fa-caret-down"></i></button>
+              <nav id="desplegable3" class="Menu-Desplegable Menu-Desplegable-Default">
+                <ul class="Lista-Menu-Desplegable">
+                  <li class="Item-Menu-Desplegable"><a href="#">Acción</a></li>
+                  <li class="Item-Menu-Desplegable"><a href="#">Otra acción</a></li>
+                  <li class="Item-Menu-Desplegable"><a href="#">Cualquier otra cosa</a></li>
+                  <li class="Separador"></li>
+                  <li class="Item-Menu-Desplegable"><a href="#">Link separado</a></li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+          <pre>
+<code class="language-html">&lt;div&gt;</code>
+<code class="language-html">  &lt;button class="Btn-Default Btn-Desplegable" data-desplegable="desplegable2"&gt;Desplegable &lt;i class="caret"&gt;&lt;/i&gt;&lt;/button&gt;</code>
+<code class="language-html">  &lt;nav id="desplegable2" class="Menu-Desplegable Menu-Desplegable-Default"&gt;</code>
+<code class="language-html">    &lt;ul class="Lista-Menu-Desplegable"&gt;</code>
+<code class="language-html">      ...</code>
+<code class="language-html">      &lt;li class="Separador"&gt;&lt;/li&gt;</code>
+<code class="language-html">      ...</code>
+<code class="language-html">    &lt/ul&gt;</code>
+<code class="language-html">  &lt;/nav&gt;</code>
+<code class="language-html">&lt;/div&gt;</code>
+          </pre>
+          <h2>Items de menú deshabilitados</h2>
+          <p>Agregá la clase <code>.El--deshabilitado</code> a un <code>&lt;li&gt;</code> para deshabilitar el link.</p>
+          <div class="Panel">
+            <div>
+              <button class="Btn-Default Btn-Desplegable" data-desplegable="desplegable4">Desplegable <i class="fa fa-caret-down"></i></button>
+              <nav id="desplegable4" class="Menu-Desplegable Menu-Desplegable-Default">
+                <ul class="Lista-Menu-Desplegable">
+                  <li class="Item-Menu-Desplegable"><a href="#">Link común</a></li>
+                  <li class="Item-Menu-Desplegable El--deshabilitado"><a href="#">Link deshabilitado</a></li>
+                  <li class="Item-Menu-Desplegable"><a href="#">Otro link</a></li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+          <pre>
+<code class="language-html">&lt;div&gt;</code>
+<code class="language-html">  &lt;button class="Btn-Default Btn-Desplegable" data-desplegable="desplegable2"&gt;Desplegable &lt;i class="caret"&gt;&lt;/i&gt;&lt;/button&gt;</code>
+<code class="language-html">  &lt;nav id="desplegable2" class="Menu-Desplegable Menu-Desplegable-Default"&gt;</code>
+<code class="language-html">    &lt;ul class="Lista-Menu-Desplegable"&gt;</code>
+<code class="language-html">      ...</code>
+<code class="language-html">      &lt;li class="Item-Menu-Desplegable"&gt;&lt;a href="#"&gt;Link deshabilitado&lt;/a&gt;&lt;/li&gt;</code>
+<code class="language-html">      ...</code>
+<code class="language-html">    &lt/ul&gt;</code>
+<code class="language-html">  &lt;/nav&gt;</code>
+<code class="language-html">&lt;/div&gt;</code>
+          </pre>
+        </section>
         <section>
+          <h1 class="Subrayado-Claro">Controles Agrupados</h1>
+          <p class="Texto-Grande">Extendé los controles de formulario agregando texto o botones antes, después, o en ambos lados de cualquier <code>&lt;input&gt;</code> de texto. Utilizá la clase <code>.Botones-Agrupados</code> con un <code>.Complemento-Agrupados</code> o <code>.Botones-Agrupados</code> para agregar un elemento antes o después de un control de formulario.</p>
           <h2>Ejemplo básico</h2>
           <p>Ubicá un texto complementario o un botón a cualquier lado de un input. También podés ubicarlos en ambos lados del elemento.</p>
           <div class="Panel">
@@ -370,7 +499,7 @@ pre[class*=language-] { border: 1px solid #e0e0e0; background: #fafafa !importan
           </div>
         </section>
         <section>
-          <h2>Tabs</h2>
+          <h1 class="Subrayado-Claro">Tabs</h1>
           <div class="Panel">
             <ul class="Tabs">
               <li data-contenidotab="tabuno" class="Tab El--activo"><a href="#">Tab uno</a></li>
@@ -380,7 +509,7 @@ pre[class*=language-] { border: 1px solid #e0e0e0; background: #fafafa !importan
             <div id="tabuno" class="Contenido-Tab El--visible">
               <p>Contenido de ejemplo para el tab 1</p>
             </div>
-            <div id="tabdos" class="Contenido-Tab">
+              <div id="tabdos" class="Contenido-Tab">
               <p>Contenido de ejemplo para el tab 2</p>
             </div>
             <div id="tabtres" class="Contenido-Tab">

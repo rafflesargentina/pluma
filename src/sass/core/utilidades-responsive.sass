@@ -5,53 +5,52 @@
 
 @include media($mobile)
   .El--visible-desde-telefonos
-    display: block
-
-  .El--oculto-desde-telefonos,
   .El--oculto-desde-phablets,
   .El--oculto-desde-tablets,
   .El--oculto-desde-escritorios,
+    display: block !important
+
+  .El--oculto-desde-telefonos,
   .El--visible-desde-phablets,
   .El--visible-desde-tablets,
   .El--visible-desde-escritorios
-    display: none
+    display: none !important
 
 @include media($phablet)
   .El--oculto-desde-telefonos,
+  .El--oculto-desde-tablets,
   .El--visible-desde-telefonos,
   .El--visible-desde-phablets
-    display: block
+    display: block !important
 
-  .El--oculto-desde-phablets,
-  .El--oculto-desde-tablets,
-  .El--oculto-desde-escritorios,
-  .El--visible-desde-tablets,
-  .El--visible-desde-escritorios
-    display: none
-
-@include media($tablet)
   .El--oculto-desde-telefonos,
   .El--oculto-desde-phablets,
+  .El--visible-desde-tablets,
+  .El--visible-desde-escritorios
+    display: none !important
+ 
+@include media($tablet)
   .El--visible-desde-telefonos,
   .El--visible-desde-phablets,
   .El--visible-desde-tablets
-    display: block
-
-  .El--oculto-desde-tablets,
   .El--oculto-desde-escritorios,
-  .El--visible-desde-tablets,
-  .El--visible-desde-escritorios
-    display: none
+    display: block !important
 
-@include media($max-width)
   .El--oculto-desde-telefonos,
   .El--oculto-desde-phablets,
   .El--oculto-desde-tablets,
+  .El--visible-desde-escritorios
+    display: none !important
+
+@include media($max-width)
   .El--visible-desde-telefonos,
   .El--visible-desde-phablets,
   .El--visible-desde-tablets,
   .El--visible-desde-escritorios
-    display: block
+    display: block !important
 
+  .El--oculto-desde-telefonos,
+  .El--oculto-desde-phablets,
+  .El--oculto-desde-tablets,
   .El--oculto-desde-escritorios
-    display: none
+    display: none !important

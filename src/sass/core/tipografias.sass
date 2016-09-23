@@ -29,9 +29,9 @@ a
   background-color: transparent;         /* 1 */
   -webkit-text-decoration-skip: objects; /* 2 */
   @include transition(color $duracion $timing)
-  &:focus:not(:disabled),
-  &:hover:not(:disabled),
-  &:active:not(:disabled)
+  &:focus,
+  &:hover,
+  &:active
     color: $color-links-hover
     text-decoration: $decoracion-links-hover
     @include transition(color $duracion $timing)
@@ -79,13 +79,14 @@ h1,
 .h1
   color: $gris-mas-oscuro
   font-size: $tamano-fuente-h1
-  margin-top: 0.6rem
+  margin-top: $espaciado
   margin-bottom: $margen-chico
 
 h2,
 .h2
   color: $gris-mas-oscuro
   font-size: $tamano-fuente-h2
+  margin-top: $espaciado
   margin-bottom: $margen-muy-chico
 
 h3,

@@ -35,8 +35,8 @@ input[type="password"]
   @include transition(color $duracion $timing, border-color $duracion $timing)
   @include placeholder
     color: $gris
-  &:not([disabled]):focus,
-  &:not([disabled]):active,
+  &:focus,
+  &:active
     color: $gris-mas-oscuro
     z-index: 2
     border-color: $color-primario
@@ -79,8 +79,8 @@ input[type="password"]
     border: 1px solid $color-alerta-borde-warning
     -webkit-text-fill-color: $color-alerta-texto-warning
     @include transition(border-color $duracion $timing)
-    &:not([disabled]):focus,
-    &:not([disabled]):active
+    &focus,
+    &active
       border-color: $color-alerta-texto-warning
       -webkit-text-fill-color: $color-alerta-texto-warning
       @include transition(border-color $duracion $timing)
@@ -162,6 +162,7 @@ label.El--con-foco
 i.Icono-Derecha,
 i.Icono-Control-Izquierda
   color: $color-borde
+  z-index: 2
   position: absolute
   font-size: 1rem
   font-weight: 600

@@ -75,40 +75,34 @@ header.Navegacion
     > div.Barra
       background: $color-fondo
 
-  nav.Menu-Navegacion
-    float: left
+nav.Menu-Navegacion
+  float: left
 
-  nav.Menu-Navegacion-Derecha
-    float: right
-    margin-right: $gutter / -2
+nav.Menu-Navegacion-Derecha
+  float: right
+  margin-right: $gutter / -2
 
-  ul.Lista-Menu-Navegacion
-      width: auto
-      text-align: center
+ul.Lista-Menu-Navegacion
+  width: auto
+  text-align: center
 
-  li.Item-Menu-Navegacion
-    color: $color-fuente-navegacion
-    display: inline
-    padding: $padding-items-navegacion
-    font-size: $tamano-fuente-navegacion
-    line-height: $alto-logo
-    font-weight: $peso-fuente-navegacion
-    text-transform: $trans-fuente-navegacion
-    > a
-      color: inherit
-      font-size: inherit
-      line-height: inherit
-      font-weight: inherit
-      text-transform: inherit
+li.Item-Menu-Navegacion
+  color: $color-fuente-navegacion
+  display: inline
+  padding: $padding-items-navegacion
+  font-size: $tamano-fuente-navegacion
+  line-height: $alto-logo
+  font-weight: $peso-fuente-navegacion
+  text-transform: $trans-fuente-navegacion
+  > a
+    color: inherit
+    font-size: inherit
+    line-height: inherit
+    font-weight: inherit
+    text-transform: inherit
 
 .Navegacion-Fija
   position: fixed
-
-nav#menuNavegacion
-  top: $alto-header-mobile
-  width: 100%
-  position: fixed
-
 
 /* Media Queries
    =========================================================================== */
@@ -119,7 +113,3 @@ nav#menuNavegacion
   header.Navegacion
     height: $alto-header
     padding: $alto-header / 3
-
-  nav#menuNavegacion
-    top: $alto-header-mobile + 1rem
-    width: $ancho-sidebar

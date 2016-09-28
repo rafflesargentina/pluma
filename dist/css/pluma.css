@@ -258,20 +258,19 @@ input[type="password"] {
 /* Fila
    @mixin ========================================================================== */
 .Fila {
-  margin-left: -1rem;
-  margin-right: -1rem;
   display: block; }
   .Fila::after {
     clear: both;
     content: "";
     display: table; }
 
+.Caja .Fila,
+.Caja-Adaptable .Fila {
+  margin-left: -1rem;
+  margin-right: -1rem; }
+
 /* Columnas
    @mixin ========================================================================== */
-.Col-1, .Col-2, .Col-3, .Col-4, .Col-5, .Col-6, .Col-7, .Col-8, .Col-9, .Col-10, .Col-11, .Col-12 {
-  padding-left: 1rem;
-  padding-right: 1rem; }
-
 @media screen and (max-width: 31.76923rem) {
   .Col-4,
   .Col-3 {
@@ -1781,6 +1780,7 @@ ul.Tabs {
   ul.Tabs li.Tab {
     float: left;
     display: block;
+    margin-right: 2px;
     margin-bottom: -1px; }
     ul.Tabs li.Tab > a {
       color: #757575;
@@ -1790,25 +1790,17 @@ ul.Tabs {
       font-size: 1.2rem;
       background: transparent;
       text-align: center;
-      margin-right: 2px;
       text-decoration: none;
-      border-bottom-color: #e0e0e0; }
-      ul.Tabs li.Tab > a:first-child {
-        border-right: none;
-        border-top-left-radius: 4px; }
-      ul.Tabs li.Tab > a:last-child {
-        border-top-right-radius: 4px; }
-      ul.Tabs li.Tab > a:not(:first-child):not(:last-child) {
-        border-right: none; }
+      border-bottom-color: #e0e0e0;
+      border-top-left-radius: 4px;
+      border-top-right-radius: 4px; }
     ul.Tabs li.Tab.active > a, ul.Tabs li.Tab.El--activo > a {
       color: #212121;
       border: 1px solid #e0e0e0;
       cursor: pointer;
       z-index: 2;
       background: #fff;
-      border-bottom-color: transparent;
-      border-top-left-radius: 4px;
-      border-top-right-radius: 4px; }
+      border-bottom-color: transparent; }
   ul.Tabs li.Tab.El--con-error > a {
     color: #d53939; }
 
@@ -1910,7 +1902,11 @@ header.Navegacion {
     width: 3rem;
     cursor: pointer;
     height: 3rem;
-    display: inline-block; }
+    display: inline-block;
+    margin-right: 1rem; }
+    header.Navegacion .Btn-Menu:last-child {
+      margin-left: 1rem;
+      margin-right: 0; }
   header.Navegacion .Btn-Menu-Navegacion:focus > div.Barra, header.Navegacion .Btn-Menu-Navegacion:hover > div.Barra, header.Navegacion .Btn-Menu-Navegacion:active > div.Barra {
     background: #212121;
     min-height: 4px; }
@@ -1986,6 +1982,11 @@ li.Item-Menu-Navegacion {
     line-height: inherit;
     font-weight: inherit;
     text-transform: inherit; }
+  li.Item-Menu-Navegacion i {
+    margin-right: 0.4rem; }
+    li.Item-Menu-Navegacion i:last-child {
+      margin-left: 0.4rem;
+      margin-right: 0; }
 
 .Navegacion-Fija {
   position: fixed; }

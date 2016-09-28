@@ -6,6 +6,7 @@ ul.Tabs
   li.Tab
     float: left
     display: block
+    margin-right: 2px
     margin-bottom: -1px
     > a
       color: $gris-oscuro
@@ -15,16 +16,9 @@ ul.Tabs
       font-size: $tamano-fuente-grande
       background: transparent
       text-align: center
-      margin-right: 2px
       text-decoration: none
       border-bottom-color: $color-borde-claro
-      &:first-child
-        border-right: none
-        border-top-left-radius: $radio-borde
-      &:last-child
-        border-top-right-radius: $radio-borde
-      &:not(:first-child):not(:last-child)
-        border-right: none
+      @include border-top-radius($radio-borde)
 
     &.active,
     &.El--activo
@@ -35,7 +29,6 @@ ul.Tabs
         z-index: 2
         background: $color-fondo
         border-bottom-color: transparent
-        @include border-top-radius($radio-borde)
 
   li.Tab.El--con-error
     > a

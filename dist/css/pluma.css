@@ -1729,6 +1729,9 @@ small,
     display: none !important; } }
 
 @media screen and (min-width: 59.07692rem) and (max-width: 78.69231rem) {
+  .El--visible-desde-telefonos,
+  .El--visible-desde-phablets,
+  .El--visible-desde-tablets,
   .El--oculto-desde-escritorios {
     display: block !important; }
   .El--oculto-desde-telefonos,

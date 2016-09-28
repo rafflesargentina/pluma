@@ -29,6 +29,10 @@ header.Navegacion
     cursor: pointer
     height: $alto-logo
     display: inline-block
+    margin-right: $espacio-muy-chico
+    &:last-child
+      margin-left: $espacio-muy-chico
+      margin-right: 0
 
   .Btn-Menu-Navegacion
     &:focus,
@@ -100,6 +104,11 @@ li.Item-Menu-Navegacion
     line-height: inherit
     font-weight: inherit
     text-transform: inherit
+  i
+    margin-right: $espaciado-chico
+    &:last-child
+      margin-left: $espaciado-chico
+      margin-right: 0
 
 .Navegacion-Fija
   position: fixed

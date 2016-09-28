@@ -645,8 +645,8 @@ button, input[type="button"], input[type="reset"], input[type="submit"] {
   .Btn i,
   button i, input[type="button"] i, input[type="reset"] i, input[type="submit"] i {
     margin-right: 0.6rem; }
-    .Btn i:last-child,
-    button i:last-child, input[type="button"] i:last-child, input[type="reset"] i:last-child, input[type="submit"] i:last-child {
+    .Btn i:not(:only-child):last-child,
+    button i:not(:only-child):last-child, input[type="button"] i:not(:only-child):last-child, input[type="reset"] i:not(:only-child):last-child, input[type="submit"] i:not(:only-child):last-child {
       margin-left: 0.6rem;
       margin-right: 0; }
 

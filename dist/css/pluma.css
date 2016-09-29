@@ -200,7 +200,6 @@ pre,
 form,
 main,
 time,
-aside,
 label,
 table,
 figure,
@@ -802,6 +801,7 @@ button::-moz-focus-inner {
 
 .CentradoX {
   left: 50%;
+  position: absolute;
   -webkit-transform: translateX(-50%) !important;
   -moz-transform: translateX(-50%) !important;
   -ms-transform: translateX(-50%) !important;
@@ -810,6 +810,7 @@ button::-moz-focus-inner {
 
 .CentradoY {
   top: 50%;
+  position: absolute;
   -webkit-transform: translateY(-50%) !important;
   -moz-transform: translateY(-50%) !important;
   -ms-transform: translateY(-50%) !important;
@@ -819,6 +820,7 @@ button::-moz-focus-inner {
 .CentradoXY {
   top: 50%;
   left: 50%;
+  position: absolute;
   -webkit-transform: translate(-50%, -50%) !important;
   -moz-transform: translate(-50%, -50%) !important;
   -ms-transform: translate(-50%, -50%) !important;
@@ -2224,6 +2226,65 @@ li.Item-Menu-Navegacion {
   border: 1px solid #e0e0e0;
   padding: 1rem;
   border-radius: 4px; }
+
+aside.Sidebar {
+  left: 0;
+  float: left;
+  width: 0;
+  height: 100%;
+  opacity: 0.96;
+  z-index: 11;
+  position: fixed;
+  max-width: 50%;
+  overflow-x: hidden;
+  -webkit-transition: width, 0.5s;
+  -moz-transition: width, 0.5s;
+  transition: width, 0.5s; }
+  aside.Sidebar > .Lista-Agrupada {
+    border: transparent;
+    opacity: 0;
+    padding-top: 3rem;
+    -webkit-transition: opacity, 0.5s;
+    -moz-transition: opacity, 0.5s;
+    transition: opacity, 0.5s; }
+    aside.Sidebar > .Lista-Agrupada .Item-Lista-Agrupada {
+      font-size: 1.2rem;
+      border-radius: 0 !important; }
+  aside.Sidebar.El--visible > .Lista-Agrupada {
+    opacity: 1; }
+
+.Sidebar-Default {
+  background: #fafafa; }
+
+.Main-Con-Sidebar {
+  -webkit-transition: margin-left 0.5s;
+  -moz-transition: margin-left 0.5s;
+  transition: margin-left 0.5s; }
+  .Main-Con-Sidebar.Apretado {
+    margin-left: 20rem;
+    -webkit-transition: margin-left 0.5s;
+    -moz-transition: margin-left 0.5s;
+    transition: margin-left 0.5s; }
+
+.Sidebar-Negativo {
+  background: #757575; }
+
+.Sidebar-Empujona {
+  top: 5rem; }
+  .Sidebar-Empujona.El--visible {
+    width: 20rem; }
+
+.Sidebar-Adaptable {
+  top: 0;
+  left: 0;
+  bottom: 0; }
+  .Sidebar-Adaptable.El--visible {
+    width: 100%;
+    max-width: 100%; }
+
+@media screen and (min-width: 768px) {
+  .Sidebar-Empujona {
+    top: 9rem; } }
 
 .Botonera-Inferior,
 .Botonera-Inferior-Derecha {

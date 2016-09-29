@@ -1,0 +1,53 @@
+aside.Sidebar
+  left: 0
+  float: left
+  width: 0
+  height: 100%
+  opacity: 0.96
+  z-index: 11
+  position: fixed
+  max-width: 50%
+  overflow-x: hidden
+  @include transition(width, $duracion-larga)
+
+  > .Lista-Agrupada
+    border: transparent
+    opacity: 0
+    padding-top: 3rem
+    @include transition(opacity, $duracion-larga)
+    .Item-Lista-Agrupada
+      font-size: $tamano-fuente-grande
+      border-radius: 0 !important
+
+  &.El--visible
+    > .Lista-Agrupada
+      opacity: 1
+
+.Sidebar-Default
+  background: $color-variante-fondo
+
+.Main-Con-Sidebar
+  @include transition(margin-left $duracion-larga)
+  &.Apretado
+    margin-left: 20rem
+    @include transition(margin-left $duracion-larga)
+
+.Sidebar-Negativo
+  background: $gris-oscuro
+
+.Sidebar-Empujona
+  top: $alto-header-mobile
+  &.El--visible
+    width: 20rem;
+
+.Sidebar-Adaptable
+  top: 0
+  left: 0
+  bottom: 0
+  &.El--visible
+    width: 100%
+    max-width: 100%
+
+@include media(min-width $segundo-bp)
+  .Sidebar-Empujona
+    top: $alto-header
